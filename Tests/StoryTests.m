@@ -17,7 +17,7 @@
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
         Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        NSArray *stories = [tracker currentStories];
+        NSArray *stories = [tracker currentStoriesInProject:0];
 
         STAssertEquals([stories count], 4u, nil);
 
@@ -29,7 +29,7 @@
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
         Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        NSArray *stories = [tracker currentStories];
+        NSArray *stories = [tracker currentStoriesInProject:0];
 
         TrackerStory *story = [stories objectAtIndex:0];
         STAssertEquals(story.id, 2958790u, nil);

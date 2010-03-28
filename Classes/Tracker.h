@@ -21,6 +21,8 @@
 - (id)initWithToken:(NSString*)token;
 - (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
 - (NSArray*)projects;
-- (NSArray*)currentStories;
+- (NSArray*)currentStoriesInProject:(uint32_t)project_id;
+- (NSArray*)doneStoriesInProject:(uint32_t)project_id;
+- (NSArray*)backlogStoriesInProject:(uint32_t)project_id;
 
 @end

@@ -21,9 +21,9 @@
 @property (assign, nonatomic) uint32_t id;
 @property (assign, nonatomic) uint32_t project_id;
 @property (assign, nonatomic) uint32_t estimate;
-@property (assign, nonatomic) NSString *name;
-@property (assign, nonatomic) NSString *description;
-@property (assign, nonatomic) NSString *state;
-@property (assign, nonatomic) NSString *type;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *description;
+@property (copy, nonatomic) NSString *state;
+@property (copy, nonatomic) NSString *type;
 
 @end

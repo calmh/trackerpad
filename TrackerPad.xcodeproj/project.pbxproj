@@ -16,7 +16,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TrackerPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */; };
 		295089AC115FC72F005B9CAA /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */; };
-		295089AD115FC72F005B9CAA /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */; };
+		29508B27115FD552005B9CAA /* StoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29508B26115FD552005B9CAA /* StoriesTableViewController.m */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
 		29820196115E53F6001D4CC2 /* TrackerPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */; };
@@ -68,6 +68,8 @@
 		28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerPadViewController.m; sourceTree = "<group>"; };
 		295089AA115FC72F005B9CAA /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewController.h; sourceTree = "<group>"; };
 		295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewController.m; sourceTree = "<group>"; };
+		29508B25115FD552005B9CAA /* StoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoriesTableViewController.h; sourceTree = "<group>"; };
+		29508B26115FD552005B9CAA /* StoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoriesTableViewController.m; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
 		29820184115E53DA001D4CC2 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = Libraries/TBXML.h; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 				29F98F82115F99860072EBB9 /* TrackerStory.m */,
 				295089AA115FC72F005B9CAA /* ProjectsTableViewController.h */,
 				295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */,
+				29508B25115FD552005B9CAA /* StoriesTableViewController.h */,
+				29508B26115FD552005B9CAA /* StoriesTableViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -359,6 +363,7 @@
 				29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */,
 				29F98FCF115FC0D80072EBB9 /* RESTClient.m in Sources */,
 				295089AC115FC72F005B9CAA /* ProjectsTableViewController.m in Sources */,
+				29508B27115FD552005B9CAA /* StoriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +383,6 @@
 				29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */,
 				29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */,
 				29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */,
-				295089AD115FC72F005B9CAA /* ProjectsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

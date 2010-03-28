@@ -75,7 +75,7 @@
         assert(rootElement != nil);
 
         NSMutableArray *projects = [[NSMutableArray alloc] init];
-        
+
         TBXMLElement *projectElement = [TBXML childElementNamed:@"project" parentElement:rootElement];
         while (projectElement != nil) {
                 TrackerProject *project = [[TrackerProject alloc] init];
@@ -86,28 +86,28 @@
 
                 [projects addObject:project];
                 [project release];
-                
+
                 projectElement = [TBXML nextSiblingNamed:@"project" searchFromElement:projectElement];
         }
 
         return [projects autorelease];
 }
 
-- (NSArray*)currentStories
+- (NSArray*)currentStoriesInProject:(uint32_t)project_id
 {
-        TBXML *xml = [self xmlForURLString:@"iterations/current"];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/current", project_id]];
         return [self storiesInIterations:xml];
 }
 
-- (NSArray*)doneStories
+- (NSArray*)doneStoriesInProject:(uint32_t)project_id
 {
-        TBXML *xml = [self xmlForURLString:@"iterations/done"];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/done", project_id]];
         return [self storiesInIterations:xml];
 }
 
-- (NSArray*)backlogStories
+- (NSArray*)backlogStoriesInProject:(uint32_t)project_id
 {
-        TBXML *xml = [self xmlForURLString:@"iterations/backlog"];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/backlog", project_id]];
         return [self storiesInIterations:xml];
 }
 
@@ -117,9 +117,9 @@
 {
         TBXMLElement *rootElement = xml.rootXMLElement;
         assert(rootElement != nil);
-        
+
         NSMutableArray *stories = [[NSMutableArray alloc] init];
-        
+
         TBXMLElement *iterationElement = [TBXML childElementNamed:@"iteration" parentElement:rootElement];
         while (iterationElement != nil) {
                 TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
@@ -137,7 +137,7 @@
 
                         [stories addObject:story];
                         [story release];
-                        
+
                         storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
                 }
 
@@ -168,9 +168,9 @@
                 RESTClient *client = [[RESTClient alloc] init];
                 client.asynchronous = NO;
                 [client sendRequestTo:url
-                             usingVerb:@"GET"
-                        withParameters:nil
-                            andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
+                            usingVerb:@"GET"
+                       withParameters:nil
+                           andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
                 tbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
                 [client release];
         }

@@ -208,8 +208,8 @@
         NSInteger count = [challenge previousFailureCount];
         if (count == 0) {
                 NSURLCredential *credential = [NSURLCredential credentialWithUser:username
-                                                                          password:password
-                                                                       persistence:NSURLCredentialPersistenceNone];
+                                                                         password:password
+                                                                      persistence:NSURLCredentialPersistenceNone];
                 [[challenge sender] useCredential:credential
                        forAuthenticationChallenge:challenge];
         }else {

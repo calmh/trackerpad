@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMLReader.h"
+#import "PTBaseCommunication.h"
 
-@interface PTProjects : XMLReader {
+@interface PTProjects : PTBaseCommunication {
 
 }
 

@@ -27,15 +27,15 @@
 		29820218115E5537001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820219115E5537001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
 		29820221115E55B0001D4CC2 /* token.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29820220115E55B0001D4CC2 /* token.xml */; };
-		2990AC01115F753D005DF543 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* XMLReader.m */; };
-		2990AC02115F753D005DF543 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* XMLReader.m */; };
+		2990AC01115F753D005DF543 /* PTBaseCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* PTBaseCommunication.m */; };
+		2990AC02115F753D005DF543 /* PTBaseCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* PTBaseCommunication.m */; };
 		2990AC05115F7567005DF543 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC04115F7567005DF543 /* Wrapper.m */; };
 		2990AC06115F7567005DF543 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC04115F7567005DF543 /* Wrapper.m */; };
 		2990AC63115F7E98005DF543 /* PTProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC62115F7E98005DF543 /* PTProjects.m */; };
 		2990AC64115F7E98005DF543 /* PTProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC62115F7E98005DF543 /* PTProjects.m */; };
 		2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC66115F7EB4005DF543 /* ProjectTests.m */; };
 		2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC92115F805C005DF543 /* TrackerPadTest.m */; };
-		2990AC9D115F811B005DF543 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2990AC9C115F811B005DF543 /* projects.xml */; };
+		2990AD32115F8AD6005DF543 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2990AD31115F8AD6005DF543 /* projects.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		29820213115E552A001D4CC2 /* AuthenticationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationTests.h; path = Tests/AuthenticationTests.h; sourceTree = "<group>"; };
 		29820214115E552A001D4CC2 /* AuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthenticationTests.m; path = Tests/AuthenticationTests.m; sourceTree = "<group>"; };
 		29820220115E55B0001D4CC2 /* token.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = token.xml; path = Resources/token.xml; sourceTree = "<group>"; };
-		2990ABFF115F753D005DF543 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
-		2990AC00115F753D005DF543 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		2990ABFF115F753D005DF543 /* PTBaseCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTBaseCommunication.h; sourceTree = "<group>"; };
+		2990AC00115F753D005DF543 /* PTBaseCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTBaseCommunication.m; sourceTree = "<group>"; };
 		2990AC03115F7567005DF543 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wrapper.h; path = iphonerestwrapper/Classes/Wrapper.h; sourceTree = "<group>"; };
 		2990AC04115F7567005DF543 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wrapper.m; path = iphonerestwrapper/Classes/Wrapper.m; sourceTree = "<group>"; };
 		2990AC61115F7E98005DF543 /* PTProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTProjects.h; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		2990AC66115F7EB4005DF543 /* ProjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTests.m; path = Tests/ProjectTests.m; sourceTree = "<group>"; };
 		2990AC91115F805C005DF543 /* TrackerPadTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackerPadTest.h; path = Tests/TrackerPadTest.h; sourceTree = "<group>"; };
 		2990AC92115F805C005DF543 /* TrackerPadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackerPadTest.m; path = Tests/TrackerPadTest.m; sourceTree = "<group>"; };
-		2990AC9C115F811B005DF543 /* projects.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = projects.xml; sourceTree = "<group>"; };
+		2990AD31115F8AD6005DF543 /* projects.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = projects.xml; path = Tests/projects.xml; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TrackerPad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPad_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TrackerPad-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrackerPad-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -113,16 +113,16 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2990ABFF115F753D005DF543 /* XMLReader.h */,
-				2990AC00115F753D005DF543 /* XMLReader.m */,
 				2982017E115E53C8001D4CC2 /* PTAuthentication.h */,
 				2982017F115E53C8001D4CC2 /* PTAuthentication.m */,
+				2990AC61115F7E98005DF543 /* PTProjects.h */,
+				2990AC62115F7E98005DF543 /* PTProjects.m */,
 				1D3623240D0F684500981E51 /* TrackerPadAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* TrackerPadViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */,
-				2990AC61115F7E98005DF543 /* PTProjects.h */,
-				2990AC62115F7E98005DF543 /* PTProjects.m */,
+				2990ABFF115F753D005DF543 /* PTBaseCommunication.h */,
+				2990AC00115F753D005DF543 /* PTBaseCommunication.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -190,11 +190,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				29820220115E55B0001D4CC2 /* token.xml */,
-				2899E5210DE3E06400AC0155 /* TrackerPadViewController.xib */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* TrackerPad-Info.plist */,
-				2990AC9C115F811B005DF543 /* projects.xml */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				2899E5210DE3E06400AC0155 /* TrackerPadViewController.xib */,
+				2990AD31115F8AD6005DF543 /* projects.xml */,
+				29820220115E55B0001D4CC2 /* token.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29820221115E55B0001D4CC2 /* token.xml in Resources */,
-				2990AC9D115F811B005DF543 /* projects.xml in Resources */,
+				2990AD32115F8AD6005DF543 /* projects.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +314,7 @@
 				29820180115E53C8001D4CC2 /* PTAuthentication.m in Sources */,
 				29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */,
 				29820187115E53DA001D4CC2 /* TBXML.m in Sources */,
-				2990AC02115F753D005DF543 /* XMLReader.m in Sources */,
+				2990AC02115F753D005DF543 /* PTBaseCommunication.m in Sources */,
 				2990AC06115F7567005DF543 /* Wrapper.m in Sources */,
 				2990AC64115F7E98005DF543 /* PTProjects.m in Sources */,
 			);
@@ -330,7 +330,7 @@
 				29820196115E53F6001D4CC2 /* TrackerPadAppDelegate.m in Sources */,
 				29820197115E53F6001D4CC2 /* TrackerPadViewController.m in Sources */,
 				29820215115E552A001D4CC2 /* AuthenticationTests.m in Sources */,
-				2990AC01115F753D005DF543 /* XMLReader.m in Sources */,
+				2990AC01115F753D005DF543 /* PTBaseCommunication.m in Sources */,
 				2990AC05115F7567005DF543 /* Wrapper.m in Sources */,
 				2990AC63115F7E98005DF543 /* PTProjects.m in Sources */,
 				2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */,

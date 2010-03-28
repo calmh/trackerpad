@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMLReader.h"
+#import "PTBaseCommunication.h"
 
-@interface PTAuthentication : XMLReader {
+@interface PTAuthentication : PTBaseCommunication {
 }
 
 - (NSString*) getTokenForUsername:(NSString*)username andPassword:(NSString*)password;

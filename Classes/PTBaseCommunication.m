@@ -1,15 +1,15 @@
 //
-//  XMLReader.m
+//  PTBaseCommunication.m
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/27/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "XMLReader.h"
+#import "PTBaseCommunication.h"
 #import "Wrapper.h"
 
-@implementation XMLReader
+@implementation PTBaseCommunication
 
 - (void) dealloc {
 	[tbxml release];

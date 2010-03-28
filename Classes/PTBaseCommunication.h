@@ -1,5 +1,5 @@
 //
-//  XMLReader.h
+//  PTBaseCommunication.h
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/27/10.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
 
-@interface XMLReader : NSObject {
+@interface PTBaseCommunication : NSObject {
 	TBXML *tbxml;
 }
 

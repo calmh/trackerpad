@@ -32,15 +32,17 @@
 		2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC66115F7EB4005DF543 /* ProjectTests.m */; };
 		2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC92115F805C005DF543 /* TrackerPadTest.m */; };
 		2990AD32115F8AD6005DF543 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2990AD31115F8AD6005DF543 /* projects.xml */; };
+		29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
+		29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		29820202115E54E9001D4CC2 /* PBXContainerItemProxy */ = {
+		29F98EE7115F902B0072EBB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
-			remoteInfo = TrackerPad;
+			remoteGlobalIDString = 2982018E115E53E5001D4CC2 /* Tests */;
+			remoteInfo = Tests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -75,6 +77,8 @@
 		2990AC92115F805C005DF543 /* TrackerPadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackerPadTest.m; path = Tests/TrackerPadTest.m; sourceTree = "<group>"; };
 		2990AD31115F8AD6005DF543 /* projects.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = projects.xml; path = Tests/projects.xml; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29F98EFE115F905C0072EBB9 /* TrackerProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerProject.h; sourceTree = "<group>"; };
+		29F98EFF115F905C0072EBB9 /* TrackerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerProject.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TrackerPad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPad_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TrackerPad-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrackerPad-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +115,8 @@
 				28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */,
 				2990ABFF115F753D005DF543 /* Tracker.h */,
 				2990AC00115F753D005DF543 /* Tracker.m */,
+				29F98EFE115F905C0072EBB9 /* TrackerProject.h */,
+				29F98EFF115F905C0072EBB9 /* TrackerProject.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				29F98EE8115F902B0072EBB9 /* PBXTargetDependency */,
 			);
 			name = TrackerPad;
 			productName = TrackerPad;
@@ -229,7 +236,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				29820203115E54E9001D4CC2 /* PBXTargetDependency */,
 			);
 			name = Tests;
 			productName = Tests;
@@ -303,6 +309,7 @@
 				29820187115E53DA001D4CC2 /* TBXML.m in Sources */,
 				2990AC02115F753D005DF543 /* Tracker.m in Sources */,
 				2990AC06115F7567005DF543 /* Wrapper.m in Sources */,
+				29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,16 +326,17 @@
 				2990AC05115F7567005DF543 /* Wrapper.m in Sources */,
 				2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */,
 				2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */,
+				29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		29820203115E54E9001D4CC2 /* PBXTargetDependency */ = {
+		29F98EE8115F902B0072EBB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1D6058900D05DD3D006BFB54 /* TrackerPad */;
-			targetProxy = 29820202115E54E9001D4CC2 /* PBXContainerItemProxy */;
+			target = 2982018E115E53E5001D4CC2 /* Tests */;
+			targetProxy = 29F98EE7115F902B0072EBB9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

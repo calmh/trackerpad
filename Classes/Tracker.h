@@ -6,16 +6,16 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TBXML.h"
+#import <Foundation/Foundation.h>
 
 @interface Tracker : NSObject {
-	TBXML *tbxml;
+        TBXML *tbxml;
 }
 
-- (void) dealloc;
-- (id) initWithTBXML:(TBXML*)theTbxml;
-- (NSString*) getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
-- (NSArray*) getProjectListWithToken:(NSString*)token;
+- (void)dealloc;
+- (id)initWithTBXML:(TBXML*)theTbxml;
+- (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
+- (NSArray*)getProjectListWithToken:(NSString*)token;
 
 @end

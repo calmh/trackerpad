@@ -13,9 +13,9 @@
 
 - (NSString*)bundlePath
 {
-	NSBundle *myBundle = [NSBundle bundleForClass:[self class]];
-	NSString *bundlePath = [myBundle bundlePath];
-	return bundlePath;
+        NSBundle *myBundle = [NSBundle bundleForClass:[self class]];
+        NSString *bundlePath = [myBundle bundlePath];
+        return bundlePath;
 }
 
 @end

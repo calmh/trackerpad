@@ -5,12 +5,11 @@
 //  Created by Jakob Borg on 3/27/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 
-#import "TrackerPadTest.h"
 #import "TBXML.h"
+#import "TrackerPadTest.h"
 
-@interface AuthenticationTests : TrackerPadTest {
-}
+@interface AuthenticationTests : TrackerPadTest {}
 
-- (void) testGetToken;
+- (void)testGetToken;
 
 @end

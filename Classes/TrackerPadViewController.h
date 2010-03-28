@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrackerPadViewController : UIViewController {
-
-}
+@interface TrackerPadViewController : UIViewController {}
 
 @end
-

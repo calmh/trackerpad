@@ -11,12 +11,11 @@
 @class TrackerPadViewController;
 
 @interface TrackerPadAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
-    TrackerPadViewController *viewController;
+        UIWindow *window;
+        TrackerPadViewController *viewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet TrackerPadViewController *viewController;
 
 @end
-

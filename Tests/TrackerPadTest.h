@@ -8,9 +8,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <UIKit/UIKit.h>
 
-@interface TrackerPadTest : SenTestCase {
-
-}
+@interface TrackerPadTest : SenTestCase {}
 
 - (NSString*)bundlePath;
 

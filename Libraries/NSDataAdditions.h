@@ -6,19 +6,19 @@
 // ================================================================================================
 //  Created by Tom Bradley on 21/10/2009.
 //  Version 1.3
-//  
+//
 //  Copyright (c) 2009 Tom Bradley
-//  
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
 //  in the Software without restriction, including without limitation the rights
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-//  
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
-//  
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,9 +28,9 @@
 //  THE SOFTWARE.
 // ================================================================================================
 
-+ (NSData *) dataWithUncompressedContentsOfFile:(NSString *)aFile;
-	
-	
++ (NSData*) dataWithUncompressedContentsOfFile : (NSString*)aFile;
+
+
 
 // ================================================================================================
 //  base64.h
@@ -41,11 +41,11 @@
 //
 // FOUND HERE http://idevkit.com/forums/tutorials-code-samples-sdk/8-nsdata-base64-extension.html
 // ================================================================================================
-+ (NSData *) dataWithBase64EncodedString:(NSString *) string;
-- (id) initWithBase64EncodedString:(NSString *) string;
++ (NSData*)dataWithBase64EncodedString : (NSString*)string;
+- (id)initWithBase64EncodedString:(NSString*)string;
 
-- (NSString *) base64Encoding;
-- (NSString *) base64EncodingWithLineLength:(unsigned int) lineLength;
+- (NSString*)base64Encoding;
+- (NSString*)base64EncodingWithLineLength:(unsigned int)lineLength;
 
 
 
@@ -58,8 +58,8 @@
 //
 // FOUND HERE http://code.google.com/p/drop-osx/source/browse/trunk/Source/NSData%2Bgzip.h
 // ================================================================================================
-- (NSData *)gzipDeflate;
-- (NSData *)gzipInflate;
+- (NSData*)gzipDeflate;
+- (NSData*)gzipInflate;
 
 
 

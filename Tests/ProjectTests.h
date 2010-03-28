@@ -7,9 +7,7 @@
 
 #import "TrackerPadTest.h"
 
-@interface ProjectTests : TrackerPadTest {
-
-}
+@interface ProjectTests : TrackerPadTest {}
 
 
 @end

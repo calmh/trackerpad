@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iterations type="array">
+  <iteration>
+    <id type="integer">2</id>
+    <number type="integer">2</number>
+    <start type="datetime">2010/03/29 07:00:00 UTC</start>
+    <finish type="datetime">2010/04/05 07:00:00 UTC</finish>
+    <stories type="array">
+      <story>
+        <id type="integer">2958795</id>
+        <project_id type="integer">69227</project_id>
+        <story_type>feature</story_type>
+        <url>http://www.pivotaltracker.com/story/show/2958795</url>
+        <estimate type="integer">3</estimate>
+        <current_state>unstarted</current_state>
+        <description>This is a fifth story</description>
+        <name>Story 5</name>
+        <requested_by>Test Testsson</requested_by>
+        <created_at type="datetime">2010/03/28 13:59:13 UTC</created_at>
+        <updated_at type="datetime">2010/03/28 13:59:52 UTC</updated_at>
+      </story>
+      <story>
+        <id type="integer">2958802</id>
+        <project_id type="integer">69227</project_id>
+        <story_type>release</story_type>
+        <url>http://www.pivotaltracker.com/story/show/2958802</url>
+        <current_state>unstarted</current_state>
+        <description></description>
+        <name>This is a release</name>
+        <requested_by>Test Testsson</requested_by>
+        <created_at type="datetime">2010/03/28 14:01:15 UTC</created_at>
+        <updated_at type="datetime">2010/03/28 14:01:20 UTC</updated_at>
+      </story>
+      <story>
+        <id type="integer">2958799</id>
+        <project_id type="integer">69227</project_id>
+        <story_type>bug</story_type>
+        <url>http://www.pivotaltracker.com/story/show/2958799</url>
+        <current_state>unstarted</current_state>
+        <description>This is a bug</description>
+        <name>Bug 1</name>
+        <requested_by>Test Testsson</requested_by>
+        <created_at type="datetime">2010/03/28 14:00:48 UTC</created_at>
+        <updated_at type="datetime">2010/03/28 14:00:51 UTC</updated_at>
+      </story>
+    </stories>
+  </iteration>
+</iterations>

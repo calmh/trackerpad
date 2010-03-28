@@ -24,6 +24,18 @@
         [tracker release];
 }
 
+- (void)testBacklogStoriesShouldBeThree
+{
+        NSString *filename = [NSString stringWithFormat:@"%@/iterations-backlog.xml", [self bundlePath]];
+        TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
+        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        NSArray *stories = [tracker backlogStoriesInProject:0];
+
+        STAssertEquals([stories count], 3u, nil);
+
+        [tracker release];
+}
+
 - (void)testFirstOfCurrentStoriesValues
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];

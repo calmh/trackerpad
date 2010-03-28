@@ -24,7 +24,7 @@
 {
         [super viewDidLoad];
         Tracker *tracker = [[Tracker alloc] initWithToken:@"b590dc2ef47a9bdcead1a5d1d128c18f"];
-        stories = [[tracker currentStoriesInProject:69227u] retain];
+        stories = [[tracker backlogStoriesInProject:69227u] retain];
         [tracker release];
 }
 

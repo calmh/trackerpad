@@ -31,7 +31,7 @@
         Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker getProjectListWithToken:@"not necessary"];
 
-        STAssertEquals(1u, [projectList count], nil);
+        STAssertEquals([projectList count], 1u, nil);
         TrackerProject *project = [projectList objectAtIndex:0];
         [self verifyTestProject:project];
 

@@ -29,7 +29,7 @@
         NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
         Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        NSArray *projectList = [tracker getProjectListWithToken:@"not necessary"];
+        NSArray *projectList = [tracker getProjectList];
 
         STAssertEquals([projectList count], 1u, nil);
         TrackerProject *project = [projectList objectAtIndex:0];
@@ -40,9 +40,9 @@
 
 - (void)testGetProjectListFromWeb
 {
-        Tracker *tracker = [[Tracker alloc] init];
-        NSArray *projectList = [tracker getProjectListWithToken:@"b590dc2ef47a9bdcead1a5d1d128c18f"];
-        STAssertEquals(1u, [projectList count], nil);
+        Tracker *tracker = [[Tracker alloc] initWithToken:@"b590dc2ef47a9bdcead1a5d1d128c18f"];
+        NSArray *projectList = [tracker getProjectList];
+        STAssertEquals([projectList count], 1u, nil);
 
         TrackerProject *project = [projectList objectAtIndex:0];
         [self verifyTestProject:project];

@@ -8,18 +8,20 @@
 
 #import "Tracker.h"
 #import "TrackerProject.h"
+#import "TrackerStory.h"
 #import "Wrapper.h"
 
 @interface Tracker (Private)
 
 - (TBXML*)xmlForURLString:(NSString*)url withUsername:(NSString*)username andPassword:(NSString*)password;
-- (TBXML*)xmlForURLString:(NSString*)url withToken:(NSString*)token;
+- (TBXML*)xmlForURLString:(NSString*)url;
 - (NSURL*)urlForPath:(NSString*)path;
 
 @end
 
-
 @implementation Tracker
+
+@synthesize token;
 
 - (void)dealloc
 {
@@ -41,6 +43,13 @@
         return self;
 }
 
+- (id)initWithToken:(NSString*)theToken
+{
+        if (self = [super init])
+                self.token = theToken;
+        return self;
+}
+
 #pragma mark Public functions
 
 - (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password
@@ -56,9 +65,9 @@
         return [TBXML textForElement:guidElement];
 }
 
-- (NSArray*)getProjectListWithToken:(NSString*)token
+- (NSArray*)getProjectList
 {
-        TBXML *xml = [self xmlForURLString:@"projects" withToken:token];
+        TBXML *xml = [self xmlForURLString:@"projects"];
 
         TBXMLElement *rootElement = xml.rootXMLElement;
         assert(rootElement != nil);
@@ -83,6 +92,34 @@
         return projects;
 }
 
+- (NSArray*)getCurrentStories
+{
+        TBXML *xml = [self xmlForURLString:@"iterations/current"];
+
+        TBXMLElement *rootElement = xml.rootXMLElement;
+        assert(rootElement != nil);
+
+        NSMutableArray *stories = [[[NSMutableArray alloc] init] autorelease];
+        TBXMLElement *iterationElement = [TBXML childElementNamed:@"iteration" parentElement:rootElement];
+        while (iterationElement != nil) {
+                TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
+
+                TBXMLElement *storyElement = [TBXML childElementNamed:@"story" parentElement:storiesElement];
+                while (storyElement != nil) {
+                        TrackerStory *story = [TrackerStory new];
+
+                        story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
+
+                        [stories addObject:story];
+                        storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
+                }
+
+                iterationElement = [TBXML nextSiblingNamed:@"project" searchFromElement:iterationElement];
+        }
+
+        return stories;
+}
+
 #pragma mark Private functions
 
 - (TBXML*)xmlForURLString:(NSString*)urlString withUsername:(NSString*)username andPassword:(NSString*)password
@@ -99,7 +136,7 @@
         return tbxml;
 }
 
-- (TBXML*)xmlForURLString:(NSString*)urlString withToken:(NSString*)token
+- (TBXML*)xmlForURLString:(NSString*)urlString
 {
         if (tbxml == nil) {
                 NSURL *url = [self urlForPath:urlString];
@@ -108,7 +145,7 @@
                 [wrapper sendRequestTo:url
                              usingVerb:@"GET"
                         withParameters:nil
-                            andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:token, @"X-TrackerToken", nil]];
+                            andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
                 tbxml = [[TBXML tbxmlWithXMLData:wrapper.receivedData] retain];
                 [wrapper release];
         }

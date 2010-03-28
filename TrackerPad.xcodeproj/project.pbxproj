@@ -26,8 +26,6 @@
 		29820219115E5537001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
 		2990AC01115F753D005DF543 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* Tracker.m */; };
 		2990AC02115F753D005DF543 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* Tracker.m */; };
-		2990AC05115F7567005DF543 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC04115F7567005DF543 /* Wrapper.m */; };
-		2990AC06115F7567005DF543 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC04115F7567005DF543 /* Wrapper.m */; };
 		2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC66115F7EB4005DF543 /* ProjectTests.m */; };
 		2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC92115F805C005DF543 /* TrackerPadTest.m */; };
 		29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
@@ -36,6 +34,13 @@
 		29F98F67115F957C0072EBB9 /* token.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F65115F957C0072EBB9 /* token.xml */; };
 		29F98F68115F957C0072EBB9 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F64115F957C0072EBB9 /* projects.xml */; };
 		29F98F69115F957C0072EBB9 /* token.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F65115F957C0072EBB9 /* token.xml */; };
+		29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F7B115F98E90072EBB9 /* StoryTests.m */; };
+		29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* TrackerStory.m */; };
+		29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* TrackerStory.m */; };
+		29F98FBA115FA23A0072EBB9 /* iterations-current.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98FB8115FA23A0072EBB9 /* iterations-current.xml */; };
+		29F98FBB115FA23A0072EBB9 /* iterations.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98FB9115FA23A0072EBB9 /* iterations.xml */; };
+		29F98FCE115FC0D80072EBB9 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* Wrapper.m */; };
+		29F98FCF115FC0D80072EBB9 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* Wrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +75,6 @@
 		29820214115E552A001D4CC2 /* AuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthenticationTests.m; path = Tests/AuthenticationTests.m; sourceTree = "<group>"; };
 		2990ABFF115F753D005DF543 /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
 		2990AC00115F753D005DF543 /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
-		2990AC03115F7567005DF543 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wrapper.h; path = iphonerestwrapper/Classes/Wrapper.h; sourceTree = "<group>"; };
-		2990AC04115F7567005DF543 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wrapper.m; path = iphonerestwrapper/Classes/Wrapper.m; sourceTree = "<group>"; };
 		2990AC65115F7EB4005DF543 /* ProjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectTests.h; path = Tests/ProjectTests.h; sourceTree = "<group>"; };
 		2990AC66115F7EB4005DF543 /* ProjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTests.m; path = Tests/ProjectTests.m; sourceTree = "<group>"; };
 		2990AC91115F805C005DF543 /* TrackerPadTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackerPadTest.h; path = Tests/TrackerPadTest.h; sourceTree = "<group>"; };
@@ -81,6 +84,15 @@
 		29F98EFF115F905C0072EBB9 /* TrackerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerProject.m; sourceTree = "<group>"; };
 		29F98F64115F957C0072EBB9 /* projects.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = projects.xml; path = Tests/projects.xml; sourceTree = "<group>"; };
 		29F98F65115F957C0072EBB9 /* token.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = token.xml; path = Tests/token.xml; sourceTree = "<group>"; };
+		29F98F7A115F98E90072EBB9 /* StoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryTests.h; path = Tests/StoryTests.h; sourceTree = "<group>"; };
+		29F98F7B115F98E90072EBB9 /* StoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryTests.m; path = Tests/StoryTests.m; sourceTree = "<group>"; };
+		29F98F81115F99860072EBB9 /* TrackerStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerStory.h; sourceTree = "<group>"; };
+		29F98F82115F99860072EBB9 /* TrackerStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerStory.m; sourceTree = "<group>"; };
+		29F98FB8115FA23A0072EBB9 /* iterations-current.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-current.xml"; path = "Tests/iterations-current.xml"; sourceTree = "<group>"; };
+		29F98FB9115FA23A0072EBB9 /* iterations.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iterations.xml; path = Tests/iterations.xml; sourceTree = "<group>"; };
+		29F98FCB115FC0D80072EBB9 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wrapper.h; path = Libraries/Wrapper.h; sourceTree = "<group>"; };
+		29F98FCC115FC0D80072EBB9 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wrapper.m; path = Libraries/Wrapper.m; sourceTree = "<group>"; };
+		29F98FCD115FC0D80072EBB9 /* WrapperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WrapperDelegate.h; path = Libraries/WrapperDelegate.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TrackerPad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPad_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TrackerPad-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrackerPad-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,14 +123,16 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2990ABFF115F753D005DF543 /* Tracker.h */,
+				2990AC00115F753D005DF543 /* Tracker.m */,
 				1D3623240D0F684500981E51 /* TrackerPadAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* TrackerPadViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */,
-				2990ABFF115F753D005DF543 /* Tracker.h */,
-				2990AC00115F753D005DF543 /* Tracker.m */,
 				29F98EFE115F905C0072EBB9 /* TrackerProject.h */,
 				29F98EFF115F905C0072EBB9 /* TrackerProject.m */,
+				29F98F81115F99860072EBB9 /* TrackerStory.h */,
+				29F98F82115F99860072EBB9 /* TrackerStory.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -135,8 +149,9 @@
 		29820181115E53CC001D4CC2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				2990AC03115F7567005DF543 /* Wrapper.h */,
-				2990AC04115F7567005DF543 /* Wrapper.m */,
+				29F98FCB115FC0D80072EBB9 /* Wrapper.h */,
+				29F98FCC115FC0D80072EBB9 /* Wrapper.m */,
+				29F98FCD115FC0D80072EBB9 /* WrapperDelegate.h */,
 				29820182115E53DA001D4CC2 /* NSDataAdditions.h */,
 				29820183115E53DA001D4CC2 /* NSDataAdditions.m */,
 				29820184115E53DA001D4CC2 /* TBXML.h */,
@@ -148,6 +163,8 @@
 		29820212115E5517001D4CC2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				29F98FB8115FA23A0072EBB9 /* iterations-current.xml */,
+				29F98FB9115FA23A0072EBB9 /* iterations.xml */,
 				29F98F64115F957C0072EBB9 /* projects.xml */,
 				29F98F65115F957C0072EBB9 /* token.xml */,
 				29820213115E552A001D4CC2 /* AuthenticationTests.h */,
@@ -156,6 +173,8 @@
 				2990AC66115F7EB4005DF543 /* ProjectTests.m */,
 				2990AC91115F805C005DF543 /* TrackerPadTest.h */,
 				2990AC92115F805C005DF543 /* TrackerPadTest.m */,
+				29F98F7A115F98E90072EBB9 /* StoryTests.h */,
+				29F98F7B115F98E90072EBB9 /* StoryTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -280,6 +299,8 @@
 			files = (
 				29F98F68115F957C0072EBB9 /* projects.xml in Resources */,
 				29F98F69115F957C0072EBB9 /* token.xml in Resources */,
+				29F98FBA115FA23A0072EBB9 /* iterations-current.xml in Resources */,
+				29F98FBB115FA23A0072EBB9 /* iterations.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +333,9 @@
 				29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */,
 				29820187115E53DA001D4CC2 /* TBXML.m in Sources */,
 				2990AC02115F753D005DF543 /* Tracker.m in Sources */,
-				2990AC06115F7567005DF543 /* Wrapper.m in Sources */,
 				29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */,
+				29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */,
+				29F98FCF115FC0D80072EBB9 /* Wrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +349,12 @@
 				29820197115E53F6001D4CC2 /* TrackerPadViewController.m in Sources */,
 				29820215115E552A001D4CC2 /* AuthenticationTests.m in Sources */,
 				2990AC01115F753D005DF543 /* Tracker.m in Sources */,
-				2990AC05115F7567005DF543 /* Wrapper.m in Sources */,
 				2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */,
 				2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */,
 				29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */,
+				29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */,
+				29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */,
+				29F98FCE115FC0D80072EBB9 /* Wrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,8 +39,8 @@
 		29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* TrackerStory.m */; };
 		29F98FBA115FA23A0072EBB9 /* iterations-current.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98FB8115FA23A0072EBB9 /* iterations-current.xml */; };
 		29F98FBB115FA23A0072EBB9 /* iterations.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98FB9115FA23A0072EBB9 /* iterations.xml */; };
-		29F98FCE115FC0D80072EBB9 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* Wrapper.m */; };
-		29F98FCF115FC0D80072EBB9 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* Wrapper.m */; };
+		29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* RESTClient.m */; };
+		29F98FCF115FC0D80072EBB9 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* RESTClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2982018E115E53E5001D4CC2 /* Tests */;
+			remoteGlobalIDString = 2982018E115E53E5001D4CC2;
 			remoteInfo = Tests;
 		};
 /* End PBXContainerItemProxy section */
@@ -90,9 +90,9 @@
 		29F98F82115F99860072EBB9 /* TrackerStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerStory.m; sourceTree = "<group>"; };
 		29F98FB8115FA23A0072EBB9 /* iterations-current.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-current.xml"; path = "Tests/iterations-current.xml"; sourceTree = "<group>"; };
 		29F98FB9115FA23A0072EBB9 /* iterations.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iterations.xml; path = Tests/iterations.xml; sourceTree = "<group>"; };
-		29F98FCB115FC0D80072EBB9 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wrapper.h; path = Libraries/Wrapper.h; sourceTree = "<group>"; };
-		29F98FCC115FC0D80072EBB9 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Wrapper.m; path = Libraries/Wrapper.m; sourceTree = "<group>"; };
-		29F98FCD115FC0D80072EBB9 /* WrapperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WrapperDelegate.h; path = Libraries/WrapperDelegate.h; sourceTree = "<group>"; };
+		29F98FCB115FC0D80072EBB9 /* RESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESTClient.h; path = Libraries/RESTClient.h; sourceTree = "<group>"; };
+		29F98FCC115FC0D80072EBB9 /* RESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTClient.m; path = Libraries/RESTClient.m; sourceTree = "<group>"; };
+		29F98FCD115FC0D80072EBB9 /* RESTClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESTClientDelegate.h; path = Libraries/RESTClientDelegate.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TrackerPad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPad_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TrackerPad-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrackerPad-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,11 +149,11 @@
 		29820181115E53CC001D4CC2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				29F98FCB115FC0D80072EBB9 /* Wrapper.h */,
-				29F98FCC115FC0D80072EBB9 /* Wrapper.m */,
-				29F98FCD115FC0D80072EBB9 /* WrapperDelegate.h */,
 				29820182115E53DA001D4CC2 /* NSDataAdditions.h */,
 				29820183115E53DA001D4CC2 /* NSDataAdditions.m */,
+				29F98FCB115FC0D80072EBB9 /* RESTClient.h */,
+				29F98FCC115FC0D80072EBB9 /* RESTClient.m */,
+				29F98FCD115FC0D80072EBB9 /* RESTClientDelegate.h */,
 				29820184115E53DA001D4CC2 /* TBXML.h */,
 				29820185115E53DA001D4CC2 /* TBXML.m */,
 			);
@@ -335,7 +335,7 @@
 				2990AC02115F753D005DF543 /* Tracker.m in Sources */,
 				29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */,
 				29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */,
-				29F98FCF115FC0D80072EBB9 /* Wrapper.m in Sources */,
+				29F98FCF115FC0D80072EBB9 /* RESTClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +354,7 @@
 				29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */,
 				29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */,
 				29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */,
-				29F98FCE115FC0D80072EBB9 /* Wrapper.m in Sources */,
+				29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,9 +18,9 @@
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
         Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
         NSArray *storyList = [tracker getCurrentStories];
-        
+
         STAssertEquals([storyList count], 4u, nil);
-        
+
         [tracker release];
 }
 

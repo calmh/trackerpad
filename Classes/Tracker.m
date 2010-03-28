@@ -6,10 +6,10 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
+#import "RESTClient.h"
 #import "Tracker.h"
 #import "TrackerProject.h"
 #import "TrackerStory.h"
-#import "Wrapper.h"
 
 @interface Tracker (Private)
 
@@ -126,7 +126,7 @@
 {
         if (tbxml == nil) {
                 NSURL *url = [self urlForPath:urlString];
-                Wrapper *wrapper = [[Wrapper alloc] init];
+                RESTClient *wrapper = [[RESTClient alloc] init];
                 wrapper.asynchronous = NO;
                 [wrapper sendRequestTo:url usingVerb:@"POST" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil] andHeaders:nil];
                 tbxml = [[TBXML tbxmlWithXMLData:wrapper.receivedData] retain];
@@ -140,7 +140,7 @@
 {
         if (tbxml == nil) {
                 NSURL *url = [self urlForPath:urlString];
-                Wrapper *wrapper = [[Wrapper alloc] init];
+                RESTClient *wrapper = [[RESTClient alloc] init];
                 wrapper.asynchronous = NO;
                 [wrapper sendRequestTo:url
                              usingVerb:@"GET"

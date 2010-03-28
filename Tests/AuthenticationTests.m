@@ -7,6 +7,7 @@
 //
 
 #import "AuthenticationTests.h"
+#import "Tracker.h"
 
 @implementation AuthenticationTests
 
@@ -19,21 +20,21 @@
 - (void) testGetToken {
 	NSString *filename = [NSString stringWithFormat:@"%@/token.xml", [self bundlePath]];
 	TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-	PTAuthentication *auth = [[PTAuthentication alloc] initWithTBXML:xml];
+	Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
 	
-	NSString *token = [auth getTokenForUsername: @"test" andPassword: @"test"];
+	NSString *token = [tracker getTokenForUsername: @"test" andPassword: @"test"];
 	STAssertTrue([@"c93f12c71bec27843c1d84b3bdd547f3" isEqualToString: token], nil);
 	
-	[auth release];
+	[tracker release];
 }
 
 - (void) testGetTokenFromWeb {	
-	PTAuthentication *auth = [[PTAuthentication alloc] init];
+	Tracker *tracker = [[Tracker alloc] init];
 	
-	NSString *token = [auth getTokenForUsername: @"ano@nym.se" andPassword: @"tester"];
+	NSString *token = [tracker getTokenForUsername: @"ano@nym.se" andPassword: @"tester"];
 	STAssertTrue([@"b590dc2ef47a9bdcead1a5d1d128c18f" isEqualToString: token], nil);
 	
-	[auth release];
+	[tracker release];
 }
 
 @end

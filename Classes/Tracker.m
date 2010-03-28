@@ -1,15 +1,24 @@
 //
-//  PTBaseCommunication.m
+//  Tracker.m
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/27/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "PTBaseCommunication.h"
+#import "Tracker.h"
 #import "Wrapper.h"
 
-@implementation PTBaseCommunication
+@interface Tracker (Private)
+
+- (TBXML*) xmlForURLString:(NSString*)url withUsername:(NSString*)username andPassword:(NSString*)password;
+- (TBXML*) xmlForURLString:(NSString*)url withToken:(NSString*)token;
+- (NSURL*) urlForPath:(NSString*)path;
+
+@end
+
+
+@implementation Tracker
 
 - (void) dealloc {
 	[tbxml release];
@@ -29,6 +38,42 @@
 	}
 	return self;
 }
+
+#pragma mark Public functions
+
+- (NSString*) getTokenForUsername:(NSString*)username andPassword:(NSString*)password {
+	TBXML *xml = [self xmlForURLString:@"tokens/active" withUsername:username andPassword:password];
+	
+	TBXMLElement *rootElement = xml.rootXMLElement;
+	assert(rootElement != nil);
+	
+	NSLog(@"Foo");
+	TBXMLElement *guidElement = [TBXML childElementNamed:@"guid" parentElement:rootElement];
+	assert(guidElement != nil);
+	
+	NSLog(@"Foo");
+	return [TBXML textForElement:guidElement];
+}
+
+- (NSArray*) getProjectListWithToken:(NSString*)token {
+	TBXML *xml = [self xmlForURLString:@"projects" withToken:token];
+	
+	TBXMLElement *rootElement = xml.rootXMLElement;
+	assert(rootElement != nil);
+	
+	NSMutableArray *projects = [[[NSMutableArray alloc] init] autorelease];
+	TBXMLElement *projectElement = [TBXML childElementNamed:@"project" parentElement:rootElement];
+	while (projectElement != nil) {
+		TBXMLElement *name = [TBXML childElementNamed:@"name" parentElement:projectElement];
+		assert(name != nil);
+		[projects addObject:[TBXML textForElement:name]];
+		projectElement = [TBXML nextSiblingNamed:@"project" searchFromElement:projectElement];
+	}
+	
+	return projects;
+}
+
+#pragma mark Private functions
 
 - (TBXML*) xmlForURLString:(NSString*)urlString withUsername:(NSString*)username andPassword:(NSString*)password {
 	if (tbxml == nil) {

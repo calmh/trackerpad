@@ -6,7 +6,6 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 
 #import "TrackerPadTest.h"
-#import "PTAuthentication.h"
 #import "TBXML.h"
 
 @interface AuthenticationTests : TrackerPadTest {

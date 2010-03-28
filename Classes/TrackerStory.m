@@ -16,5 +16,6 @@
 @synthesize name;
 @synthesize description;
 @synthesize state;
+@synthesize type;
 
 @end

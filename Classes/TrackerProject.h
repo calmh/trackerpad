@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface TrackerProject : NSObject {
         uint32_t id;
         uint32_t velocity;

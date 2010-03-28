@@ -13,6 +13,7 @@
 
 @interface Tracker (Private)
 
+- (NSArray*)storiesInIterations:(TBXML*)xml;
 - (TBXML*)xmlForURLString:(NSString*)url withUsername:(NSString*)username andPassword:(NSString*)password;
 - (TBXML*)xmlForURLString:(NSString*)url;
 - (NSURL*)urlForPath:(NSString*)path;
@@ -25,6 +26,7 @@
 
 - (void)dealloc
 {
+        self.token = nil;
         [tbxml release];
         [super dealloc];
 }
@@ -65,72 +67,95 @@
         return [TBXML textForElement:guidElement];
 }
 
-- (NSArray*)getProjectList
+- (NSArray*)projects
 {
         TBXML *xml = [self xmlForURLString:@"projects"];
 
         TBXMLElement *rootElement = xml.rootXMLElement;
         assert(rootElement != nil);
 
-        NSMutableArray *projects = [[[NSMutableArray alloc] init] autorelease];
+        NSMutableArray *projects = [[NSMutableArray alloc] init];
+        
         TBXMLElement *projectElement = [TBXML childElementNamed:@"project" parentElement:rootElement];
         while (projectElement != nil) {
-                TrackerProject *project = [TrackerProject new];
+                TrackerProject *project = [[TrackerProject alloc] init];
 
                 project.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:projectElement]];
-                assert(project.name != nil);
-
                 project.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:projectElement]] intValue];
-                assert(project.id != 0);
-
                 project.velocity = [[TBXML textForElement:[TBXML childElementNamed:@"current_velocity" parentElement:projectElement]] intValue];
 
                 [projects addObject:project];
+                [project release];
+                
                 projectElement = [TBXML nextSiblingNamed:@"project" searchFromElement:projectElement];
         }
 
-        return projects;
+        return [projects autorelease];
 }
 
-- (NSArray*)getCurrentStories
+- (NSArray*)currentStories
 {
         TBXML *xml = [self xmlForURLString:@"iterations/current"];
+        return [self storiesInIterations:xml];
+}
 
+- (NSArray*)doneStories
+{
+        TBXML *xml = [self xmlForURLString:@"iterations/done"];
+        return [self storiesInIterations:xml];
+}
+
+- (NSArray*)backlogStories
+{
+        TBXML *xml = [self xmlForURLString:@"iterations/backlog"];
+        return [self storiesInIterations:xml];
+}
+
+#pragma mark Private functions
+
+- (NSArray*)storiesInIterations:(TBXML*)xml
+{
         TBXMLElement *rootElement = xml.rootXMLElement;
         assert(rootElement != nil);
-
-        NSMutableArray *stories = [[[NSMutableArray alloc] init] autorelease];
+        
+        NSMutableArray *stories = [[NSMutableArray alloc] init];
+        
         TBXMLElement *iterationElement = [TBXML childElementNamed:@"iteration" parentElement:rootElement];
         while (iterationElement != nil) {
                 TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
 
                 TBXMLElement *storyElement = [TBXML childElementNamed:@"story" parentElement:storiesElement];
                 while (storyElement != nil) {
-                        TrackerStory *story = [TrackerStory new];
+                        TrackerStory *story = [[TrackerStory alloc] init];
 
                         story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
+                        story.description = [TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]];
+                        story.type = [TBXML textForElement:[TBXML childElementNamed:@"story_type" parentElement:storyElement]];
+                        story.state = [TBXML textForElement:[TBXML childElementNamed:@"current_state" parentElement:storyElement]];
+                        story.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:storyElement]] intValue];
+                        story.estimate = [[TBXML textForElement:[TBXML childElementNamed:@"estimate" parentElement:storyElement]] intValue];
 
                         [stories addObject:story];
+                        [story release];
+                        
                         storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
                 }
 
                 iterationElement = [TBXML nextSiblingNamed:@"project" searchFromElement:iterationElement];
         }
 
-        return stories;
+        return [stories autorelease];
 }
-
-#pragma mark Private functions
 
 - (TBXML*)xmlForURLString:(NSString*)urlString withUsername:(NSString*)username andPassword:(NSString*)password
 {
         if (tbxml == nil) {
                 NSURL *url = [self urlForPath:urlString];
-                RESTClient *wrapper = [[RESTClient alloc] init];
-                wrapper.asynchronous = NO;
-                [wrapper sendRequestTo:url usingVerb:@"POST" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil] andHeaders:nil];
-                tbxml = [[TBXML tbxmlWithXMLData:wrapper.receivedData] retain];
-                [wrapper release];
+                RESTClient *client = [[RESTClient alloc] init];
+                client.asynchronous = NO;
+                [client sendRequestTo:url usingVerb:@"POST" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil] andHeaders:nil];
+                tbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
+                [client release];
         }
 
         return tbxml;
@@ -140,14 +165,14 @@
 {
         if (tbxml == nil) {
                 NSURL *url = [self urlForPath:urlString];
-                RESTClient *wrapper = [[RESTClient alloc] init];
-                wrapper.asynchronous = NO;
-                [wrapper sendRequestTo:url
+                RESTClient *client = [[RESTClient alloc] init];
+                client.asynchronous = NO;
+                [client sendRequestTo:url
                              usingVerb:@"GET"
                         withParameters:nil
                             andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
-                tbxml = [[TBXML tbxmlWithXMLData:wrapper.receivedData] retain];
-                [wrapper release];
+                tbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
+                [client release];
         }
 
         return tbxml;

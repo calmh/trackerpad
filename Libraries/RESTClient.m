@@ -207,9 +207,9 @@
         NSLog(@"didReceiveAuthenticationChallenge");
         NSInteger count = [challenge previousFailureCount];
         if (count == 0) {
-                NSURLCredential *credential = [[NSURLCredential credentialWithUser:username
+                NSURLCredential *credential = [NSURLCredential credentialWithUser:username
                                                                           password:password
-                                                                       persistence:NSURLCredentialPersistenceNone] autorelease];
+                                                                       persistence:NSURLCredentialPersistenceNone];
                 [[challenge sender] useCredential:credential
                        forAuthenticationChallenge:challenge];
         }else {

@@ -15,6 +15,7 @@
         NSString *name;
         NSString *description;
         NSString *state; // TODO: Change this to an enum
+        NSString *type; // TODO: Change this to an enum
 }
 
 @property (assign, nonatomic) uint32_t id;
@@ -23,5 +24,6 @@
 @property (assign, nonatomic) NSString *name;
 @property (assign, nonatomic) NSString *description;
 @property (assign, nonatomic) NSString *state;
+@property (assign, nonatomic) NSString *type;
 
 @end

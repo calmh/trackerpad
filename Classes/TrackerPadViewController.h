@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProjectsTableViewController.h"
 
-@interface TrackerPadViewController : UIViewController {}
+@interface TrackerPadViewController : UIViewController {
+        ProjectsTableViewController *projectsTableViewController;
+}
+
+@property (retain, nonatomic) IBOutlet ProjectsTableViewController *projectsTableViewController;
 
 @end

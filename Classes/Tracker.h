@@ -14,12 +14,13 @@
         NSString *token;
 }
 
-@property (retain, nonatomic) NSString *token;
+@property (copy, nonatomic) NSString *token;
 
 - (void)dealloc;
 - (id)initWithTBXML:(TBXML*)theTbxml;
+- (id)initWithToken:(NSString*)token;
 - (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
-- (NSArray*)getProjectList;
-- (NSArray*)getCurrentStories;
+- (NSArray*)projects;
+- (NSArray*)currentStories;
 
 @end

@@ -79,6 +79,7 @@
         if (cell == nil) {
                 cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
                 cell.accessoryType = UITableViewCellAccessoryNone;
+                cell.indentationWidth = 20;
         }
 
         if (indexPath.row == 0)
@@ -91,6 +92,12 @@
                 cell.textLabel.text = @"Backlog";
         else if (indexPath.row == 4)
                 cell.textLabel.text = @"Icebox";
+
+        if (indexPath.row == 0)
+                cell.indentationLevel = 0;
+        else
+                cell.indentationLevel = 1;
+
         return cell;
 }
 

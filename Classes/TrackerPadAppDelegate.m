@@ -13,10 +13,11 @@
 
 @synthesize window;
 @synthesize viewController;
-
+@synthesize tracker;
 
 - (void)applicationDidFinishLaunching:(UIApplication*)application
 {
+        tracker = [[Tracker alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
         // Override point for customization after app launch
         [window addSubview:viewController.view];
         [window makeKeyAndVisible];
@@ -26,6 +27,7 @@
 {
         [viewController release];
         [window release];
+        [tracker release];
         [super dealloc];
 }
 

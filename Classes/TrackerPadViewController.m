@@ -11,7 +11,6 @@
 @implementation TrackerPadViewController
 
 @synthesize projectsTableViewController;
-@synthesize storiesTableViewController;
 
 /*
    // The designated initializer. Override to perform setup that is required before the view is loaded.

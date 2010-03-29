@@ -9,15 +9,16 @@
 #import "ProjectsTableViewController.h"
 #import "Tracker.h"
 #import "TrackerProject.h"
+#import "TrackerPadAppDelegate.h"
 
 @implementation ProjectsTableViewController
 
 - (void)viewDidLoad
 {
         [super viewDidLoad];
-        Tracker *tracker = [[Tracker alloc] initWithToken:@"b590dc2ef47a9bdcead1a5d1d128c18f"];
+        Tracker *tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
         projects = [[tracker projects] retain];
-        [tracker release];
+        //[tracker release];
 }
 
 /*

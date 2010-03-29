@@ -16,7 +16,6 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TrackerPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */; };
 		295089AC115FC72F005B9CAA /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */; };
-		29508B27115FD552005B9CAA /* StoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29508B26115FD552005B9CAA /* StoriesTableViewController.m */; };
 		29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29508B79115FD937005B9CAA /* iterations-backlog.xml */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
@@ -33,6 +32,7 @@
 		2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC92115F805C005DF543 /* TrackerPadTest.m */; };
 		29AA339D1161150500D4ADB0 /* TrackerIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA339C1161150500D4ADB0 /* TrackerIteration.m */; };
 		29AA339E1161150500D4ADB0 /* TrackerIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA339C1161150500D4ADB0 /* TrackerIteration.m */; };
+		29AA347F116123D800D4ADB0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29AA347E116123D800D4ADB0 /* Settings.bundle */; };
 		29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
 		29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
 		29F98F66115F957C0072EBB9 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F64115F957C0072EBB9 /* projects.xml */; };
@@ -71,8 +71,6 @@
 		28D7ACF70DDB3853001CB0EB /* TrackerPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerPadViewController.m; sourceTree = "<group>"; };
 		295089AA115FC72F005B9CAA /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewController.h; sourceTree = "<group>"; };
 		295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewController.m; sourceTree = "<group>"; };
-		29508B25115FD552005B9CAA /* StoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoriesTableViewController.h; sourceTree = "<group>"; };
-		29508B26115FD552005B9CAA /* StoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoriesTableViewController.m; sourceTree = "<group>"; };
 		29508B79115FD937005B9CAA /* iterations-backlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-backlog.xml"; path = "Tests/iterations-backlog.xml"; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
@@ -91,6 +89,7 @@
 		2990AC92115F805C005DF543 /* TrackerPadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackerPadTest.m; path = Tests/TrackerPadTest.m; sourceTree = "<group>"; };
 		29AA339B1161150500D4ADB0 /* TrackerIteration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerIteration.h; sourceTree = "<group>"; };
 		29AA339C1161150500D4ADB0 /* TrackerIteration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerIteration.m; sourceTree = "<group>"; };
+		29AA347E116123D800D4ADB0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29F98EFE115F905C0072EBB9 /* TrackerProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerProject.h; sourceTree = "<group>"; };
 		29F98EFF115F905C0072EBB9 /* TrackerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerProject.m; sourceTree = "<group>"; };
@@ -137,8 +136,6 @@
 			children = (
 				295089AA115FC72F005B9CAA /* ProjectsTableViewController.h */,
 				295089AB115FC72F005B9CAA /* ProjectsTableViewController.m */,
-				29508B25115FD552005B9CAA /* StoriesTableViewController.h */,
-				29508B26115FD552005B9CAA /* StoriesTableViewController.m */,
 				2990ABFF115F753D005DF543 /* Tracker.h */,
 				2990AC00115F753D005DF543 /* Tracker.m */,
 				29AA339B1161150500D4ADB0 /* TrackerIteration.h */,
@@ -245,6 +242,7 @@
 				8D1107310486CEB800E47090 /* TrackerPad-Info.plist */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				2899E5210DE3E06400AC0155 /* TrackerPadViewController.xib */,
+				29AA347E116123D800D4ADB0 /* Settings.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -325,6 +323,7 @@
 				2899E5220DE3E06400AC0155 /* TrackerPadViewController.xib in Resources */,
 				29F98F66115F957C0072EBB9 /* projects.xml in Resources */,
 				29F98F67115F957C0072EBB9 /* token.xml in Resources */,
+				29AA347F116123D800D4ADB0 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +372,6 @@
 				29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */,
 				29F98FCF115FC0D80072EBB9 /* RESTClient.m in Sources */,
 				295089AC115FC72F005B9CAA /* ProjectsTableViewController.m in Sources */,
-				29508B27115FD552005B9CAA /* StoriesTableViewController.m in Sources */,
 				29AA339E1161150500D4ADB0 /* TrackerIteration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -459,6 +458,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;
+				TEST_HOST = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;

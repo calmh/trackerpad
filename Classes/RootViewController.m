@@ -72,32 +72,40 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-        static NSString *CellIdentifier = @"CellIdentifier";
+        NSString *cellIdentifier;
+        UITableViewCell *cell;
 
-        // Dequeue or create a cell of the appropriate type.
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-                cell.accessoryType = UITableViewCellAccessoryNone;
-                cell.indentationWidth = 20;
-        }
+        if (indexPath.row == 0) {
+                cellIdentifier = @"ProjectCell";
+                cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil) {
+                        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+                        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+                }
 
-        if (indexPath.row == 0)
                 cell.textLabel.text = [(TrackerProject*)[[tracker projects] objectAtIndex:indexPath.section] name];
-        else if (indexPath.row == 1)
-                cell.textLabel.text = @"Done";
-        else if (indexPath.row == 2)
-                cell.textLabel.text = @"Current";
-        else if (indexPath.row == 3)
-                cell.textLabel.text = @"Backlog";
-        else if (indexPath.row == 4)
-                cell.textLabel.text = @"Icebox";
+        } else {
+                cellIdentifier = @"BucketCell";
+                cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil) {
+                        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+                        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                        cell.indentationWidth = 20;
+                        cell.indentationLevel = 1;
+                }
 
-        if (indexPath.row == 0)
-                cell.indentationLevel = 0;
-        else
-                cell.indentationLevel = 1;
-
+                if (indexPath.row == 1) {
+                        cell.textLabel.text = @"Done";
+                        cell.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
+                }else if (indexPath.row == 2)
+                        cell.textLabel.text = @"Current";
+                else if (indexPath.row == 3)
+                        cell.textLabel.text = @"Backlog";
+                else if (indexPath.row == 4) {
+                        cell.textLabel.text = @"Icebox";
+                        cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:1.0 alpha:1.0];
+                }
+        }
         return cell;
 }
 

@@ -15,7 +15,7 @@
         NSString *token;
 }
 
-@property (copy, nonatomic) NSString *token;
+@property (retain, nonatomic) NSString *token;
 
 - (void)dealloc;
 - (id)initWithTBXML:(TBXML*)theTbxml;

@@ -17,7 +17,6 @@
 - (void)applicationDidFinishLaunching:(UIApplication*)application
 {
         tracker = [[Tracker alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
-        // Override point for customization after app launch
         [window addSubview:splitViewController.view];
         [window makeKeyAndVisible];
 }

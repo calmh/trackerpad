@@ -64,16 +64,6 @@
 		29F98FCF115FC0D80072EBB9 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* RESTClient.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		29F98EE7115F902B0072EBB9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2982018E115E53E5001D4CC2;
-			remoteInfo = Tests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TrackerPadAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPadAppDelegate.h; sourceTree = "<group>"; };
@@ -329,7 +319,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				29F98EE8115F902B0072EBB9 /* PBXTargetDependency */,
 			);
 			name = TrackerPad;
 			productName = TrackerPad;
@@ -471,14 +460,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		29F98EE8115F902B0072EBB9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2982018E115E53E5001D4CC2 /* Tests */;
-			targetProxy = 29F98EE7115F902B0072EBB9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {

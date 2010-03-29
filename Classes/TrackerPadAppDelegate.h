@@ -6,10 +6,10 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "Tracker.h"
-#import "RootViewController.h"
 #import "DetailViewController.h"
+#import "RootViewController.h"
+#import "Tracker.h"
+#import <UIKit/UIKit.h>
 
 @class TrackerPadViewController;
 
@@ -22,7 +22,7 @@
         DetailViewController *detailViewController;
 }
 
-@property (nonatomic, retain) Tracker* tracker;
+@property (nonatomic, retain) Tracker *tracker;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;

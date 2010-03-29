@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
-    
-    UIPopoverController *popoverController;
-    UIToolbar *toolbar;
-    
-    id detailItem;
-    UILabel *detailDescriptionLabel;
+        UIPopoverController *popoverController;
+        UIToolbar *toolbar;
+
+        id detailItem;
+        UILabel *detailDescriptionLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;

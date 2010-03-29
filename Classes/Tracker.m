@@ -8,12 +8,14 @@
 
 #import "RESTClient.h"
 #import "Tracker.h"
+#import "TrackerIteration.h"
 #import "TrackerProject.h"
 #import "TrackerStory.h"
 
 @interface Tracker (Private)
 
-- (NSArray*)storiesInIterations:(TBXML*)xml;
+- (NSArray*)iterationsInXML:(TBXML*)xml;
+- (NSArray*)storiesInIteration:(TBXMLElement*)iterationElement;
 - (TBXML*)xmlForURLString:(NSString*)url withUsername:(NSString*)username andPassword:(NSString*)password;
 - (TBXML*)xmlForURLString:(NSString*)url;
 - (NSURL*)urlForPath:(NSString*)path;
@@ -93,57 +95,78 @@
         return [projects autorelease];
 }
 
-- (NSArray*)currentStoriesInProject:(uint32_t)project_id
+- (TrackerIteration*)currentIterationInProject:(uint32_t)project_id
 {
         TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/current", project_id]];
-        return [self storiesInIterations:xml];
+        return [[self iterationsInXML:xml] objectAtIndex:0];
 }
 
-- (NSArray*)doneStoriesInProject:(uint32_t)project_id
+- (NSArray*)doneIterationsInProject:(uint32_t)project_id
 {
         TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/done", project_id]];
-        return [self storiesInIterations:xml];
+        return [self iterationsInXML:xml];
 }
 
-- (NSArray*)backlogStoriesInProject:(uint32_t)project_id
+- (NSArray*)backlogIterationsInProject:(uint32_t)project_id
 {
         TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/backlog", project_id]];
-        return [self storiesInIterations:xml];
+        return [self iterationsInXML:xml];
 }
 
 #pragma mark Private functions
 
-- (NSArray*)storiesInIterations:(TBXML*)xml
+- (NSArray*)iterationsInXML:(TBXML*)xml
 {
         TBXMLElement *rootElement = xml.rootXMLElement;
         assert(rootElement != nil);
 
-        NSMutableArray *stories = [[NSMutableArray alloc] init];
+        NSMutableArray *iterations = [[NSMutableArray alloc] init];
 
         TBXMLElement *iterationElement = [TBXML childElementNamed:@"iteration" parentElement:rootElement];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
         while (iterationElement != nil) {
-                TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
+                TrackerIteration *iteration = [[TrackerIteration alloc] init];
 
-                TBXMLElement *storyElement = [TBXML childElementNamed:@"story" parentElement:storiesElement];
-                while (storyElement != nil) {
-                        TrackerStory *story = [[TrackerStory alloc] init];
+                iteration.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:iterationElement]] intValue];
+                iteration.number = [[TBXML textForElement:[TBXML childElementNamed:@"number" parentElement:iterationElement]] intValue];
+                iteration.start = [dateFormatter dateFromString:[TBXML textForElement:[TBXML childElementNamed:@"start" parentElement:iterationElement]]];
+                iteration.finish = [dateFormatter dateFromString:[TBXML textForElement:[TBXML childElementNamed:@"finish" parentElement:iterationElement]]];
 
-                        story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
-                        story.description = [TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]];
-                        story.type = [TBXML textForElement:[TBXML childElementNamed:@"story_type" parentElement:storyElement]];
-                        story.state = [TBXML textForElement:[TBXML childElementNamed:@"current_state" parentElement:storyElement]];
-                        story.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:storyElement]] intValue];
-                        TBXMLElement *estimateElement = [TBXML childElementNamed:@"estimate" parentElement:storyElement];
-                        if (estimateElement != nil)
-                                story.estimate = [[TBXML textForElement:estimateElement] intValue];
+                NSArray *stories = [self storiesInIteration:iterationElement];
+                [iteration addStoriesFromArray:stories];
+                [iterations addObject:iteration];
+                [iteration release];
+                iterationElement = [TBXML nextSiblingNamed:@"iteration" searchFromElement:iterationElement];
+        }
+        [dateFormatter release];
 
-                        [stories addObject:story];
-                        [story release];
+        return [iterations autorelease];
+}
 
-                        storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
-                }
+- (NSArray*)storiesInIteration:(TBXMLElement*)iterationElement
+{
+        NSMutableArray *stories = [[NSMutableArray alloc] init];
+        TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
 
-                iterationElement = [TBXML nextSiblingNamed:@"project" searchFromElement:iterationElement];
+        TBXMLElement *storyElement = [TBXML childElementNamed:@"story" parentElement:storiesElement];
+        while (storyElement != nil) {
+                TrackerStory *story = [[TrackerStory alloc] init];
+
+                story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
+                story.description = [TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]];
+                story.type = [TBXML textForElement:[TBXML childElementNamed:@"story_type" parentElement:storyElement]];
+                story.state = [TBXML textForElement:[TBXML childElementNamed:@"current_state" parentElement:storyElement]];
+                story.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:storyElement]] intValue];
+                TBXMLElement *estimateElement = [TBXML childElementNamed:@"estimate" parentElement:storyElement];
+                if (estimateElement != nil)
+                        story.estimate = [[TBXML textForElement:estimateElement] intValue];
+
+                [stories addObject:story];
+                [story release];
+
+                storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
         }
 
         return [stories autorelease];

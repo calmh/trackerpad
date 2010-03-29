@@ -21,7 +21,7 @@
 {
         STAssertEquals(project.id, 69227u, nil);
         STAssertEqualObjects(project.name, @"Test project", nil);
-        STAssertEquals(project.velocity, 10u, nil);
+        STAssertEquals(project.velocity, 3u, nil);
 }
 
 - (void)testGetProjectList

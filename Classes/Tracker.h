@@ -7,6 +7,7 @@
 //
 
 #import "TBXML.h"
+#import "TrackerIteration.h"
 #import <Foundation/Foundation.h>
 
 @interface Tracker : NSObject {
@@ -21,8 +22,8 @@
 - (id)initWithToken:(NSString*)token;
 - (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
 - (NSArray*)projects;
-- (NSArray*)currentStoriesInProject:(uint32_t)project_id;
-- (NSArray*)doneStoriesInProject:(uint32_t)project_id;
-- (NSArray*)backlogStoriesInProject:(uint32_t)project_id;
+- (TrackerIteration*)currentIterationInProject:(uint32_t)project_id;
+- (NSArray*)doneIterationsInProject:(uint32_t)project_id;
+- (NSArray*)backlogIterationsInProject:(uint32_t)project_id;
 
 @end

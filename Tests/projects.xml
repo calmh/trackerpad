@@ -8,8 +8,8 @@
     <point_scale>0,1,2,3</point_scale>
     <account>Test Testsson</account>
     <velocity_scheme>Average of 3 iterations</velocity_scheme>
-    <current_velocity>10</current_velocity>
-    <initial_velocity>10</initial_velocity>
+    <current_velocity>3</current_velocity>
+    <initial_velocity>3</initial_velocity>
     <number_of_done_iterations_to_show>12</number_of_done_iterations_to_show>
     <labels></labels>
     <allow_attachments>true</allow_attachments>

@@ -7,28 +7,19 @@
 //
 
 #import "TrackerPadAppDelegate.h"
-#import "TrackerPadViewController.h"
 
 @implementation TrackerPadAppDelegate
 
 @synthesize window;
-@synthesize viewController;
 @synthesize tracker;
+@synthesize splitViewController, rootViewController, detailViewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication*)application
 {
         tracker = [[Tracker alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
         // Override point for customization after app launch
-        [window addSubview:viewController.view];
+        [window addSubview:splitViewController.view];
         [window makeKeyAndVisible];
-}
-
-- (void)dealloc
-{
-        [viewController release];
-        [window release];
-        [tracker release];
-        [super dealloc];
 }
 
 @end

@@ -8,18 +8,16 @@
 
 #import "DetailViewController.h"
 #import "RootViewController.h"
-
+#import "TrackerPadAppDelegate.h"
 
 @interface DetailViewController ()
 @property (nonatomic, retain) UIPopoverController *popoverController;
 - (void)configureView;
 @end
 
-
-
 @implementation DetailViewController
 
-@synthesize toolbar, popoverController, project, detailDescriptionLabel;
+@synthesize toolbar, popoverController, project;
 
 #pragma mark -
 #pragma mark Managing the detail item
@@ -44,7 +42,17 @@
 - (void)configureView
 {
         // Update the user interface for the detail item.
-        detailDescriptionLabel.text = [NSString stringWithFormat:@"Project Id %d", project.id];
+        IterationViewController *curIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
+        curIvc.iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
+        CGRect curFrame = [curIvc.view frame];
+        curIvc.view.frame = CGRectMake(curFrame.origin.x, curFrame.origin.y, curFrame.size.width / 2, curFrame.size.height);
+        [self.view addSubview:curIvc.view];
+
+        IterationViewController *backIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
+        backIvc.iterations = [tracker backlogIterationsInProject:project.id];
+        CGRect backFrame = [backIvc.view frame];
+        backIvc.view.frame = CGRectMake(backFrame.origin.x + curFrame.size.width / 2, backFrame.origin.y, backFrame.size.width / 2, backFrame.size.height);
+        [self.view addSubview:backIvc.view];
 }
 
 #pragma mark -
@@ -85,28 +93,30 @@
 /*
    // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
    - (void)viewDidLoad {
-    [super viewDidLoad];
+   [super viewDidLoad];
    }
  */
 
-/*
-   - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-   }
- */
+
+- (void)viewWillAppear:(BOOL)animated
+{
+        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
+        [super viewWillAppear:animated];
+}
+
 /*
    - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+   [super viewDidAppear:animated];
    }
  */
 /*
    - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+   [super viewWillDisappear:animated];
    }
  */
 /*
    - (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+   [super viewDidDisappear:animated];
    }
  */
 
@@ -122,10 +132,10 @@
 
 /*
    - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+   // Releases the view if it doesn't have a superview.
+   [super didReceiveMemoryWarning];
 
-    // Release any cached data, images, etc that aren't in use.
+   // Release any cached data, images, etc that aren't in use.
    }
  */
 
@@ -134,7 +144,6 @@
         [popoverController release];
         [toolbar release];
 
-        [detailDescriptionLabel release];
         [super dealloc];
 }
 

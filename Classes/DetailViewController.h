@@ -6,6 +6,8 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
+#import "IterationViewController.h"
+#import "Tracker.h"
 #import "TrackerProject.h"
 #import <UIKit/UIKit.h>
 
@@ -14,12 +16,11 @@
         UIToolbar *toolbar;
 
         TrackerProject *project;
-        UILabel *detailDescriptionLabel;
+        Tracker *tracker;
 }
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
 
 @property (assign) TrackerProject *project;
-@property (nonatomic, retain) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

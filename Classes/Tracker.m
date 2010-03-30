@@ -174,33 +174,33 @@
 
 - (TBXML*)xmlForURLString:(NSString*)urlString withUsername:(NSString*)username andPassword:(NSString*)password
 {
-        if (tbxml == nil) {
-                NSURL *url = [self urlForPath:urlString];
-                RESTClient *client = [[RESTClient alloc] init];
-                client.asynchronous = NO;
-                [client sendRequestTo:url usingVerb:@"POST" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil] andHeaders:nil];
-                tbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
-                [client release];
-        }
+        if (tbxml != nil)
+                return tbxml;
 
-        return tbxml;
+        NSURL *url = [self urlForPath:urlString];
+        RESTClient *client = [[RESTClient alloc] init];
+        client.asynchronous = NO;
+        [client sendRequestTo:url usingVerb:@"POST" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil] andHeaders:nil];
+        TBXML *currentTbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
+        [client release];
+        return currentTbxml;
 }
 
 - (TBXML*)xmlForURLString:(NSString*)urlString
 {
-        if (tbxml == nil) {
-                NSURL *url = [self urlForPath:urlString];
-                RESTClient *client = [[RESTClient alloc] init];
-                client.asynchronous = NO;
-                [client sendRequestTo:url
-                            usingVerb:@"GET"
-                       withParameters:nil
-                           andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
-                tbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
-                [client release];
-        }
+        if (tbxml != nil)
+                return tbxml;
 
-        return tbxml;
+        NSURL *url = [self urlForPath:urlString];
+        RESTClient *client = [[RESTClient alloc] init];
+        client.asynchronous = NO;
+        [client sendRequestTo:url
+                    usingVerb:@"GET"
+               withParameters:nil
+                   andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
+        TBXML *currentTbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
+        [client release];
+        return currentTbxml;
 }
 
 - (NSURL*)urlForPath:(NSString*)path

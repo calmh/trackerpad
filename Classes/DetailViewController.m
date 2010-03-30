@@ -41,7 +41,8 @@
 
 - (void)configureView
 {
-        // Update the user interface for the detail item.
+        // TODO: Handle this in an appropriate way that doesn't leak all over the place.
+
         IterationViewController *curIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
         curIvc.iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
         CGRect curFrame = [curIvc.view frame];

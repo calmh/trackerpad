@@ -6,19 +6,20 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
+#import "TrackerProject.h"
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
         UIPopoverController *popoverController;
         UIToolbar *toolbar;
 
-        id detailItem;
+        TrackerProject *project;
         UILabel *detailDescriptionLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
 
-@property (nonatomic, retain) id detailItem;
+@property (assign) TrackerProject *project;
 @property (nonatomic, retain) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

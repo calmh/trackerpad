@@ -155,7 +155,7 @@
 - (void)tableView:(UITableView*)aTableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
         self.currentProject = [projects objectAtIndex:indexPath.section];
-        detailViewController.detailItem = self.currentProject.name;
+        detailViewController.project = self.currentProject;
 }
 
 #pragma mark -

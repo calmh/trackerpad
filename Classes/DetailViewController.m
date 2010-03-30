@@ -19,7 +19,7 @@
 
 @implementation DetailViewController
 
-@synthesize toolbar, popoverController, detailItem, detailDescriptionLabel;
+@synthesize toolbar, popoverController, project, detailDescriptionLabel;
 
 #pragma mark -
 #pragma mark Managing the detail item
@@ -27,11 +27,11 @@
 /*
    When setting the detail item, update the view and dismiss the popover controller if it's showing.
  */
-- (void)setDetailItem:(id)newDetailItem
+- (void)setProject:(TrackerProject*)newProject
 {
-        if (detailItem != newDetailItem) {
-                [detailItem release];
-                detailItem = [newDetailItem retain];
+        if (project != newProject) {
+                [project release];
+                project = [newProject retain];
 
                 // Update the view.
                 [self configureView];
@@ -44,7 +44,7 @@
 - (void)configureView
 {
         // Update the user interface for the detail item.
-        detailDescriptionLabel.text = [detailItem description];
+        detailDescriptionLabel.text = [NSString stringWithFormat:@"Project Id %d", project.id];
 }
 
 #pragma mark -
@@ -134,7 +134,6 @@
         [popoverController release];
         [toolbar release];
 
-        [detailItem release];
         [detailDescriptionLabel release];
         [super dealloc];
 }

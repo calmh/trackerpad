@@ -11,8 +11,8 @@
 
 @interface TrackerIteration : NSObject {
         NSMutableArray *stories;
-        uint32_t id;
-        uint32_t number;
+        NSUInteger id;
+        NSUInteger number;
         NSDate *start;
         NSDate *finish;
 }

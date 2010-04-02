@@ -154,7 +154,7 @@
         while (storyElement != nil) {
                 TrackerStory *story = [[TrackerStory alloc] init];
 
-                story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
+                story.name = [[TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                 story.description = [TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]];
                 story.type = [TBXML textForElement:[TBXML childElementNamed:@"story_type" parentElement:storyElement]];
                 story.state = [TBXML textForElement:[TBXML childElementNamed:@"current_state" parentElement:storyElement]];

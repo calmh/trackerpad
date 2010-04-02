@@ -104,7 +104,7 @@
         TrackerIteration *iteration = [iterations objectAtIndex:section];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM dd"];
-        label.text = [NSString stringWithFormat:@"%@ - %@",
+        label.text = [NSString stringWithFormat:@" %@ - %@",
                       [formatter stringFromDate:iteration.start],
                       [formatter stringFromDate:iteration.finish]];
         return label;
@@ -131,6 +131,8 @@
         TrackerIteration *iteration = [iterations objectAtIndex:indexPath.section];
         TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
         cell.textLabel.text = story.name;
+        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_icon.png", story.type]];
+
 
         return cell;
 }
@@ -140,7 +142,7 @@
         TrackerIteration *iteration = [iterations objectAtIndex:indexPath.section];
         TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
         UIFont *font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
-        CGSize withinSize = CGSizeMake(tableView.frame.size.width, 1000);
+        CGSize withinSize = CGSizeMake(tableView.frame.size.width - 20, 1000);
         CGSize size = [story.name sizeWithFont:font constrainedToSize:withinSize lineBreakMode:UILineBreakModeWordWrap];
 
         return size.height + 20;

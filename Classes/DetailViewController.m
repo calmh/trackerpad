@@ -45,14 +45,15 @@
 
         IterationViewController *curIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
         curIvc.iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
+        CGRect detailFrame = [self.view frame];
         CGRect curFrame = [curIvc.view frame];
-        curIvc.view.frame = CGRectMake(curFrame.origin.x, curFrame.origin.y, curFrame.size.width / 2, curFrame.size.height);
+        curIvc.view.frame = CGRectMake(curFrame.origin.x, curFrame.origin.y + self.toolbar.frame.size.height, detailFrame.size.width / 2, detailFrame.size.height - self.toolbar.frame.size.height);
         [self.view addSubview:curIvc.view];
 
         IterationViewController *backIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
         backIvc.iterations = [tracker backlogIterationsInProject:project.id];
         CGRect backFrame = [backIvc.view frame];
-        backIvc.view.frame = CGRectMake(backFrame.origin.x + curFrame.size.width / 2, backFrame.origin.y, backFrame.size.width / 2, backFrame.size.height);
+        backIvc.view.frame = CGRectMake(backFrame.origin.x + detailFrame.size.width / 2, backFrame.origin.y + self.toolbar.frame.size.height, detailFrame.size.width / 2, detailFrame.size.height - self.toolbar.frame.size.height);
         [self.view addSubview:backIvc.view];
 }
 

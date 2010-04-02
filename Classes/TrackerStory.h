@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface TrackerStory : NSObject {
-        uint32_t id;
-        uint32_t project_id;
-        uint32_t estimate;
+        NSUInteger id;
+        NSUInteger project_id;
+        NSInteger estimate;
         NSString *name;
         NSString *description;
         NSString *state; // TODO: Change this to an enum
         NSString *type; // TODO: Change this to an enum
 }
 
-@property (assign, nonatomic) uint32_t id;
-@property (assign, nonatomic) uint32_t project_id;
-@property (assign, nonatomic) uint32_t estimate;
+@property (assign, nonatomic) NSUInteger id;
+@property (assign, nonatomic) NSUInteger project_id;
+@property (assign, nonatomic) NSInteger estimate;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *description;
 @property (copy, nonatomic) NSString *state;

@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface TrackerProject : NSObject {
-        uint32_t id;
-        uint32_t velocity;
+        NSUInteger id;
+        NSInteger velocity;
         NSString *name;
 }
 
 @property (retain, nonatomic) NSString *name;
-@property (assign, nonatomic) uint32_t id;
-@property (assign, nonatomic) uint32_t velocity;
+@property (assign, nonatomic) NSUInteger id;
+@property (assign, nonatomic) NSInteger velocity;
 
 @end

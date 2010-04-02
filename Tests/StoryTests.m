@@ -77,7 +77,7 @@
         TrackerStory *story = [stories objectAtIndex:0];
         STAssertEquals(story.id, 2958790u, nil);
         STAssertEqualObjects(story.type, @"feature", nil);
-        STAssertEquals(story.estimate, 3u, nil);
+        STAssertEquals(story.estimate, 3, nil);
         STAssertEqualObjects(story.state, @"accepted", nil);
         STAssertEqualObjects(story.name, @"Story 1", nil);
         STAssertEqualObjects(story.description, @"This is a first story", nil);

@@ -12,6 +12,7 @@
 @implementation IterationViewController
 
 @synthesize iterations;
+@synthesize tableViewCell;
 
 - (void)setIterations:(NSArray*)newIterations
 {
@@ -94,6 +95,13 @@
         return [iteration.stories count];
 }
 
+// Load the cell from the nib
+- (StoryTableViewCell*)loadCell
+{
+        [[NSBundle mainBundle] loadNibNamed:@"StoryTableViewCell" owner:self options:nil];
+        return self.tableViewCell;
+}
+
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5.0, 5.0, 300.0, 16.0)];
@@ -118,34 +126,46 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-        static NSString *CellIdentifier = @"Cell";
+        static NSString *CellIdentifier = @"StoryTableViewCell";
 
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        StoryTableViewCell *cell = (StoryTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-                cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-                cell.textLabel.numberOfLines = 0;
-                cell.textLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+                /*
+                   cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+                   cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+                   cell.textLabel.numberOfLines = 0;
+                   cell.textLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+                 */
+                cell = [self loadCell];
         }
 
         TrackerIteration *iteration = [iterations objectAtIndex:indexPath.section];
         TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
-        cell.textLabel.text = story.name;
-        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_icon.png", story.type]];
 
+        cell.textLabel.text = story.name;
+        cell.ownerLabel.text = @"JBO";
+        [cell setPoints:story.estimate];
+        [cell setType:story.type];
+        [cell setState:story.state];
 
         return cell;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
+        if (tableViewCell == nil)
+                [self loadCell];
+
         TrackerIteration *iteration = [iterations objectAtIndex:indexPath.section];
         TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
         UIFont *font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
-        CGSize withinSize = CGSizeMake(tableView.frame.size.width - 20, 1000);
+        CGSize withinSize = CGSizeMake(tableViewCell.textLabel.frame.size.width, 1000);
         CGSize size = [story.name sizeWithFont:font constrainedToSize:withinSize lineBreakMode:UILineBreakModeWordWrap];
 
-        return size.height + 20;
+        CGFloat height = size.height + (47 - 34);
+        if (height < 47)
+                height = 47;
+        return height;
 }
 
 /*

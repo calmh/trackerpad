@@ -17,5 +17,6 @@
 @synthesize description;
 @synthesize state;
 @synthesize type;
+@synthesize owner;
 
 @end

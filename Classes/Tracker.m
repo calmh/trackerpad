@@ -180,6 +180,7 @@
                 story.type = [TBXML textForElement:[TBXML childElementNamed:@"story_type" parentElement:storyElement]];
                 story.state = [TBXML textForElement:[TBXML childElementNamed:@"current_state" parentElement:storyElement]];
                 story.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:storyElement]] intValue];
+                story.owner = [TBXML textForElement:[TBXML childElementNamed:@"owned_by" parentElement:storyElement]];
                 TBXMLElement *estimateElement = [TBXML childElementNamed:@"estimate" parentElement:storyElement];
                 if (estimateElement != nil)
                         story.estimate = [[TBXML textForElement:estimateElement] intValue];

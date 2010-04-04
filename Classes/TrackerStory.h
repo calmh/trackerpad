@@ -16,14 +16,16 @@
         NSString *description;
         NSString *state; // TODO: Change this to an enum
         NSString *type; // TODO: Change this to an enum
+        NSString *owner;
 }
 
 @property (assign, nonatomic) NSUInteger id;
 @property (assign, nonatomic) NSUInteger project_id;
 @property (assign, nonatomic) NSInteger estimate;
-@property (copy, nonatomic) NSString *name;
-@property (copy, nonatomic) NSString *description;
-@property (copy, nonatomic) NSString *state;
-@property (copy, nonatomic) NSString *type;
+@property (retain, nonatomic) NSString *name;
+@property (retain, nonatomic) NSString *description;
+@property (retain, nonatomic) NSString *state;
+@property (retain, nonatomic) NSString *type;
+@property (retain, nonatomic) NSString *owner;
 
 @end

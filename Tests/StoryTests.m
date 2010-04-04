@@ -81,6 +81,7 @@
         STAssertEqualObjects(story.state, @"accepted", nil);
         STAssertEqualObjects(story.name, @"Story 1", nil);
         STAssertEqualObjects(story.description, @"This is a first story", nil);
+        STAssertEqualObjects(story.owner, @"Test Testsson", nil);
 
         [tracker release];
 }

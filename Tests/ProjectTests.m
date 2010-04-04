@@ -75,16 +75,50 @@
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
         Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker projects];
-        
+
         TrackerProject *project = [projectList objectAtIndex:0];
         TrackerPerson *person = [[project members] objectAtIndex:0];
-        
+
         STAssertEquals(person.id, 235284u, nil);
         STAssertEqualObjects(person.email, @"ano@nym.se", nil);
         STAssertEqualObjects(person.name, @"Test Testsson", nil);
         STAssertEqualObjects(person.initials, @"TT", nil);
         STAssertEqualObjects(person.role, @"Owner", nil);
-        
+
+        [tracker release];
+}
+
+- (void)testNamedMemberValues
+{
+        NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
+        TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
+        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        NSArray *projectList = [tracker projects];
+
+        TrackerProject *project = [projectList objectAtIndex:0];
+        TrackerPerson *person = [project memberNamed:@"Test Testsson"];
+
+        STAssertEquals(person.id, 235284u, nil);
+        STAssertEqualObjects(person.email, @"ano@nym.se", nil);
+        STAssertEqualObjects(person.name, @"Test Testsson", nil);
+        STAssertEqualObjects(person.initials, @"TT", nil);
+        STAssertEqualObjects(person.role, @"Owner", nil);
+
+        [tracker release];
+}
+
+- (void)testNoSuchMember
+{
+        NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
+        TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
+        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        NSArray *projectList = [tracker projects];
+
+        TrackerProject *project = [projectList objectAtIndex:0];
+        TrackerPerson *person = [project memberNamed:@"No Such"];
+
+        STAssertNil(person, nil);
+
         [tracker release];
 }
 

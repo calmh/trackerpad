@@ -15,4 +15,15 @@
 @synthesize velocity;
 @synthesize members;
 
+- (TrackerPerson*)memberNamed:(NSString*)fullName
+{
+        for (int i = 0; i < [members count]; i++) {
+                TrackerPerson *person = [members objectAtIndex:i];
+                if ([fullName isEqualToString:person.name])
+                        return person;
+        }
+
+        return nil;
+}
+
 @end

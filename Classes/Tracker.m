@@ -9,9 +9,9 @@
 #import "RESTClient.h"
 #import "Tracker.h"
 #import "TrackerIteration.h"
+#import "TrackerPerson.h"
 #import "TrackerProject.h"
 #import "TrackerStory.h"
-#import "TrackerPerson.h"
 
 @interface Tracker (Private)
 
@@ -92,7 +92,7 @@
                 TBXMLElement *membershipElement = [TBXML childElementNamed:@"membership" parentElement:membershipsElement];
                 while (membershipElement != nil) {
                         TrackerPerson *person = [[TrackerPerson alloc] init];
-                        
+
                         TBXMLElement *idElement = [TBXML childElementNamed:@"id" parentElement:membershipElement];
                         person.id = [[TBXML textForElement:idElement] intValue];
                         TBXMLElement *personElement = [TBXML childElementNamed:@"person" parentElement:membershipElement];

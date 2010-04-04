@@ -12,6 +12,7 @@
 @implementation IterationViewController
 
 @synthesize iterations;
+@synthesize project;
 @synthesize tableViewCell;
 
 - (void)setIterations:(NSArray*)newIterations
@@ -143,7 +144,13 @@
         TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
 
         cell.textLabel.text = story.name;
-        cell.ownerLabel.text = @"JBO";
+        if (story.owner == nil)
+                cell.ownerLabel.text = @"";
+        else {
+                TrackerPerson *person = [project memberNamed:story.owner];
+                cell.ownerLabel.text = person.initials;
+        }
+
         [cell setPoints:story.estimate];
         [cell setType:story.type];
         [cell setState:story.state];

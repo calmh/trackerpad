@@ -44,6 +44,7 @@
         // TODO: Handle this in an appropriate way that doesn't leak all over the place.
 
         IterationViewController *curIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
+        curIvc.project = project;
         curIvc.iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
         CGRect detailFrame = [self.view frame];
         CGRect curFrame = [curIvc.view frame];
@@ -51,6 +52,7 @@
         [self.view addSubview:curIvc.view];
 
         IterationViewController *backIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
+        backIvc.project = project;
         backIvc.iterations = [tracker backlogIterationsInProject:project.id];
         CGRect backFrame = [backIvc.view frame];
         backIvc.view.frame = CGRectMake(backFrame.origin.x + detailFrame.size.width / 2, backFrame.origin.y + self.toolbar.frame.size.height, detailFrame.size.width / 2, detailFrame.size.height - self.toolbar.frame.size.height);

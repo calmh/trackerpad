@@ -13,5 +13,6 @@
 @synthesize name;
 @synthesize id;
 @synthesize velocity;
+@synthesize members;
 
 @end

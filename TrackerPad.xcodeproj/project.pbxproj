@@ -12,6 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
+		291CCF7611690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
 		29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29508B79115FD937005B9CAA /* iterations-backlog.xml */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
@@ -72,7 +74,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2982018E115E53E5001D4CC2 /* Tests */;
+			remoteGlobalIDString = 2982018E115E53E5001D4CC2;
 			remoteInfo = Tests;
 		};
 /* End PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		1D6058910D05DD3D006BFB54 /* TrackerPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		291CCF7311690A1C00C6F88F /* TrackerPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPerson.h; sourceTree = "<group>"; };
+		291CCF7411690A1C00C6F88F /* TrackerPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerPerson.m; sourceTree = "<group>"; };
 		29508B79115FD937005B9CAA /* iterations-backlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-backlog.xml"; path = "Tests/iterations-backlog.xml"; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				29AA339C1161150500D4ADB0 /* TrackerIteration.m */,
 				1D3623240D0F684500981E51 /* TrackerPadAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */,
+				291CCF7311690A1C00C6F88F /* TrackerPerson.h */,
+				291CCF7411690A1C00C6F88F /* TrackerPerson.m */,
 				29F98EFE115F905C0072EBB9 /* TrackerProject.h */,
 				29F98EFF115F905C0072EBB9 /* TrackerProject.m */,
 				29F98F81115F99860072EBB9 /* TrackerStory.h */,
@@ -464,6 +470,7 @@
 				29AA34C8116127C200D4ADB0 /* RootViewController.m in Sources */,
 				29F0D89A1161DA6B005E10B3 /* IterationViewController.m in Sources */,
 				29C5F38711668BB200BEAF0F /* StoryTableViewCell.m in Sources */,
+				291CCF7611690A1C00C6F88F /* TrackerPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +490,7 @@
 				29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */,
 				29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */,
 				29AA339D1161150500D4ADB0 /* TrackerIteration.m in Sources */,
+				291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "TrackerIteration.h"
 #import "TrackerProject.h"
 #import "TrackerStory.h"
+#import "TrackerPerson.h"
 
 @interface Tracker (Private)
 
@@ -85,6 +86,26 @@
                 project.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:projectElement]];
                 project.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:projectElement]] intValue];
                 project.velocity = [[TBXML textForElement:[TBXML childElementNamed:@"current_velocity" parentElement:projectElement]] intValue];
+
+                NSMutableArray *members = [[NSMutableArray alloc] init];
+                TBXMLElement *membershipsElement = [TBXML childElementNamed:@"memberships" parentElement:projectElement];
+                TBXMLElement *membershipElement = [TBXML childElementNamed:@"membership" parentElement:membershipsElement];
+                while (membershipElement != nil) {
+                        TrackerPerson *person = [[TrackerPerson alloc] init];
+                        
+                        TBXMLElement *idElement = [TBXML childElementNamed:@"id" parentElement:membershipElement];
+                        person.id = [[TBXML textForElement:idElement] intValue];
+                        TBXMLElement *personElement = [TBXML childElementNamed:@"person" parentElement:membershipElement];
+                        person.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:personElement]];
+                        person.email = [TBXML textForElement:[TBXML childElementNamed:@"email" parentElement:personElement]];
+                        person.initials = [TBXML textForElement:[TBXML childElementNamed:@"initials" parentElement:personElement]];
+                        person.role = [TBXML textForElement:[TBXML childElementNamed:@"role" parentElement:membershipElement]];
+
+                        [members addObject:person];
+                        membershipElement = [TBXML nextSiblingNamed:@"membership" searchFromElement:membershipElement];
+                }
+                project.members = members;
+                [members release];
 
                 [projects addObject:project];
                 [project release];

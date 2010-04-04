@@ -12,10 +12,12 @@
         NSUInteger id;
         NSInteger velocity;
         NSString *name;
+        NSArray *members;
 }
 
 @property (retain, nonatomic) NSString *name;
 @property (assign, nonatomic) NSUInteger id;
 @property (assign, nonatomic) NSInteger velocity;
+@property (retain, nonatomic) NSArray *members;
 
 @end

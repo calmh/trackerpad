@@ -27,6 +27,7 @@
         [tracker release];
 }
 
+#ifdef DO_WEB_TESTS
 - (void)testGetTokenFromWeb
 {
         Tracker *tracker = [[Tracker alloc] init];
@@ -37,4 +38,5 @@
         [tracker release];
 }
 
+#endif
 @end

@@ -22,6 +22,7 @@ typedef enum {
         UIView *containerView;
         UISegmentedControl *iterationsSelector;
         NSArray *iterations;
+        NSInteger index;
         TrackerProject *project;
         StoryTableViewCell *tableViewCell;
 }
@@ -31,6 +32,7 @@ typedef enum {
 @property (nonatomic, retain) NSArray *iterations;
 @property (nonatomic, retain) TrackerProject *project;
 @property (nonatomic, assign) IBOutlet StoryTableViewCell *tableViewCell;
+@property (nonatomic, assign) NSInteger index;
 
 - (void)setIteration:(IterationEnum)iteration;
 - (IBAction)iterationControlChangedValue:(UISegmentedControl*)event;

@@ -17,6 +17,8 @@
 
         TrackerProject *project;
         Tracker *tracker;
+
+        IterationViewController *leftController, *rightController;
 }
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;

@@ -21,4 +21,9 @@
         [window makeKeyAndVisible];
 }
 
+- (void)applicationWillTerminate:(UIApplication*)application
+{
+        [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

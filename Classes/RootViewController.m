@@ -11,6 +11,12 @@
 #import "TrackerPadAppDelegate.h"
 #import "TrackerProject.h"
 
+@interface RootViewController (Private)
+- (void)selectProject:(NSInteger)selectedRow;
+
+@end
+
+
 @implementation RootViewController
 
 @synthesize detailViewController;
@@ -30,8 +36,17 @@
 {
         tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
         projects = [[tracker projects] retain];
+
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
+        NSInteger selectedRow = [defaults integerForKey:key];
+
         [self.tableView reloadData];
         [super viewWillAppear:animated];
+
+        NSIndexPath *path = [NSIndexPath indexPathForRow:selectedRow inSection:0];
+        [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionTop];
+        [self selectProject:selectedRow];
 }
 
 /*
@@ -77,9 +92,8 @@
 
         cellIdentifier = @"ProjectCell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
+        if (cell == nil)
                 cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-        }
 
         cell.textLabel.text = [(TrackerProject*)[[tracker projects] objectAtIndex:indexPath.row] name];
         return cell;
@@ -130,7 +144,17 @@
 
 - (void)tableView:(UITableView*)aTableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-        self.currentProject = [projects objectAtIndex:indexPath.row];
+        NSInteger selectedRow = indexPath.row;
+        [self selectProject:selectedRow];
+}
+
+- (void)selectProject:(NSInteger)selectedRow
+{
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
+        [defaults setInteger:selectedRow forKey:key];
+
+        self.currentProject = [projects objectAtIndex:selectedRow];
         detailViewController.project = self.currentProject;
 }
 

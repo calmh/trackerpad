@@ -13,7 +13,7 @@
 @interface DetailViewController ()
 @property (nonatomic, retain) UIPopoverController *popoverController;
 - (void)configureView;
-- (void)loadIterationsControllerAtOffset:(CGFloat)offset;
+- (IterationViewController*)loadIterationsControllerAtIndex:(NSInteger)index;
 @end
 
 @implementation DetailViewController
@@ -42,26 +42,49 @@
 
 - (void)configureView
 {
-        // TODO: Handle this in an appropriate way that doesn't leak all over the place.
+        if (leftController != nil) {
+                [leftController.containerView removeFromSuperview];
+                [leftController release];
+                leftController = nil;
+                [rightController.containerView removeFromSuperview];
+                [rightController release];
+                rightController = nil;
+        }
+
         NSArray *iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
-        [self loadIterationsControllerAtOffset:0.0];
+        leftController = [self loadIterationsControllerAtIndex:0];
 
         iterations = [tracker backlogIterationsInProject:project.id];
-        [self loadIterationsControllerAtOffset:350.0];
+        rightController = [self loadIterationsControllerAtIndex:1];
 }
 
-- (void)loadIterationsControllerAtOffset:(CGFloat)offset
+- (IterationEnum)getStoredState:(NSInteger)index
+{
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *key = [NSString stringWithFormat:@"iterationsController_state_%u_%d", project.id, index];
+        IterationEnum storedState = [defaults integerForKey:key];
+        return storedState;
+}
+
+- (IterationViewController*)loadIterationsControllerAtIndex:(NSInteger)index
 {
         IterationViewController *controller = [[IterationViewController alloc] initWithNibName:@"IterationView" bundle:[NSBundle mainBundle]];
         controller.view;
         CGRect detailFrame = [self.view frame];
-        controller.containerView.frame = CGRectMake(offset,
+        controller.containerView.frame = CGRectMake(index * 350.0,
                                                     0.0,
                                                     detailFrame.size.width / 2,
                                                     detailFrame.size.height);
         [self.view addSubview:controller.containerView];
         controller.project = project;
-        [controller setIteration:Current];
+        controller.index = index;
+
+        IterationEnum storedState;
+        storedState = [self getStoredState:index];
+
+        [controller setIteration:storedState];
+
+        return controller;
 }
 
 #pragma mark -

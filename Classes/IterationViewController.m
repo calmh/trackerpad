@@ -22,6 +22,7 @@
 @synthesize iterations;
 @synthesize project;
 @synthesize tableViewCell;
+@synthesize index;
 
 - (void)setIteration:(IterationEnum)iteration
 {
@@ -36,6 +37,11 @@
                 self.iterations = [tracker backlogIterationsInProject:project.id];
         else if (iteration == Icebox)
                 self.iterations = [NSArray arrayWithObject:[tracker iceboxIterationInProject:project.id]];
+
+
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *key = [NSString stringWithFormat:@"iterationsController_state_%u_%d", project.id, index];
+        [defaults setInteger:(NSInteger) iteration forKey:key];
 }
 
 - (IBAction)iterationControlChangedValue:(UISegmentedControl*)control

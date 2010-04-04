@@ -7,6 +7,8 @@
 //
 
 #import "IterationViewController.h"
+#import "Tracker.h"
+#import "TrackerPadAppDelegate.h"
 #import "TrackerStory.h"
 
 @interface IterationViewController (Private)
@@ -16,17 +18,31 @@
 @implementation IterationViewController
 
 @synthesize containerView;
+@synthesize iterationsSelector;
 @synthesize iterations;
 @synthesize project;
 @synthesize tableViewCell;
 
-- (void)setIterations:(NSArray*)newIterations
+- (void)setIteration:(IterationEnum)iteration
 {
-        if (newIterations != iterations) {
-                [iterations release];
-                iterations = [newIterations retain];
-                [self.tableView reloadData];
-        }
+        iterationsSelector.selectedSegmentIndex = (NSInteger)iteration;
+
+        Tracker *tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
+        if (iteration == Done)
+                self.iterations = [tracker doneIterationsInProject:project.id];
+        else if (iteration == Current)
+                self.iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
+        else if (iteration == Backlog)
+                self.iterations = [tracker backlogIterationsInProject:project.id];
+        else if (iteration == Icebox)
+                self.iterations = [NSArray arrayWithObject:[tracker iceboxIterationInProject:project.id]];
+}
+
+- (IBAction)iterationControlChangedValue:(UISegmentedControl*)control
+{
+        IterationEnum value = control.selectedSegmentIndex;
+        [self setIteration:value];
+        [self.tableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

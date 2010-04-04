@@ -35,6 +35,8 @@
                 self.backgroundView.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
         else if ([@"started" isEqualToString:state] || [@"finished" isEqualToString:state] || [@"delivered" isEqualToString:state])
                 self.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.9 alpha:1.0];
+        else if ([@"unscheduled" isEqualToString:state])
+                self.backgroundView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:1.0 alpha:1.0];
         else
                 self.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
 }

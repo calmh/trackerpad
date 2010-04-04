@@ -11,16 +11,28 @@
 #import "TrackerProject.h"
 #import <UIKit/UIKit.h>
 
+typedef enum {
+        Done,
+        Current,
+        Backlog,
+        Icebox
+} IterationEnum;
+
 @interface IterationViewController : UITableViewController {
         UIView *containerView;
+        UISegmentedControl *iterationsSelector;
         NSArray *iterations;
         TrackerProject *project;
         StoryTableViewCell *tableViewCell;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *containerView;
+@property (nonatomic, assign) IBOutlet UISegmentedControl *iterationsSelector;
 @property (nonatomic, retain) NSArray *iterations;
 @property (nonatomic, retain) TrackerProject *project;
 @property (nonatomic, assign) IBOutlet StoryTableViewCell *tableViewCell;
+
+- (void)setIteration:(IterationEnum)iteration;
+- (IBAction)iterationControlChangedValue:(UISegmentedControl*)event;
 
 @end

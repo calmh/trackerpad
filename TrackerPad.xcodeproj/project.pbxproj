@@ -15,6 +15,8 @@
 		291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
 		291CCF7611690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
 		291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCFDE1169128800C6F88F /* TBXMLTests.m */; };
+		291CD03211691EDF00C6F88F /* IterationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291CD03111691EDF00C6F88F /* IterationView.xib */; };
+		291CD1C91169336E00C6F88F /* icebox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 291CD1C81169336E00C6F88F /* icebox.xml */; };
 		29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29508B79115FD937005B9CAA /* iterations-backlog.xml */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
@@ -57,8 +59,6 @@
 		29F0D89A1161DA6B005E10B3 /* IterationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F0D8991161DA6B005E10B3 /* IterationViewController.m */; };
 		29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
 		29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
-		29F98F66115F957C0072EBB9 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F64115F957C0072EBB9 /* projects.xml */; };
-		29F98F67115F957C0072EBB9 /* token.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F65115F957C0072EBB9 /* token.xml */; };
 		29F98F68115F957C0072EBB9 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F64115F957C0072EBB9 /* projects.xml */; };
 		29F98F69115F957C0072EBB9 /* token.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F65115F957C0072EBB9 /* token.xml */; };
 		29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F7B115F98E90072EBB9 /* StoryTests.m */; };
@@ -91,6 +91,8 @@
 		291CCF7411690A1C00C6F88F /* TrackerPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerPerson.m; sourceTree = "<group>"; };
 		291CCFDD1169128800C6F88F /* TBXMLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXMLTests.h; path = Tests/TBXMLTests.h; sourceTree = "<group>"; };
 		291CCFDE1169128800C6F88F /* TBXMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLTests.m; path = Tests/TBXMLTests.m; sourceTree = "<group>"; };
+		291CD03111691EDF00C6F88F /* IterationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IterationView.xib; path = Resources/IterationView.xib; sourceTree = "<group>"; };
+		291CD1C81169336E00C6F88F /* icebox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = icebox.xml; path = Tests/icebox.xml; sourceTree = "<group>"; };
 		29508B79115FD937005B9CAA /* iterations-backlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-backlog.xml"; path = "Tests/iterations-backlog.xml"; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		29820212115E5517001D4CC2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				291CD1C81169336E00C6F88F /* icebox.xml */,
 				29508B79115FD937005B9CAA /* iterations-backlog.xml */,
 				29F98FB8115FA23A0072EBB9 /* iterations-current.xml */,
 				29F98FB9115FA23A0072EBB9 /* iterations.xml */,
@@ -325,6 +328,7 @@
 				29AA35001161290E00D4ADB0 /* DetailView.xib */,
 				29AA35011161290E00D4ADB0 /* MainWindow.xib */,
 				29C5F4AA11669E4100BEAF0F /* StoryTableViewCell.xib */,
+				291CD03111691EDF00C6F88F /* IterationView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -401,8 +405,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F98F66115F957C0072EBB9 /* projects.xml in Resources */,
-				29F98F67115F957C0072EBB9 /* token.xml in Resources */,
 				29AA347F116123D800D4ADB0 /* Settings.bundle in Resources */,
 				29AA35131161290E00D4ADB0 /* DetailView.xib in Resources */,
 				29AA35141161290E00D4ADB0 /* MainWindow.xib in Resources */,
@@ -424,6 +426,7 @@
 				29AA35241161290E00D4ADB0 /* 5pt_small.gif in Resources */,
 				29AA35251161290E00D4ADB0 /* 8pt_small.gif in Resources */,
 				29C5F4AB11669E4100BEAF0F /* StoryTableViewCell.xib in Resources */,
+				291CD03211691EDF00C6F88F /* IterationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +439,7 @@
 				29F98FBA115FA23A0072EBB9 /* iterations-current.xml in Resources */,
 				29F98FBB115FA23A0072EBB9 /* iterations.xml in Resources */,
 				29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */,
+				291CD1C91169336E00C6F88F /* icebox.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 @interface DetailViewController ()
 @property (nonatomic, retain) UIPopoverController *popoverController;
 - (void)configureView;
+- (void)loadIterationsControllerAtOffset:(CGFloat)offset;
 @end
 
 @implementation DetailViewController
@@ -42,21 +43,25 @@
 - (void)configureView
 {
         // TODO: Handle this in an appropriate way that doesn't leak all over the place.
+        NSArray *iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
+        [self loadIterationsControllerAtOffset:0.0];
 
-        IterationViewController *curIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
-        curIvc.project = project;
-        curIvc.iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
+        iterations = [tracker backlogIterationsInProject:project.id];
+        [self loadIterationsControllerAtOffset:350.0];
+}
+
+- (void)loadIterationsControllerAtOffset:(CGFloat)offset
+{
+        IterationViewController *controller = [[IterationViewController alloc] initWithNibName:@"IterationView" bundle:[NSBundle mainBundle]];
+        controller.view;
         CGRect detailFrame = [self.view frame];
-        CGRect curFrame = [curIvc.view frame];
-        curIvc.view.frame = CGRectMake(curFrame.origin.x, curFrame.origin.y + self.toolbar.frame.size.height, detailFrame.size.width / 2, detailFrame.size.height - self.toolbar.frame.size.height);
-        [self.view addSubview:curIvc.view];
-
-        IterationViewController *backIvc = [[IterationViewController alloc] initWithStyle:UITableViewStylePlain];
-        backIvc.project = project;
-        backIvc.iterations = [tracker backlogIterationsInProject:project.id];
-        CGRect backFrame = [backIvc.view frame];
-        backIvc.view.frame = CGRectMake(backFrame.origin.x + detailFrame.size.width / 2, backFrame.origin.y + self.toolbar.frame.size.height, detailFrame.size.width / 2, detailFrame.size.height - self.toolbar.frame.size.height);
-        [self.view addSubview:backIvc.view];
+        controller.containerView.frame = CGRectMake(offset,
+                                                    0.0,
+                                                    detailFrame.size.width / 2,
+                                                    detailFrame.size.height);
+        [self.view addSubview:controller.containerView];
+        controller.project = project;
+        [controller setIteration:Current];
 }
 
 #pragma mark -

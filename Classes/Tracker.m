@@ -20,6 +20,7 @@
 - (NSArray*)storiesInStoriesElement:(TBXMLElement*)storiesElement;
 - (TBXML*)xmlForURLString:(NSString*)url withUsername:(NSString*)username andPassword:(NSString*)password;
 - (TBXML*)xmlForURLString:(NSString*)url;
+- (TBXML*)xmlForURLString:(NSString*)urlString andParameters:(NSDictionary*)parameters;
 - (NSURL*)urlForPath:(NSString*)path;
 
 @end
@@ -137,7 +138,8 @@
 
 - (TrackerIteration*)iceboxIterationInProject:(NSUInteger)projectId
 {
-        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/stories?state=unscheduled", projectId]];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/stories", projectId]
+                             andParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"state:unscheduled", @"filter", nil]];
         NSArray *stories = [self storiesInStoriesElement:xml.rootXMLElement];
 
         TrackerIteration *iteration = [[TrackerIteration alloc] init];
@@ -228,6 +230,11 @@
 
 - (TBXML*)xmlForURLString:(NSString*)urlString
 {
+        return [self xmlForURLString:urlString andParameters:nil];
+}
+
+- (TBXML*)xmlForURLString:(NSString*)urlString andParameters:(NSDictionary*)parameters
+{
         if (tbxml != nil)
                 return tbxml;
 
@@ -236,7 +243,7 @@
         client.asynchronous = NO;
         [client sendRequestTo:url
                     usingVerb:@"GET"
-               withParameters:nil
+               withParameters:parameters
                    andHeaders:[NSDictionary dictionaryWithObjectsAndKeys:self.token, @"X-TrackerToken", nil]];
         TBXML *currentTbxml = [[TBXML tbxmlWithXMLData:client.receivedData] retain];
         [client release];

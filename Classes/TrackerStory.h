@@ -10,7 +10,7 @@
 
 @interface TrackerStory : NSObject {
         NSUInteger id;
-        NSUInteger project_id;
+        NSUInteger projectId;
         NSInteger estimate;
         NSString *name;
         NSString *description;
@@ -20,7 +20,7 @@
 }
 
 @property (assign, nonatomic) NSUInteger id;
-@property (assign, nonatomic) NSUInteger project_id;
+@property (assign, nonatomic) NSUInteger projectId;
 @property (assign, nonatomic) NSInteger estimate;
 @property (retain, nonatomic) NSString *name;
 @property (retain, nonatomic) NSString *description;

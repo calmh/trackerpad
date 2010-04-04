@@ -11,7 +11,7 @@
 @implementation TrackerStory
 
 @synthesize id;
-@synthesize project_id;
+@synthesize projectId;
 @synthesize estimate;
 @synthesize name;
 @synthesize description;

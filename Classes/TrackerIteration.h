@@ -17,9 +17,9 @@
         NSDate *finish;
 }
 
-@property (readonly) NSMutableArray *stories;
-@property (assign) uint32_t id;
-@property (assign) uint32_t number;
+@property (retain, nonatomic) NSMutableArray *stories;
+@property (assign) NSUInteger id;
+@property (assign) NSUInteger number;
 @property (retain, nonatomic) NSDate *start;
 @property (retain, nonatomic) NSDate *finish;
 

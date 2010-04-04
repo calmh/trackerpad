@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stories type="array" count="9" total="9">
+  <story>
+    <id type="integer">2958790</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>feature</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958790</url>
+    <estimate type="integer">3</estimate>
+    <current_state>accepted</current_state>
+    <description>This is a first story</description>
+    <name>Story 1</name>
+    <requested_by>Test Testsson</requested_by>
+    <owned_by>Test Testsson</owned_by>
+    <created_at type="datetime">2010/03/28 13:58:25 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 14:00:05 UTC</updated_at>
+    <accepted_at type="datetime">2010/03/28 10:00:00 UTC</accepted_at>
+  </story>
+  <story>
+    <id type="integer">2958791</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>feature</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958791</url>
+    <estimate type="integer">3</estimate>
+    <current_state>delivered</current_state>
+    <description>This is a second story</description>
+    <name>Story 2</name>
+    <requested_by>Test Testsson</requested_by>
+    <owned_by>Test Testsson</owned_by>
+    <created_at type="datetime">2010/03/28 13:58:38 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 13:59:32 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958792</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>feature</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958792</url>
+    <estimate type="integer">3</estimate>
+    <current_state>finished</current_state>
+    <description>This is a third story</description>
+    <name>Story 3</name>
+    <requested_by>Test Testsson</requested_by>
+    <owned_by>Test Testsson</owned_by>
+    <created_at type="datetime">2010/03/28 13:58:52 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 13:59:36 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958794</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>feature</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958794</url>
+    <estimate type="integer">3</estimate>
+    <current_state>started</current_state>
+    <description>This is a fourth story</description>
+    <name>Story 4</name>
+    <requested_by>Test Testsson</requested_by>
+    <owned_by>Test Testsson</owned_by>
+    <created_at type="datetime">2010/03/28 13:59:02 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 13:59:55 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958795</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>feature</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958795</url>
+    <estimate type="integer">3</estimate>
+    <current_state>unstarted</current_state>
+    <description>This is a fifth story</description>
+    <name>Story 5</name>
+    <requested_by>Test Testsson</requested_by>
+    <created_at type="datetime">2010/03/28 13:59:13 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 13:59:52 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958802</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>release</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958802</url>
+    <current_state>unstarted</current_state>
+    <description></description>
+    <name>This is a release</name>
+    <requested_by>Test Testsson</requested_by>
+    <created_at type="datetime">2010/03/28 14:01:15 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 14:01:20 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958799</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>bug</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958799</url>
+    <current_state>unstarted</current_state>
+    <description>This is a bug</description>
+    <name>Bug 1</name>
+    <requested_by>Test Testsson</requested_by>
+    <created_at type="datetime">2010/03/28 14:00:48 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 14:00:51 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958800</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>chore</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958800</url>
+    <current_state>unscheduled</current_state>
+    <description>This is a chore</description>
+    <name>Chore 1</name>
+    <requested_by>Test Testsson</requested_by>
+    <created_at type="datetime">2010/03/28 14:01:00 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 14:01:00 UTC</updated_at>
+  </story>
+  <story>
+    <id type="integer">2958796</id>
+    <project_id type="integer">69227</project_id>
+    <story_type>feature</story_type>
+    <url>http://www.pivotaltracker.com/story/show/2958796</url>
+    <estimate type="integer">3</estimate>
+    <current_state>unscheduled</current_state>
+    <description>This is a sixth story</description>
+    <name>Story 6</name>
+    <requested_by>Test Testsson</requested_by>
+    <created_at type="datetime">2010/03/28 13:59:50 UTC</created_at>
+    <updated_at type="datetime">2010/03/28 13:59:50 UTC</updated_at>
+  </story>
+</stories>

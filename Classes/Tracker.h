@@ -22,8 +22,9 @@
 - (id)initWithToken:(NSString*)token;
 - (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
 - (NSArray*)projects;
-- (TrackerIteration*)currentIterationInProject:(uint32_t)project_id;
-- (NSArray*)doneIterationsInProject:(uint32_t)project_id;
-- (NSArray*)backlogIterationsInProject:(uint32_t)project_id;
+- (TrackerIteration*)currentIterationInProject:(NSUInteger)projectId;
+- (NSArray*)doneIterationsInProject:(NSUInteger)projectId;
+- (NSArray*)backlogIterationsInProject:(NSUInteger)projectId;
+- (TrackerIteration*)iceboxIterationInProject:(NSUInteger)projectId;
 
 @end

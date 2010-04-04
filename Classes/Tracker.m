@@ -16,7 +16,8 @@
 @interface Tracker (Private)
 
 - (NSArray*)iterationsInXML:(TBXML*)xml;
-- (NSArray*)storiesInIteration:(TBXMLElement*)iterationElement;
+- (NSArray*)storiesInIterationElement:(TBXMLElement*)iterationElement;
+- (NSArray*)storiesInStoriesElement:(TBXMLElement*)storiesElement;
 - (TBXML*)xmlForURLString:(NSString*)url withUsername:(NSString*)username andPassword:(NSString*)password;
 - (TBXML*)xmlForURLString:(NSString*)url;
 - (NSURL*)urlForPath:(NSString*)path;
@@ -116,22 +117,36 @@
         return [projects autorelease];
 }
 
-- (TrackerIteration*)currentIterationInProject:(uint32_t)project_id
+- (TrackerIteration*)currentIterationInProject:(NSUInteger)projectId
 {
-        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/current", project_id]];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/current", projectId]];
         return [[self iterationsInXML:xml] objectAtIndex:0];
 }
 
-- (NSArray*)doneIterationsInProject:(uint32_t)project_id
+- (NSArray*)doneIterationsInProject:(NSUInteger)projectId
 {
-        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/done", project_id]];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/done", projectId]];
         return [self iterationsInXML:xml];
 }
 
-- (NSArray*)backlogIterationsInProject:(uint32_t)project_id
+- (NSArray*)backlogIterationsInProject:(NSUInteger)projectId
 {
-        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/backlog", project_id]];
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/backlog", projectId]];
         return [self iterationsInXML:xml];
+}
+
+- (TrackerIteration*)iceboxIterationInProject:(NSUInteger)projectId
+{
+        TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/stories?state=unscheduled", projectId]];
+        NSArray *stories = [self storiesInStoriesElement:xml.rootXMLElement];
+
+        TrackerIteration *iteration = [[TrackerIteration alloc] init];
+        iteration.id = 0;
+        iteration.number = 0;
+        iteration.start = [NSDate date];
+        iteration.finish = [NSDate date];
+        iteration.stories = stories;
+        return iteration;
 }
 
 #pragma mark Private functions
@@ -155,7 +170,7 @@
                 iteration.start = [dateFormatter dateFromString:[TBXML textForElement:[TBXML childElementNamed:@"start" parentElement:iterationElement]]];
                 iteration.finish = [dateFormatter dateFromString:[TBXML textForElement:[TBXML childElementNamed:@"finish" parentElement:iterationElement]]];
 
-                NSArray *stories = [self storiesInIteration:iterationElement];
+                NSArray *stories = [self storiesInIterationElement:iterationElement];
                 [iteration addStoriesFromArray:stories];
                 [iterations addObject:iteration];
                 [iteration release];
@@ -166,11 +181,15 @@
         return [iterations autorelease];
 }
 
-- (NSArray*)storiesInIteration:(TBXMLElement*)iterationElement
+- (NSArray*)storiesInIterationElement:(TBXMLElement*)iterationElement
+{
+        TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
+        return [self storiesInStoriesElement:storiesElement];
+}
+
+- (NSArray*)storiesInStoriesElement:(TBXMLElement*)storiesElement
 {
         NSMutableArray *stories = [[NSMutableArray alloc] init];
-        TBXMLElement *storiesElement = [TBXML childElementNamed:@"stories" parentElement:iterationElement];
-
         TBXMLElement *storyElement = [TBXML childElementNamed:@"story" parentElement:storiesElement];
         while (storyElement != nil) {
                 TrackerStory *story = [[TrackerStory alloc] init];
@@ -190,7 +209,6 @@
 
                 storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
         }
-
         return [stories autorelease];
 }
 

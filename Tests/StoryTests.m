@@ -66,6 +66,19 @@
         [tracker release];
 }
 
+- (void)testIceboxStoriesShouldBeNine
+{
+        NSString *filename = [NSString stringWithFormat:@"%@/icebox.xml", [self bundlePath]];
+        TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
+        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerIteration *iteration = [tracker iceboxIterationInProject:0];
+        NSArray *stories = iteration.stories;
+
+        STAssertEquals([stories count], 9u, nil);
+
+        [tracker release];
+}
+
 - (void)testFirstOfCurrentStoriesValues
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];

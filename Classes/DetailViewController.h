@@ -6,10 +6,12 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
-#import "IterationViewController.h"
-#import "Tracker.h"
-#import "TrackerProject.h"
 #import <UIKit/UIKit.h>
+
+@class IterationViewController;
+@class Tracker;
+@class TrackerPadAppDelegate;
+@class TrackerProject;
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
         UIPopoverController *popoverController;
@@ -19,6 +21,7 @@
         Tracker *tracker;
 
         IterationViewController *leftController, *rightController;
+        TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;

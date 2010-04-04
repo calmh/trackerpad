@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "RootViewController.h"
+#import "Tracker.h"
 #import "TrackerPadAppDelegate.h"
 #import "TrackerProject.h"
 
@@ -30,6 +31,7 @@
         [super viewDidLoad];
         self.clearsSelectionOnViewWillAppear = NO;
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+        delegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -37,13 +39,10 @@
         tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
         projects = [[tracker projects] retain];
 
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
-        NSInteger selectedRow = [defaults integerForKey:key];
-
         [self.tableView reloadData];
         [super viewWillAppear:animated];
 
+        NSInteger selectedRow = delegate.defaultProject;
         NSIndexPath *path = [NSIndexPath indexPathForRow:selectedRow inSection:0];
         [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionTop];
         [self selectProject:selectedRow];
@@ -145,15 +144,12 @@
 - (void)tableView:(UITableView*)aTableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
         NSInteger selectedRow = indexPath.row;
+        delegate.defaultProject = selectedRow;
         [self selectProject:selectedRow];
 }
 
 - (void)selectProject:(NSInteger)selectedRow
 {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
-        [defaults setInteger:selectedRow forKey:key];
-
         self.currentProject = [projects objectAtIndex:selectedRow];
         detailViewController.project = self.currentProject;
 }

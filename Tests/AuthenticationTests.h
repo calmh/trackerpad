@@ -5,7 +5,6 @@
 //  Created by Jakob Borg on 3/27/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 
-#import "TBXML.h"
 #import "TrackerPadTest.h"
 
 @interface AuthenticationTests : TrackerPadTest {}

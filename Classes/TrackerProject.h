@@ -6,8 +6,9 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "TrackerPerson.h"
 #import <Foundation/Foundation.h>
+
+@class TrackerPerson;
 
 @interface TrackerProject : NSObject {
         NSUInteger id;

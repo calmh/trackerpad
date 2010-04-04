@@ -6,6 +6,7 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
+#import "TBXML.h"
 #import "TBXMLTests.h"
 
 @implementation TBXMLTests

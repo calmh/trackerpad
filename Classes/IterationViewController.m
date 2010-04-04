@@ -7,8 +7,12 @@
 //
 
 #import "IterationViewController.h"
+#import "StoryTableViewCell.h"
 #import "Tracker.h"
+#import "TrackerIteration.h"
 #import "TrackerPadAppDelegate.h"
+#import "TrackerPerson.h"
+#import "TrackerProject.h"
 #import "TrackerStory.h"
 
 @interface IterationViewController (Private)
@@ -24,6 +28,12 @@
 @synthesize tableViewCell;
 @synthesize index;
 
+- (void)viewDidLoad
+{
+        [super viewDidLoad];
+        delegate = [[UIApplication sharedApplication] delegate];
+}
+
 - (void)setIteration:(IterationEnum)iteration
 {
         iterationsSelector.selectedSegmentIndex = (NSInteger)iteration;
@@ -38,10 +48,7 @@
         else if (iteration == Icebox)
                 self.iterations = [NSArray arrayWithObject:[tracker iceboxIterationInProject:project.id]];
 
-
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *key = [NSString stringWithFormat:@"iterationsController_state_%u_%d", project.id, index];
-        [defaults setInteger:(NSInteger) iteration forKey:key];
+        [delegate setDefaultState:iteration forProject:project.id andPane:index];
 }
 
 - (IBAction)iterationControlChangedValue:(UISegmentedControl*)control

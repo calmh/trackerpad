@@ -6,15 +6,17 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
-#import "DetailViewController.h"
-#import "RootViewController.h"
-#import "Tracker.h"
 #import <UIKit/UIKit.h>
 
+@class DetailViewController;
+@class IterationViewController;
+@class RootViewController;
+@class Tracker;
 @class TrackerPadViewController;
 
 @interface TrackerPadAppDelegate : NSObject <UIApplicationDelegate> {
         Tracker *tracker;
+        NSUserDefaults *defaults;
 
         UIWindow *window;
         UISplitViewController *splitViewController;
@@ -27,5 +29,9 @@
 @property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
+@property NSInteger defaultProject;
+
+- (NSInteger)defaultStateForProject:(NSInteger)project andPane:(NSInteger)index;
+- (void)setDefaultState:(NSInteger)value forProject:(NSInteger)project andPane:(NSInteger)index;
 
 @end

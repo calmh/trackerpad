@@ -6,17 +6,19 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
-#import "Tracker.h"
-#import "TrackerProject.h"
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class Tracker;
+@class TrackerPadAppDelegate;
+@class TrackerProject;
 
 @interface RootViewController : UITableViewController {
         DetailViewController *detailViewController;
         Tracker *tracker;
         NSArray *projects;
         TrackerProject *currentProject;
+        TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;

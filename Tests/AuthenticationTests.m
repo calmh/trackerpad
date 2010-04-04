@@ -7,6 +7,7 @@
 //
 
 #import "AuthenticationTests.h"
+#import "TBXML.h"
 #import "Tracker.h"
 
 @implementation AuthenticationTests

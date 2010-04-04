@@ -6,10 +6,11 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "StoryTableViewCell.h"
-#import "TrackerIteration.h"
-#import "TrackerProject.h"
 #import <UIKit/UIKit.h>
+
+@class StoryTableViewCell;
+@class TrackerPadAppDelegate;
+@class TrackerProject;
 
 typedef enum {
         Done,
@@ -25,6 +26,7 @@ typedef enum {
         NSInteger index;
         TrackerProject *project;
         StoryTableViewCell *tableViewCell;
+        TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *containerView;

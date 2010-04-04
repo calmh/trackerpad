@@ -7,6 +7,7 @@
 //
 
 #import "StoryTests.h"
+#import "TBXML.h"
 #import "Tracker.h"
 #import "TrackerIteration.h"
 #import "TrackerStory.h"

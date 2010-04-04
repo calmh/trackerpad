@@ -7,8 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import "IterationViewController.h"
 #import "RootViewController.h"
+#import "Tracker.h"
 #import "TrackerPadAppDelegate.h"
+#import "TrackerProject.h"
 
 @interface DetailViewController ()
 @property (nonatomic, retain) UIPopoverController *popoverController;
@@ -58,14 +61,6 @@
         rightController = [self loadIterationsControllerAtIndex:1];
 }
 
-- (IterationEnum)getStoredState:(NSInteger)index
-{
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *key = [NSString stringWithFormat:@"iterationsController_state_%u_%d", project.id, index];
-        IterationEnum storedState = [defaults integerForKey:key];
-        return storedState;
-}
-
 - (IterationViewController*)loadIterationsControllerAtIndex:(NSInteger)index
 {
         IterationViewController *controller = [[IterationViewController alloc] initWithNibName:@"IterationView" bundle:[NSBundle mainBundle]];
@@ -79,9 +74,7 @@
         controller.project = project;
         controller.index = index;
 
-        IterationEnum storedState;
-        storedState = [self getStoredState:index];
-
+        IterationEnum storedState = [delegate defaultStateForProject:project.id andPane:index];
         [controller setIteration:storedState];
 
         return controller;
@@ -122,13 +115,12 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
-   // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-   - (void)viewDidLoad {
-   [super viewDidLoad];
-   }
- */
 
+- (void)viewDidLoad
+{
+        [super viewDidLoad];
+        delegate = [[UIApplication sharedApplication] delegate];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {

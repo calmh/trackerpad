@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface StoryTableViewCell : UITableViewCell {
         UILabel *textLabel;
         UILabel *ownerLabel;

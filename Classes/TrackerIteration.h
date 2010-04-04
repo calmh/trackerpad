@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface TrackerIteration : NSObject {
         NSMutableArray *stories;
         NSUInteger id;

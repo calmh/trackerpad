@@ -7,6 +7,7 @@
 //
 
 #import "RESTClient.h"
+#import "TBXML.h"
 #import "Tracker.h"
 #import "TrackerIteration.h"
 #import "TrackerPerson.h"

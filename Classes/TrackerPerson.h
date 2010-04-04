@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface TrackerPerson : NSObject {
         NSUInteger id;
         NSString *name;

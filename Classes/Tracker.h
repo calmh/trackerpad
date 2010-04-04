@@ -6,9 +6,10 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "TBXML.h"
-#import "TrackerIteration.h"
 #import <Foundation/Foundation.h>
+
+@class TrackerIteration;
+@class TBXML;
 
 @interface Tracker : NSObject {
         TBXML *tbxml;

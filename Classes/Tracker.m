@@ -148,7 +148,7 @@
         iteration.number = 0;
         iteration.start = [NSDate date];
         iteration.finish = [NSDate date];
-        iteration.stories = stories;
+        [iteration addStoriesFromArray:stories];
         return iteration;
 }
 

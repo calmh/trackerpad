@@ -13,29 +13,23 @@
 #import "TrackerPadAppDelegate.h"
 #import "TrackerProject.h"
 
-@interface DetailViewController ()
-@property (nonatomic, retain) UIPopoverController *popoverController;
+@interface DetailViewController (Private)
+
 - (void)configureView;
 - (IterationViewController*)loadIterationsControllerAtIndex:(NSInteger)index;
+
 @end
 
 @implementation DetailViewController
 
 @synthesize toolbar, popoverController, project;
 
-#pragma mark -
-#pragma mark Managing the detail item
-
-/*
-   When setting the detail item, update the view and dismiss the popover controller if it's showing.
- */
 - (void)setProject:(TrackerProject*)newProject
 {
         if (project != newProject) {
                 [project release];
                 project = [newProject retain];
 
-                // Update the view.
                 [self configureView];
         }
 
@@ -43,15 +37,65 @@
                 [popoverController dismissPopoverAnimated:YES];
 }
 
+- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController*)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc
+{
+        barButtonItem.title = @"Root List";
+        NSMutableArray *items = [[toolbar items] mutableCopy];
+        [items insertObject:barButtonItem atIndex:0];
+        [toolbar setItems:items animated:YES];
+        [items release];
+        self.popoverController = pc;
+}
+
+- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController*)aViewController invalidatingBarButtonItem:(UIBarButtonItem*)barButtonItem
+{
+        NSMutableArray *items = [[toolbar items] mutableCopy];
+        [items removeObjectAtIndex:0];
+        [toolbar setItems:items animated:YES];
+        [items release];
+        self.popoverController = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+        return YES;
+}
+
+- (void)viewDidLoad
+{
+        [super viewDidLoad];
+        delegate = [[UIApplication sharedApplication] delegate];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
+        [super viewWillAppear:animated];
+}
+
+- (void)viewDidUnload
+{
+        self.popoverController = nil;
+}
+
+- (void)dealloc
+{
+        [popoverController release];
+        [toolbar release];
+
+        [super dealloc];
+}
+
+// Private methods below
+
 - (void)configureView
 {
         if (leftController != nil) {
                 [leftController.containerView removeFromSuperview];
                 [leftController release];
-                leftController = nil;
+
                 [rightController.containerView removeFromSuperview];
                 [rightController release];
-                rightController = nil;
         }
 
         NSArray *iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
@@ -78,69 +122,6 @@
         [controller setIteration:storedState];
 
         return controller;
-}
-
-#pragma mark -
-#pragma mark Split view support
-
-- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController*)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc
-{
-        barButtonItem.title = @"Root List";
-        NSMutableArray *items = [[toolbar items] mutableCopy];
-        [items insertObject:barButtonItem atIndex:0];
-        [toolbar setItems:items animated:YES];
-        [items release];
-        self.popoverController = pc;
-}
-
-// Called when the view is shown again in the split view, invalidating the button and popover controller.
-- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController*)aViewController invalidatingBarButtonItem:(UIBarButtonItem*)barButtonItem
-{
-        NSMutableArray *items = [[toolbar items] mutableCopy];
-        [items removeObjectAtIndex:0];
-        [toolbar setItems:items animated:YES];
-        [items release];
-        self.popoverController = nil;
-}
-
-#pragma mark -
-#pragma mark Rotation support
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-        return YES;
-}
-
-#pragma mark -
-#pragma mark View lifecycle
-
-
-- (void)viewDidLoad
-{
-        [super viewDidLoad];
-        delegate = [[UIApplication sharedApplication] delegate];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
-        [super viewWillAppear:animated];
-}
-
-- (void)viewDidUnload
-{
-        self.popoverController = nil;
-}
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)dealloc
-{
-        [popoverController release];
-        [toolbar release];
-
-        [super dealloc];
 }
 
 @end

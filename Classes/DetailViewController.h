@@ -16,16 +16,14 @@
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
         UIPopoverController *popoverController;
         UIToolbar *toolbar;
-
         TrackerProject *project;
         Tracker *tracker;
-
         IterationViewController *leftController, *rightController;
         TrackerPadAppDelegate *delegate;
 }
 
+@property (nonatomic, retain) UIPopoverController *popoverController;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-
 @property (assign) TrackerProject *project;
 
 @end

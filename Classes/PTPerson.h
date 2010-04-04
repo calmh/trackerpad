@@ -1,5 +1,5 @@
 //
-//  TrackerPerson.h
+//  PTPerson.h
 //  TrackerPad
 //
 //  Created by Jakob Borg on 4/4/10.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TrackerPerson : NSObject {
+@interface PTPerson : NSObject {
         NSUInteger id;
         NSString *name;
         NSString *email;

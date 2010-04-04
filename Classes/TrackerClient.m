@@ -1,29 +1,29 @@
 //
-//  Tracker.m
+//  TrackerClient.m
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/27/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
+#import "PTIteration.h"
+#import "PTPerson.h"
+#import "PTProject.h"
+#import "PTStory.h"
 #import "RESTClient.h"
 #import "TBXML.h"
-#import "Tracker.h"
-#import "TrackerIteration.h"
-#import "TrackerPerson.h"
-#import "TrackerProject.h"
-#import "TrackerStory.h"
+#import "TrackerClient.h"
 
-@interface Tracker (Private)
+@interface TrackerClient (Private)
 
-- (TrackerProject*)projectInProjectElement:(TBXMLElement*)projectElement;
+- (PTProject*)projectInProjectElement:(TBXMLElement*)projectElement;
 - (NSArray*)membersInProjectElement:(TBXMLElement*)projectElement;
-- (TrackerPerson*)personInMembershipElement:(TBXMLElement*)membershipElement;
+- (PTPerson*)personInMembershipElement:(TBXMLElement*)membershipElement;
 - (NSArray*)iterationsInXML:(TBXML*)xml;
-- (TrackerIteration*)iterationInIterationElement:(TBXMLElement*)iterationElement;
+- (PTIteration*)iterationInIterationElement:(TBXMLElement*)iterationElement;
 - (NSArray*)storiesInIterationElement:(TBXMLElement*)iterationElement;
 - (NSArray*)storiesInStoriesElement:(TBXMLElement*)storiesElement;
-- (TrackerStory*)storyInStoryElement:(TBXMLElement*)storyElement;
+- (PTStory*)storyInStoryElement:(TBXMLElement*)storyElement;
 - (NSURL*)urlForPath:(NSString*)path;
 - (TBXML*)xmlForURLString:(NSString*)url;
 - (TBXML*)xmlForURLString:(NSString*)urlString andParameters:(NSDictionary*)parameters;
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation Tracker
+@implementation TrackerClient
 
 @synthesize token;
 
@@ -88,7 +88,7 @@
 
         TBXMLElement *projectElement = [TBXML childElementNamed:@"project" parentElement:rootElement];
         while (projectElement != nil) {
-                TrackerProject *project = [self projectInProjectElement:projectElement];
+                PTProject *project = [self projectInProjectElement:projectElement];
                 [projects addObject:project];
                 projectElement = [TBXML nextSiblingNamed:@"project" searchFromElement:projectElement];
         }
@@ -96,7 +96,7 @@
         return [projects autorelease];
 }
 
-- (TrackerIteration*)currentIterationInProject:(NSUInteger)projectId
+- (PTIteration*)currentIterationInProject:(NSUInteger)projectId
 {
         TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/iterations/current", projectId]];
         return [[self iterationsInXML:xml] objectAtIndex:0];
@@ -114,13 +114,13 @@
         return [self iterationsInXML:xml];
 }
 
-- (TrackerIteration*)iceboxIterationInProject:(NSUInteger)projectId
+- (PTIteration*)iceboxIterationInProject:(NSUInteger)projectId
 {
         TBXML *xml = [self xmlForURLString:[NSString stringWithFormat:@"projects/%d/stories", projectId]
                              andParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"state:unscheduled", @"filter", nil]];
         NSArray *stories = [self storiesInStoriesElement:xml.rootXMLElement];
 
-        TrackerIteration *iteration = [[TrackerIteration alloc] init];
+        PTIteration *iteration = [[PTIteration alloc] init];
         iteration.id = 0;
         iteration.number = 0;
         iteration.start = [NSDate date];
@@ -131,10 +131,10 @@
 
 // Private methods below
 
-- (TrackerProject*)projectInProjectElement:(TBXMLElement*)projectElement
+- (PTProject*)projectInProjectElement:(TBXMLElement*)projectElement
 {
         assert(projectElement != nil);
-        TrackerProject *project = [[TrackerProject alloc] init];
+        PTProject *project = [[PTProject alloc] init];
 
         project.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:projectElement]];
         project.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:projectElement]] intValue];
@@ -152,7 +152,7 @@
         TBXMLElement *membershipsElement = [TBXML childElementNamed:@"memberships" parentElement:projectElement];
         TBXMLElement *membershipElement = [TBXML childElementNamed:@"membership" parentElement:membershipsElement];
         while (membershipElement != nil) {
-                TrackerPerson *person = [self personInMembershipElement:membershipElement];
+                PTPerson *person = [self personInMembershipElement:membershipElement];
                 [members addObject:person];
                 membershipElement = [TBXML nextSiblingNamed:@"membership" searchFromElement:membershipElement];
         }
@@ -160,10 +160,10 @@
         return [members autorelease];
 }
 
-- (TrackerPerson*)personInMembershipElement:(TBXMLElement*)membershipElement
+- (PTPerson*)personInMembershipElement:(TBXMLElement*)membershipElement
 {
         assert(membershipElement != nil);
-        TrackerPerson *person = [[TrackerPerson alloc] init];
+        PTPerson *person = [[PTPerson alloc] init];
 
         TBXMLElement *idElement = [TBXML childElementNamed:@"id" parentElement:membershipElement];
         person.id = [[TBXML textForElement:idElement] intValue];
@@ -185,7 +185,7 @@
         NSMutableArray *iterations = [[NSMutableArray alloc] init];
         TBXMLElement *iterationElement = [TBXML childElementNamed:@"iteration" parentElement:rootElement];
         while (iterationElement != nil) {
-                TrackerIteration *iteration = [self iterationInIterationElement:iterationElement];
+                PTIteration *iteration = [self iterationInIterationElement:iterationElement];
                 [iterations addObject:iteration];
                 iterationElement = [TBXML nextSiblingNamed:@"iteration" searchFromElement:iterationElement];
         }
@@ -193,7 +193,7 @@
         return [iterations autorelease];
 }
 
-- (TrackerIteration*)iterationInIterationElement:(TBXMLElement*)iterationElement
+- (PTIteration*)iterationInIterationElement:(TBXMLElement*)iterationElement
 {
         static NSDateFormatter *dateFormatter = nil;
         if (dateFormatter == nil) {
@@ -203,7 +203,7 @@
         }
 
         assert(iterationElement != nil);
-        TrackerIteration *iteration = [[TrackerIteration alloc] init];
+        PTIteration *iteration = [[PTIteration alloc] init];
 
         iteration.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:iterationElement]] intValue];
         iteration.number = [[TBXML textForElement:[TBXML childElementNamed:@"number" parentElement:iterationElement]] intValue];
@@ -229,17 +229,17 @@
         NSMutableArray *stories = [[NSMutableArray alloc] init];
         TBXMLElement *storyElement = [TBXML childElementNamed:@"story" parentElement:storiesElement];
         while (storyElement != nil) {
-                TrackerStory *story = [self storyInStoryElement:storyElement];
+                PTStory *story = [self storyInStoryElement:storyElement];
                 [stories addObject:story];
                 storyElement = [TBXML nextSiblingNamed:@"story" searchFromElement:storyElement];
         }
         return [stories autorelease];
 }
 
-- (TrackerStory*)storyInStoryElement:(TBXMLElement*)storyElement
+- (PTStory*)storyInStoryElement:(TBXMLElement*)storyElement
 {
         assert(storyElement != nil);
-        TrackerStory *story = [[TrackerStory alloc] init];
+        PTStory *story = [[PTStory alloc] init];
 
         story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
         story.description = [TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]];

@@ -1,5 +1,5 @@
 //
-//  Tracker.h
+//  TrackerClient.h
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/27/10.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class TrackerIteration;
+@class PTIteration;
 @class TBXML;
 
-@interface Tracker : NSObject {
+@interface TrackerClient : NSObject {
         TBXML *tbxml;
         NSString *token;
 }
@@ -23,9 +23,9 @@
 - (id)initWithToken:(NSString*)token;
 - (NSString*)getTokenForUsername:(NSString*)username andPassword:(NSString*)password;
 - (NSArray*)projects;
-- (TrackerIteration*)currentIterationInProject:(NSUInteger)projectId;
+- (PTIteration*)currentIterationInProject:(NSUInteger)projectId;
 - (NSArray*)doneIterationsInProject:(NSUInteger)projectId;
 - (NSArray*)backlogIterationsInProject:(NSUInteger)projectId;
-- (TrackerIteration*)iceboxIterationInProject:(NSUInteger)projectId;
+- (PTIteration*)iceboxIterationInProject:(NSUInteger)projectId;
 
 @end

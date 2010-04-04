@@ -6,11 +6,11 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
+#import "PTPerson.h"
+#import "PTProject.h"
 #import "ProjectTests.h"
 #import "TBXML.h"
-#import "Tracker.h"
-#import "TrackerPerson.h"
-#import "TrackerProject.h"
+#import "TrackerClient.h"
 
 @implementation ProjectTests
 
@@ -18,7 +18,7 @@
 
 - (void)tearDown {}
 
-- (void)verifyTestProject:(TrackerProject*)project
+- (void)verifyTestProject:(PTProject*)project
 {
         STAssertEquals(project.id, 69227u, nil);
         STAssertEqualObjects(project.name, @"Test project", nil);
@@ -29,11 +29,11 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker projects];
 
         STAssertEquals([projectList count], 1u, nil);
-        TrackerProject *project = [projectList objectAtIndex:0];
+        PTProject *project = [projectList objectAtIndex:0];
         [self verifyTestProject:project];
 
         [tracker release];
@@ -42,12 +42,12 @@
 #ifdef DO_WEB_TESTS
 - (void)testGetProjectListFromWeb
 {
-        Tracker *tracker = [[Tracker alloc] initWithToken:@"b590dc2ef47a9bdcead1a5d1d128c18f"];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithToken:@"b590dc2ef47a9bdcead1a5d1d128c18f"];
         NSArray *projectList = [tracker projects];
 
         STAssertEquals([projectList count], 1u, nil);
 
-        TrackerProject *project = [projectList objectAtIndex:0];
+        PTProject *project = [projectList objectAtIndex:0];
         [self verifyTestProject:project];
 
         [tracker release];
@@ -59,12 +59,12 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker projects];
 
-        TrackerProject *project = [projectList objectAtIndex:0];
+        PTProject *project = [projectList objectAtIndex:0];
         STAssertEquals([[project members] count], 1u, nil);
-        //TrackerPerson *person = [[project members] objectAtIndex:0];
+        //PTPerson *person = [[project members] objectAtIndex:0];
 
         [tracker release];
 }
@@ -73,11 +73,11 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker projects];
 
-        TrackerProject *project = [projectList objectAtIndex:0];
-        TrackerPerson *person = [[project members] objectAtIndex:0];
+        PTProject *project = [projectList objectAtIndex:0];
+        PTPerson *person = [[project members] objectAtIndex:0];
 
         STAssertEquals(person.id, 235284u, nil);
         STAssertEqualObjects(person.email, @"ano@nym.se", nil);
@@ -92,11 +92,11 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker projects];
 
-        TrackerProject *project = [projectList objectAtIndex:0];
-        TrackerPerson *person = [project memberNamed:@"Test Testsson"];
+        PTProject *project = [projectList objectAtIndex:0];
+        PTPerson *person = [project memberNamed:@"Test Testsson"];
 
         STAssertEquals(person.id, 235284u, nil);
         STAssertEqualObjects(person.email, @"ano@nym.se", nil);
@@ -111,11 +111,11 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/projects.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *projectList = [tracker projects];
 
-        TrackerProject *project = [projectList objectAtIndex:0];
-        TrackerPerson *person = [project memberNamed:@"No Such"];
+        PTProject *project = [projectList objectAtIndex:0];
+        PTPerson *person = [project memberNamed:@"No Such"];
 
         STAssertNil(person, nil);
 

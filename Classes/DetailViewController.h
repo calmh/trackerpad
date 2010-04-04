@@ -9,21 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @class IterationViewController;
-@class Tracker;
+@class TrackerClient;
 @class TrackerPadAppDelegate;
-@class TrackerProject;
+@class PTProject;
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
         UIPopoverController *popoverController;
         UIToolbar *toolbar;
-        TrackerProject *project;
-        Tracker *tracker;
+        PTProject *project;
+        TrackerClient *tracker;
         IterationViewController *leftController, *rightController;
         TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) UIPopoverController *popoverController;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (assign) TrackerProject *project;
+@property (assign) PTProject *project;
 
 @end

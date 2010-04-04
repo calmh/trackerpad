@@ -11,11 +11,11 @@
 @class DetailViewController;
 @class IterationViewController;
 @class RootViewController;
-@class Tracker;
+@class TrackerClient;
 @class TrackerPadViewController;
 
 @interface TrackerPadAppDelegate : NSObject <UIApplicationDelegate> {
-        Tracker *tracker;
+        TrackerClient *tracker;
         NSUserDefaults *defaults;
 
         UIWindow *window;
@@ -24,7 +24,7 @@
         DetailViewController *detailViewController;
 }
 
-@property (nonatomic, retain) Tracker *tracker;
+@property (nonatomic, retain) TrackerClient *tracker;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;

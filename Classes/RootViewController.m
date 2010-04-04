@@ -7,10 +7,10 @@
 //
 
 #import "DetailViewController.h"
+#import "PTProject.h"
 #import "RootViewController.h"
-#import "Tracker.h"
+#import "TrackerClient.h"
 #import "TrackerPadAppDelegate.h"
-#import "TrackerProject.h"
 
 @interface RootViewController (Private)
 - (void)selectProject:(NSInteger)selectedRow;
@@ -74,7 +74,7 @@
         if (cell == nil)
                 cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
 
-        cell.textLabel.text = [(TrackerProject*)[[tracker projects] objectAtIndex:indexPath.row] name];
+        cell.textLabel.text = [(PTProject*)[[tracker projects] objectAtIndex:indexPath.row] name];
         return cell;
 }
 

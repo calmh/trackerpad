@@ -1,5 +1,5 @@
 //
-//  TrackerIteration.h
+//  PTIteration.h
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/29/10.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TrackerIteration : NSObject {
+@interface PTIteration : NSObject {
         NSMutableArray *stories;
         NSUInteger id;
         NSUInteger number;

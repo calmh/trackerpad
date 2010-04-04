@@ -1,5 +1,5 @@
 //
-//  TrackerProject.h
+//  PTProject.h
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/28/10.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class TrackerPerson;
+@class PTPerson;
 
-@interface TrackerProject : NSObject {
+@interface PTProject : NSObject {
         NSUInteger id;
         NSInteger velocity;
         NSString *name;
@@ -22,6 +22,6 @@
 @property (assign, nonatomic) NSInteger velocity;
 @property (retain, nonatomic) NSArray *members;
 
-- (TrackerPerson*)memberNamed:(NSString*)fullName;
+- (PTPerson*)memberNamed:(NSString*)fullName;
 
 @end

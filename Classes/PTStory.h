@@ -1,5 +1,5 @@
 //
-//  TrackerStory.h
+//  PTStory.h
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/28/10.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TrackerStory : NSObject {
+@interface PTStory : NSObject {
         NSUInteger id;
         NSUInteger projectId;
         NSInteger estimate;

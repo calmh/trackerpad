@@ -10,7 +10,7 @@
 
 @class StoryTableViewCell;
 @class TrackerPadAppDelegate;
-@class TrackerProject;
+@class PTProject;
 
 typedef enum {
         Done,
@@ -24,7 +24,7 @@ typedef enum {
         UISegmentedControl *iterationsSelector;
         NSArray *iterations;
         NSInteger index;
-        TrackerProject *project;
+        PTProject *project;
         StoryTableViewCell *tableViewCell;
         TrackerPadAppDelegate *delegate;
 }
@@ -32,7 +32,7 @@ typedef enum {
 @property (nonatomic, retain) IBOutlet UIView *containerView;
 @property (nonatomic, assign) IBOutlet UISegmentedControl *iterationsSelector;
 @property (nonatomic, retain) NSArray *iterations;
-@property (nonatomic, retain) TrackerProject *project;
+@property (nonatomic, retain) PTProject *project;
 @property (nonatomic, assign) IBOutlet StoryTableViewCell *tableViewCell;
 @property (nonatomic, assign) NSInteger index;
 

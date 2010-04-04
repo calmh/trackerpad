@@ -6,11 +6,11 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
+#import "PTIteration.h"
+#import "PTStory.h"
 #import "StoryTests.h"
 #import "TBXML.h"
-#import "Tracker.h"
-#import "TrackerIteration.h"
-#import "TrackerStory.h"
+#import "TrackerClient.h"
 
 @implementation StoryTests
 
@@ -18,7 +18,7 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *iterations = [tracker backlogIterationsInProject:0];
 
         STAssertEquals([iterations count], 2u, nil);
@@ -30,8 +30,8 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        TrackerIteration *iteration = [tracker currentIterationInProject:0];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
+        PTIteration *iteration = [tracker currentIterationInProject:0];
 
         STAssertEquals(iteration.number, 1u, nil);
         STAssertEquals(iteration.id, 1u, nil);
@@ -45,8 +45,8 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        TrackerIteration *iteration = [tracker currentIterationInProject:0];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
+        PTIteration *iteration = [tracker currentIterationInProject:0];
         NSArray *stories = iteration.stories;
 
         STAssertEquals([stories count], 4u, nil);
@@ -58,9 +58,9 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-backlog.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
         NSArray *iterations = [tracker backlogIterationsInProject:0];
-        NSArray *stories = ((TrackerIteration*)[iterations objectAtIndex:0]).stories;
+        NSArray *stories = ((PTIteration*)[iterations objectAtIndex:0]).stories;
 
         STAssertEquals([stories count], 3u, nil);
 
@@ -71,8 +71,8 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/icebox.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        TrackerIteration *iteration = [tracker iceboxIterationInProject:0];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
+        PTIteration *iteration = [tracker iceboxIterationInProject:0];
         NSArray *stories = iteration.stories;
 
         STAssertEquals([stories count], 9u, nil);
@@ -84,11 +84,11 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/iterations-current.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
-        TrackerIteration *iteration = [tracker currentIterationInProject:0];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
+        PTIteration *iteration = [tracker currentIterationInProject:0];
         NSArray *stories = iteration.stories;
 
-        TrackerStory *story = [stories objectAtIndex:0];
+        PTStory *story = [stories objectAtIndex:0];
         STAssertEquals(story.id, 2958790u, nil);
         STAssertEqualObjects(story.type, @"feature", nil);
         STAssertEquals(story.estimate, 3, nil);

@@ -1,14 +1,14 @@
 //
-//  TrackerPerson.m
+//  PTPerson.m
 //  TrackerPad
 //
 //  Created by Jakob Borg on 4/4/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "TrackerPerson.h"
+#import "PTPerson.h"
 
-@implementation TrackerPerson
+@implementation PTPerson
 
 @synthesize id;
 @synthesize name;

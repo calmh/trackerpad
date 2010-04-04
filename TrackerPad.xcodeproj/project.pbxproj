@@ -12,8 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
-		291CCF7611690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
+		291CCF7511690A1C00C6F88F /* PTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* PTPerson.m */; };
+		291CCF7611690A1C00C6F88F /* PTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* PTPerson.m */; };
 		291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCFDE1169128800C6F88F /* TBXMLTests.m */; };
 		291CD03211691EDF00C6F88F /* IterationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291CD03111691EDF00C6F88F /* IterationView.xib */; };
 		291CD1C91169336E00C6F88F /* icebox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 291CD1C81169336E00C6F88F /* icebox.xml */; };
@@ -26,12 +26,12 @@
 		29820215115E552A001D4CC2 /* AuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820214115E552A001D4CC2 /* AuthenticationTests.m */; };
 		29820218115E5537001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820219115E5537001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
-		2990AC01115F753D005DF543 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* Tracker.m */; };
-		2990AC02115F753D005DF543 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* Tracker.m */; };
+		2990AC01115F753D005DF543 /* TrackerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* TrackerClient.m */; };
+		2990AC02115F753D005DF543 /* TrackerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC00115F753D005DF543 /* TrackerClient.m */; };
 		2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC66115F7EB4005DF543 /* ProjectTests.m */; };
 		2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2990AC92115F805C005DF543 /* TrackerPadTest.m */; };
-		29AA339D1161150500D4ADB0 /* TrackerIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA339C1161150500D4ADB0 /* TrackerIteration.m */; };
-		29AA339E1161150500D4ADB0 /* TrackerIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA339C1161150500D4ADB0 /* TrackerIteration.m */; };
+		29AA339D1161150500D4ADB0 /* PTIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA339C1161150500D4ADB0 /* PTIteration.m */; };
+		29AA339E1161150500D4ADB0 /* PTIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA339C1161150500D4ADB0 /* PTIteration.m */; };
 		29AA347F116123D800D4ADB0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29AA347E116123D800D4ADB0 /* Settings.bundle */; };
 		29AA34C7116127C200D4ADB0 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA34C4116127C200D4ADB0 /* DetailViewController.m */; };
 		29AA34C8116127C200D4ADB0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AA34C6116127C200D4ADB0 /* RootViewController.m */; };
@@ -57,13 +57,13 @@
 		29C5F38711668BB200BEAF0F /* StoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5F38611668BB200BEAF0F /* StoryTableViewCell.m */; };
 		29C5F4AB11669E4100BEAF0F /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C5F4AA11669E4100BEAF0F /* StoryTableViewCell.xib */; };
 		29F0D89A1161DA6B005E10B3 /* IterationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F0D8991161DA6B005E10B3 /* IterationViewController.m */; };
-		29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
-		29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* TrackerProject.m */; };
+		29F98F00115F905C0072EBB9 /* PTProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* PTProject.m */; };
+		29F98F01115F905C0072EBB9 /* PTProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98EFF115F905C0072EBB9 /* PTProject.m */; };
 		29F98F68115F957C0072EBB9 /* projects.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F64115F957C0072EBB9 /* projects.xml */; };
 		29F98F69115F957C0072EBB9 /* token.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98F65115F957C0072EBB9 /* token.xml */; };
 		29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F7B115F98E90072EBB9 /* StoryTests.m */; };
-		29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* TrackerStory.m */; };
-		29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* TrackerStory.m */; };
+		29F98F83115F99860072EBB9 /* PTStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* PTStory.m */; };
+		29F98FB5115FA2080072EBB9 /* PTStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98F82115F99860072EBB9 /* PTStory.m */; };
 		29F98FBA115FA23A0072EBB9 /* iterations-current.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98FB8115FA23A0072EBB9 /* iterations-current.xml */; };
 		29F98FBB115FA23A0072EBB9 /* iterations.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29F98FB9115FA23A0072EBB9 /* iterations.xml */; };
 		29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F98FCC115FC0D80072EBB9 /* RESTClient.m */; };
@@ -87,8 +87,8 @@
 		1D6058910D05DD3D006BFB54 /* TrackerPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		291CCF7311690A1C00C6F88F /* TrackerPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPerson.h; sourceTree = "<group>"; };
-		291CCF7411690A1C00C6F88F /* TrackerPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerPerson.m; sourceTree = "<group>"; };
+		291CCF7311690A1C00C6F88F /* PTPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPerson.h; sourceTree = "<group>"; };
+		291CCF7411690A1C00C6F88F /* PTPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPerson.m; sourceTree = "<group>"; };
 		291CCFDD1169128800C6F88F /* TBXMLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXMLTests.h; path = Tests/TBXMLTests.h; sourceTree = "<group>"; };
 		291CCFDE1169128800C6F88F /* TBXMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLTests.m; path = Tests/TBXMLTests.m; sourceTree = "<group>"; };
 		291CD03111691EDF00C6F88F /* IterationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IterationView.xib; path = Resources/IterationView.xib; sourceTree = "<group>"; };
@@ -103,14 +103,14 @@
 		298201B0115E54CD001D4CC2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		29820213115E552A001D4CC2 /* AuthenticationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationTests.h; path = Tests/AuthenticationTests.h; sourceTree = "<group>"; };
 		29820214115E552A001D4CC2 /* AuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthenticationTests.m; path = Tests/AuthenticationTests.m; sourceTree = "<group>"; };
-		2990ABFF115F753D005DF543 /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
-		2990AC00115F753D005DF543 /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
+		2990ABFF115F753D005DF543 /* TrackerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerClient.h; sourceTree = "<group>"; };
+		2990AC00115F753D005DF543 /* TrackerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerClient.m; sourceTree = "<group>"; };
 		2990AC65115F7EB4005DF543 /* ProjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectTests.h; path = Tests/ProjectTests.h; sourceTree = "<group>"; };
 		2990AC66115F7EB4005DF543 /* ProjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectTests.m; path = Tests/ProjectTests.m; sourceTree = "<group>"; };
 		2990AC91115F805C005DF543 /* TrackerPadTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackerPadTest.h; path = Tests/TrackerPadTest.h; sourceTree = "<group>"; };
 		2990AC92115F805C005DF543 /* TrackerPadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackerPadTest.m; path = Tests/TrackerPadTest.m; sourceTree = "<group>"; };
-		29AA339B1161150500D4ADB0 /* TrackerIteration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerIteration.h; sourceTree = "<group>"; };
-		29AA339C1161150500D4ADB0 /* TrackerIteration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerIteration.m; sourceTree = "<group>"; };
+		29AA339B1161150500D4ADB0 /* PTIteration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTIteration.h; sourceTree = "<group>"; };
+		29AA339C1161150500D4ADB0 /* PTIteration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTIteration.m; sourceTree = "<group>"; };
 		29AA347E116123D800D4ADB0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		29AA34C3116127C200D4ADB0 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		29AA34C4116127C200D4ADB0 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -141,14 +141,14 @@
 		29C5F4AA11669E4100BEAF0F /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StoryTableViewCell.xib; path = Resources/StoryTableViewCell.xib; sourceTree = "<group>"; };
 		29F0D8981161DA6B005E10B3 /* IterationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IterationViewController.h; sourceTree = "<group>"; };
 		29F0D8991161DA6B005E10B3 /* IterationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IterationViewController.m; sourceTree = "<group>"; };
-		29F98EFE115F905C0072EBB9 /* TrackerProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerProject.h; sourceTree = "<group>"; };
-		29F98EFF115F905C0072EBB9 /* TrackerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerProject.m; sourceTree = "<group>"; };
+		29F98EFE115F905C0072EBB9 /* PTProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTProject.h; sourceTree = "<group>"; };
+		29F98EFF115F905C0072EBB9 /* PTProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTProject.m; sourceTree = "<group>"; };
 		29F98F64115F957C0072EBB9 /* projects.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = projects.xml; path = Tests/projects.xml; sourceTree = "<group>"; };
 		29F98F65115F957C0072EBB9 /* token.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = token.xml; path = Tests/token.xml; sourceTree = "<group>"; };
 		29F98F7A115F98E90072EBB9 /* StoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryTests.h; path = Tests/StoryTests.h; sourceTree = "<group>"; };
 		29F98F7B115F98E90072EBB9 /* StoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryTests.m; path = Tests/StoryTests.m; sourceTree = "<group>"; };
-		29F98F81115F99860072EBB9 /* TrackerStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerStory.h; sourceTree = "<group>"; };
-		29F98F82115F99860072EBB9 /* TrackerStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerStory.m; sourceTree = "<group>"; };
+		29F98F81115F99860072EBB9 /* PTStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStory.h; sourceTree = "<group>"; };
+		29F98F82115F99860072EBB9 /* PTStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTStory.m; sourceTree = "<group>"; };
 		29F98FB8115FA23A0072EBB9 /* iterations-current.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-current.xml"; path = "Tests/iterations-current.xml"; sourceTree = "<group>"; };
 		29F98FB9115FA23A0072EBB9 /* iterations.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iterations.xml; path = Tests/iterations.xml; sourceTree = "<group>"; };
 		29F98FCB115FC0D80072EBB9 /* RESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESTClient.h; path = Libraries/RESTClient.h; sourceTree = "<group>"; };
@@ -184,26 +184,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				29AA34C3116127C200D4ADB0 /* DetailViewController.h */,
-				29AA34C4116127C200D4ADB0 /* DetailViewController.m */,
-				29F0D8981161DA6B005E10B3 /* IterationViewController.h */,
-				29F0D8991161DA6B005E10B3 /* IterationViewController.m */,
-				29AA34C5116127C200D4ADB0 /* RootViewController.h */,
-				29AA34C6116127C200D4ADB0 /* RootViewController.m */,
-				29C5F38511668BB200BEAF0F /* StoryTableViewCell.h */,
-				29C5F38611668BB200BEAF0F /* StoryTableViewCell.m */,
-				2990ABFF115F753D005DF543 /* Tracker.h */,
-				2990AC00115F753D005DF543 /* Tracker.m */,
-				29AA339B1161150500D4ADB0 /* TrackerIteration.h */,
-				29AA339C1161150500D4ADB0 /* TrackerIteration.m */,
-				1D3623240D0F684500981E51 /* TrackerPadAppDelegate.h */,
-				1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */,
-				291CCF7311690A1C00C6F88F /* TrackerPerson.h */,
-				291CCF7411690A1C00C6F88F /* TrackerPerson.m */,
-				29F98EFE115F905C0072EBB9 /* TrackerProject.h */,
-				29F98EFF115F905C0072EBB9 /* TrackerProject.m */,
-				29F98F81115F99860072EBB9 /* TrackerStory.h */,
-				29F98F82115F99860072EBB9 /* TrackerStory.m */,
+				2909820911694BE6006441C8 /* GUI */,
+				2909820711694BD6006441C8 /* Pivotal Tracker */,
+				291CD346116949DB00C6F88F /* PODs */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -215,6 +198,47 @@
 				2982018F115E53E5001D4CC2 /* Tests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2909820711694BD6006441C8 /* Pivotal Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				2990ABFF115F753D005DF543 /* TrackerClient.h */,
+				2990AC00115F753D005DF543 /* TrackerClient.m */,
+			);
+			name = "Pivotal Tracker";
+			sourceTree = "<group>";
+		};
+		2909820911694BE6006441C8 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				29AA34C3116127C200D4ADB0 /* DetailViewController.h */,
+				29AA34C4116127C200D4ADB0 /* DetailViewController.m */,
+				29F0D8981161DA6B005E10B3 /* IterationViewController.h */,
+				29F0D8991161DA6B005E10B3 /* IterationViewController.m */,
+				29AA34C5116127C200D4ADB0 /* RootViewController.h */,
+				29AA34C6116127C200D4ADB0 /* RootViewController.m */,
+				29C5F38511668BB200BEAF0F /* StoryTableViewCell.h */,
+				29C5F38611668BB200BEAF0F /* StoryTableViewCell.m */,
+				1D3623240D0F684500981E51 /* TrackerPadAppDelegate.h */,
+				1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		291CD346116949DB00C6F88F /* PODs */ = {
+			isa = PBXGroup;
+			children = (
+				29AA339B1161150500D4ADB0 /* PTIteration.h */,
+				29AA339C1161150500D4ADB0 /* PTIteration.m */,
+				291CCF7311690A1C00C6F88F /* PTPerson.h */,
+				291CCF7411690A1C00C6F88F /* PTPerson.m */,
+				29F98EFE115F905C0072EBB9 /* PTProject.h */,
+				29F98EFF115F905C0072EBB9 /* PTProject.m */,
+				29F98F81115F99860072EBB9 /* PTStory.h */,
+				29F98F82115F99860072EBB9 /* PTStory.m */,
+			);
+			name = PODs;
 			sourceTree = "<group>";
 		};
 		29508989115FC2CD005B9CAA /* TBXML */ = {
@@ -470,16 +494,16 @@
 				1D3623260D0F684500981E51 /* TrackerPadAppDelegate.m in Sources */,
 				29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */,
 				29820187115E53DA001D4CC2 /* TBXML.m in Sources */,
-				2990AC02115F753D005DF543 /* Tracker.m in Sources */,
-				29F98F00115F905C0072EBB9 /* TrackerProject.m in Sources */,
-				29F98FB5115FA2080072EBB9 /* TrackerStory.m in Sources */,
+				2990AC02115F753D005DF543 /* TrackerClient.m in Sources */,
+				29F98F00115F905C0072EBB9 /* PTProject.m in Sources */,
+				29F98FB5115FA2080072EBB9 /* PTStory.m in Sources */,
 				29F98FCF115FC0D80072EBB9 /* RESTClient.m in Sources */,
-				29AA339E1161150500D4ADB0 /* TrackerIteration.m in Sources */,
+				29AA339E1161150500D4ADB0 /* PTIteration.m in Sources */,
 				29AA34C7116127C200D4ADB0 /* DetailViewController.m in Sources */,
 				29AA34C8116127C200D4ADB0 /* RootViewController.m in Sources */,
 				29F0D89A1161DA6B005E10B3 /* IterationViewController.m in Sources */,
 				29C5F38711668BB200BEAF0F /* StoryTableViewCell.m in Sources */,
-				291CCF7611690A1C00C6F88F /* TrackerPerson.m in Sources */,
+				291CCF7611690A1C00C6F88F /* PTPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,15 +515,15 @@
 				29820219115E5537001D4CC2 /* TBXML.m in Sources */,
 				29820196115E53F6001D4CC2 /* TrackerPadAppDelegate.m in Sources */,
 				29820215115E552A001D4CC2 /* AuthenticationTests.m in Sources */,
-				2990AC01115F753D005DF543 /* Tracker.m in Sources */,
+				2990AC01115F753D005DF543 /* TrackerClient.m in Sources */,
 				2990AC67115F7EB4005DF543 /* ProjectTests.m in Sources */,
 				2990AC93115F805C005DF543 /* TrackerPadTest.m in Sources */,
-				29F98F01115F905C0072EBB9 /* TrackerProject.m in Sources */,
+				29F98F01115F905C0072EBB9 /* PTProject.m in Sources */,
 				29F98F7C115F98E90072EBB9 /* StoryTests.m in Sources */,
-				29F98F83115F99860072EBB9 /* TrackerStory.m in Sources */,
+				29F98F83115F99860072EBB9 /* PTStory.m in Sources */,
 				29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */,
-				29AA339D1161150500D4ADB0 /* TrackerIteration.m in Sources */,
-				291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */,
+				29AA339D1161150500D4ADB0 /* PTIteration.m in Sources */,
+				291CCF7511690A1C00C6F88F /* PTPerson.m in Sources */,
 				291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,19 +9,19 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
-@class Tracker;
+@class TrackerClient;
 @class TrackerPadAppDelegate;
-@class TrackerProject;
+@class PTProject;
 
 @interface RootViewController : UITableViewController {
         DetailViewController *detailViewController;
-        Tracker *tracker;
+        TrackerClient *tracker;
         NSArray *projects;
-        TrackerProject *currentProject;
+        PTProject *currentProject;
         TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
-@property (nonatomic, retain) TrackerProject *currentProject;
+@property (nonatomic, retain) PTProject *currentProject;
 
 @end

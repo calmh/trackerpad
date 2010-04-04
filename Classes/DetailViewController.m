@@ -8,10 +8,10 @@
 
 #import "DetailViewController.h"
 #import "IterationViewController.h"
+#import "PTProject.h"
 #import "RootViewController.h"
-#import "Tracker.h"
+#import "TrackerClient.h"
 #import "TrackerPadAppDelegate.h"
-#import "TrackerProject.h"
 
 @interface DetailViewController (Private)
 
@@ -24,7 +24,7 @@
 
 @synthesize toolbar, popoverController, project;
 
-- (void)setProject:(TrackerProject*)newProject
+- (void)setProject:(PTProject*)newProject
 {
         if (project != newProject) {
                 [project release];

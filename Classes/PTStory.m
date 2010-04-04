@@ -1,14 +1,14 @@
 //
-//  TrackerStory.m
+//  PTStory.m
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/28/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "TrackerStory.h"
+#import "PTStory.h"
 
-@implementation TrackerStory
+@implementation PTStory
 
 @synthesize id;
 @synthesize projectId;

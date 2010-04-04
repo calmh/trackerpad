@@ -6,7 +6,7 @@
 //  Copyright Jakob Borg 2010. All rights reserved.
 //
 
-#import "Tracker.h"
+#import "TrackerClient.h"
 #import "TrackerPadAppDelegate.h"
 
 @implementation TrackerPadAppDelegate
@@ -17,7 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication*)application
 {
-        tracker = [[Tracker alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
+        tracker = [[TrackerClient alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
         [window addSubview:splitViewController.view];
         [window makeKeyAndVisible];
         defaults = [NSUserDefaults standardUserDefaults];

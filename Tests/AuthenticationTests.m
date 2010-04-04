@@ -8,7 +8,7 @@
 
 #import "AuthenticationTests.h"
 #import "TBXML.h"
-#import "Tracker.h"
+#import "TrackerClient.h"
 
 @implementation AuthenticationTests
 
@@ -20,7 +20,7 @@
 {
         NSString *filename = [NSString stringWithFormat:@"%@/token.xml", [self bundlePath]];
         TBXML *xml = [TBXML tbxmlWithXMLFile:filename];
-        Tracker *tracker = [[Tracker alloc] initWithTBXML:xml];
+        TrackerClient *tracker = [[TrackerClient alloc] initWithTBXML:xml];
 
         NSString *token = [tracker getTokenForUsername:@"test" andPassword:@"test"];
         STAssertEqualObjects(token, @"c93f12c71bec27843c1d84b3bdd547f3", nil);
@@ -31,7 +31,7 @@
 #ifdef DO_WEB_TESTS
 - (void)testGetTokenFromWeb
 {
-        Tracker *tracker = [[Tracker alloc] init];
+        TrackerClient *tracker = [[TrackerClient alloc] init];
 
         NSString *token = [tracker getTokenForUsername:@"ano@nym.se" andPassword:@"tester"];
         STAssertEqualObjects(token, @"b590dc2ef47a9bdcead1a5d1d128c18f", nil);

@@ -7,13 +7,13 @@
 //
 
 #import "IterationViewController.h"
+#import "PTIteration.h"
+#import "PTPerson.h"
+#import "PTProject.h"
+#import "PTStory.h"
 #import "StoryTableViewCell.h"
-#import "Tracker.h"
-#import "TrackerIteration.h"
+#import "TrackerClient.h"
 #import "TrackerPadAppDelegate.h"
-#import "TrackerPerson.h"
-#import "TrackerProject.h"
-#import "TrackerStory.h"
 
 @interface IterationViewController (Private)
 - (StoryTableViewCell*)loadCell;
@@ -38,7 +38,7 @@
 {
         iterationsSelector.selectedSegmentIndex = (NSInteger)iteration;
 
-        Tracker *tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
+        TrackerClient *tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
         if (iteration == Done)
                 self.iterations = [tracker doneIterationsInProject:project.id];
         else if (iteration == Current)
@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-        TrackerIteration *iteration = [iterations objectAtIndex:section];
+        PTIteration *iteration = [iterations objectAtIndex:section];
         return [iteration.stories count];
 }
 
@@ -81,7 +81,7 @@
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
 
-        TrackerIteration *iteration = [iterations objectAtIndex:section];
+        PTIteration *iteration = [iterations objectAtIndex:section];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM dd"];
         label.text = [NSString stringWithFormat:@" %@ - %@",
@@ -103,14 +103,14 @@
         if (cell == nil)
                 cell = [self loadCell];
 
-        TrackerIteration *iteration = [iterations objectAtIndex:indexPath.section];
-        TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
+        PTIteration *iteration = [iterations objectAtIndex:indexPath.section];
+        PTStory *story = [iteration.stories objectAtIndex:indexPath.row];
 
         cell.textLabel.text = story.name;
         if (story.owner == nil)
                 cell.ownerLabel.text = @"";
         else {
-                TrackerPerson *person = [project memberNamed:story.owner];
+                PTPerson *person = [project memberNamed:story.owner];
                 cell.ownerLabel.text = person.initials;
         }
 
@@ -126,8 +126,8 @@
         if (tableViewCell == nil)
                 [self loadCell];
 
-        TrackerIteration *iteration = [iterations objectAtIndex:indexPath.section];
-        TrackerStory *story = [iteration.stories objectAtIndex:indexPath.row];
+        PTIteration *iteration = [iterations objectAtIndex:indexPath.section];
+        PTStory *story = [iteration.stories objectAtIndex:indexPath.row];
         UIFont *font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
         CGSize withinSize = CGSizeMake(tableViewCell.textLabel.frame.size.width, 1000);
         CGSize size = [story.name sizeWithFont:font constrainedToSize:withinSize lineBreakMode:UILineBreakModeWordWrap];

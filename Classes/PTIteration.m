@@ -1,14 +1,14 @@
 //
-//  TrackerIteration.m
+//  PTIteration.m
 //  TrackerPad
 //
 //  Created by Jakob Borg on 3/29/10.
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
-#import "TrackerIteration.h"
+#import "PTIteration.h"
 
-@implementation TrackerIteration
+@implementation PTIteration
 
 @synthesize stories;
 @synthesize id;

@@ -12,11 +12,13 @@
 #import <UIKit/UIKit.h>
 
 @interface IterationViewController : UITableViewController {
+        UIView *containerView;
         NSArray *iterations;
         TrackerProject *project;
         StoryTableViewCell *tableViewCell;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *containerView;
 @property (nonatomic, retain) NSArray *iterations;
 @property (nonatomic, retain) TrackerProject *project;
 @property (nonatomic, assign) IBOutlet StoryTableViewCell *tableViewCell;

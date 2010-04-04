@@ -106,7 +106,6 @@
 #pragma mark -
 #pragma mark Rotation support
 
-// Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
         return YES;
@@ -128,40 +127,13 @@
         [super viewWillAppear:animated];
 }
 
-/*
-   - (void)viewDidAppear:(BOOL)animated {
-   [super viewDidAppear:animated];
-   }
- */
-/*
-   - (void)viewWillDisappear:(BOOL)animated {
-   [super viewWillDisappear:animated];
-   }
- */
-/*
-   - (void)viewDidDisappear:(BOOL)animated {
-   [super viewDidDisappear:animated];
-   }
- */
-
 - (void)viewDidUnload
 {
-        // Release any retained subviews of the main view.
-        // e.g. self.myOutlet = nil;
         self.popoverController = nil;
 }
 
 #pragma mark -
 #pragma mark Memory management
-
-/*
-   - (void)didReceiveMemoryWarning {
-   // Releases the view if it doesn't have a superview.
-   [super didReceiveMemoryWarning];
-
-   // Release any cached data, images, etc that aren't in use.
-   }
- */
 
 - (void)dealloc
 {

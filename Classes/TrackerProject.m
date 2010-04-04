@@ -18,6 +18,7 @@
 
 - (TrackerPerson*)memberNamed:(NSString*)fullName
 {
+        // TODO: Memoize this, in case it turns out to be called _often_.
         for (int i = 0; i < [members count]; i++) {
                 TrackerPerson *person = [members objectAtIndex:i];
                 if ([fullName isEqualToString:person.name])

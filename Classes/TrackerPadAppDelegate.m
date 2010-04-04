@@ -28,6 +28,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+// Get and set the default (last selected) project.
+
 - (NSInteger)defaultProject
 {
         NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
@@ -40,6 +42,9 @@
         NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
         [defaults setInteger:value forKey:key];
 }
+
+// Get and set the default state (current, done, backlog, etc.) for a certain pane in a project.
+// Pane index 0 is left, 1 is right.
 
 - (NSInteger)defaultStateForProject:(NSInteger)project andPane:(NSInteger)index
 {

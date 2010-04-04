@@ -25,4 +25,10 @@
         STAssertNil(nilChild, nil);
 }
 
+- (void)testTextForNilElementIsNil
+{
+        NSString *nilText = [TBXML textForElement:nil];
+        STAssertNil(nilText, nil);
+}
+
 @end

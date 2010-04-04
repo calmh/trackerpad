@@ -14,6 +14,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
 		291CCF7611690A1C00C6F88F /* TrackerPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* TrackerPerson.m */; };
+		291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCFDE1169128800C6F88F /* TBXMLTests.m */; };
 		29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29508B79115FD937005B9CAA /* iterations-backlog.xml */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
@@ -88,6 +89,8 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		291CCF7311690A1C00C6F88F /* TrackerPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerPerson.h; sourceTree = "<group>"; };
 		291CCF7411690A1C00C6F88F /* TrackerPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerPerson.m; sourceTree = "<group>"; };
+		291CCFDD1169128800C6F88F /* TBXMLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXMLTests.h; path = Tests/TBXMLTests.h; sourceTree = "<group>"; };
+		291CCFDE1169128800C6F88F /* TBXMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLTests.m; path = Tests/TBXMLTests.m; sourceTree = "<group>"; };
 		29508B79115FD937005B9CAA /* iterations-backlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-backlog.xml"; path = "Tests/iterations-backlog.xml"; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
@@ -258,6 +261,8 @@
 				2990AC92115F805C005DF543 /* TrackerPadTest.m */,
 				29F98F7A115F98E90072EBB9 /* StoryTests.h */,
 				29F98F7B115F98E90072EBB9 /* StoryTests.m */,
+				291CCFDD1169128800C6F88F /* TBXMLTests.h */,
+				291CCFDE1169128800C6F88F /* TBXMLTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				29F98FCE115FC0D80072EBB9 /* RESTClient.m in Sources */,
 				29AA339D1161150500D4ADB0 /* TrackerIteration.m in Sources */,
 				291CCF7511690A1C00C6F88F /* TrackerPerson.m in Sources */,
+				291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

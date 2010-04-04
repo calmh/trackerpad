@@ -30,6 +30,7 @@
 {
         tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
         projects = [[tracker projects] retain];
+        [self.tableView reloadData];
         [super viewWillAppear:animated];
 }
 
@@ -60,14 +61,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)aTableView
 {
-        NSInteger num_projects = [projects count];
-        return num_projects;
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView*)aTableView numberOfRowsInSection:(NSInteger)section
 {
-        // Return the number of rows in the section.
-        return 5;
+        NSInteger num_projects = [projects count];
+        return num_projects;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -75,37 +75,14 @@
         NSString *cellIdentifier;
         UITableViewCell *cell;
 
-        if (indexPath.row == 0) {
-                cellIdentifier = @"ProjectCell";
-                cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-                if (cell == nil) {
-                        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-                        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-                }
-
-                cell.textLabel.text = [(TrackerProject*)[[tracker projects] objectAtIndex:indexPath.section] name];
-        } else {
-                cellIdentifier = @"BucketCell";
-                cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-                if (cell == nil) {
-                        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-                        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                        cell.indentationWidth = 20;
-                        cell.indentationLevel = 1;
-                }
-
-                if (indexPath.row == 1) {
-                        cell.textLabel.text = @"Done";
-                        cell.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
-                }else if (indexPath.row == 2)
-                        cell.textLabel.text = @"Current";
-                else if (indexPath.row == 3)
-                        cell.textLabel.text = @"Backlog";
-                else if (indexPath.row == 4) {
-                        cell.textLabel.text = @"Icebox";
-                        cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:1.0 alpha:1.0];
-                }
+        cellIdentifier = @"ProjectCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+                cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         }
+
+        cell.textLabel.text = [(TrackerProject*)[[tracker projects] objectAtIndex:indexPath.row] name];
         return cell;
 }
 
@@ -154,7 +131,7 @@
 
 - (void)tableView:(UITableView*)aTableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-        self.currentProject = [projects objectAtIndex:indexPath.section];
+        self.currentProject = [projects objectAtIndex:indexPath.row];
         detailViewController.project = self.currentProject;
 }
 

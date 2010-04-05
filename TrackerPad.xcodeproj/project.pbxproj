@@ -20,6 +20,7 @@
 		29562C46116A093700BB3A7D /* EntitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29562C45116A093700BB3A7D /* EntitiesTests.m */; };
 		29562C78116A141500BB3A7D /* MREntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29562C77116A141500BB3A7D /* MREntitiesConverter.m */; };
 		29562C79116A141500BB3A7D /* MREntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29562C77116A141500BB3A7D /* MREntitiesConverter.m */; };
+		29563200116A1E9500BB3A7D /* header-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 295631FF116A1E9500BB3A7D /* header-background.png */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
 		29820196115E53F6001D4CC2 /* TrackerPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */; };
@@ -99,6 +100,7 @@
 		29562C45116A093700BB3A7D /* EntitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitiesTests.m; path = Tests/EntitiesTests.m; sourceTree = "<group>"; };
 		29562C76116A141500BB3A7D /* MREntitiesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MREntitiesConverter.h; path = Libraries/MREntitiesConverter.h; sourceTree = "<group>"; };
 		29562C77116A141500BB3A7D /* MREntitiesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MREntitiesConverter.m; path = Libraries/MREntitiesConverter.m; sourceTree = "<group>"; };
+		295631FF116A1E9500BB3A7D /* header-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-background.png"; path = "Resources/header-background.png"; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
 		29820184115E53DA001D4CC2 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = Libraries/TBXML.h; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				29AA35291161291F00D4ADB0 /* Icons */,
 				29AA347E116123D800D4ADB0 /* Settings.bundle */,
 				8D1107310486CEB800E47090 /* TrackerPad-Info.plist */,
+				295631FF116A1E9500BB3A7D /* header-background.png */,
 				29AA35001161290E00D4ADB0 /* DetailView.xib */,
 				29AA35011161290E00D4ADB0 /* MainWindow.xib */,
 				29C5F4AA11669E4100BEAF0F /* StoryTableViewCell.xib */,
@@ -466,6 +469,7 @@
 				29AA35241161290E00D4ADB0 /* 5pt_small.gif in Resources */,
 				29AA35251161290E00D4ADB0 /* 8pt_small.gif in Resources */,
 				29C5F4AB11669E4100BEAF0F /* StoryTableViewCell.xib in Resources */,
+				29563200116A1E9500BB3A7D /* header-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

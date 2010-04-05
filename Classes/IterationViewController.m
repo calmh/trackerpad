@@ -75,18 +75,27 @@
 
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5.0, 5.0, 300.0, 16.0)];
-        label.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5];
+        UIImage *background = [UIImage imageNamed:@"header-background.png"];
+        UIImageView *container = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 21.0)] autorelease];
+        container.image = background;
+        container.contentStretch = CGRectMake(0.0, 0.0, 300.0, 21.0);
+
+        UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(5.0, 5.0, 290.0, 16.0)] autorelease];
+        label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+        label.shadowColor = [UIColor darkGrayColor];
+        label.shadowOffset = CGSizeMake(0, 1);
+        [container addSubview:label];
 
         PTIteration *iteration = [iterations objectAtIndex:section];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM dd"];
-        label.text = [NSString stringWithFormat:@" %@ - %@",
+        label.text = [NSString stringWithFormat:@"%@ - %@",
                       [formatter stringFromDate:iteration.start],
                       [formatter stringFromDate:iteration.finish]];
-        return label;
+
+        return container;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section

@@ -32,11 +32,11 @@
 - (void)setState:(NSString*)state
 {
         if ([@"accepted" isEqualToString:state])
-                self.backgroundView.backgroundColor = [UIColor colorWithRed:0xd8/256.0 green:0xee/256.0 blue:0xcc/256.0 alpha:1.0];
+                self.backgroundView.backgroundColor = [UIColor colorWithRed:0xd8 / 256.0 green:0xee / 256.0 blue:0xcc / 256.0 alpha:1.0];
         else if ([@"started" isEqualToString:state] || [@"finished" isEqualToString:state] || [@"delivered" isEqualToString:state])
-                self.backgroundView.backgroundColor = [UIColor colorWithRed:0xff/256.0 green:0xf8/256.0 blue:0xdc/256.0 alpha:1.0];
+                self.backgroundView.backgroundColor = [UIColor colorWithRed:0xff / 256.0 green:0xf8 / 256.0 blue:0xdc / 256.0 alpha:1.0];
         else if ([@"unscheduled" isEqualToString:state])
-                self.backgroundView.backgroundColor = [UIColor colorWithRed:0xe7/256.0 green:0xf3/256.0 blue:0xfa/256.0 alpha:1.0];
+                self.backgroundView.backgroundColor = [UIColor colorWithRed:0xe7 / 256.0 green:0xf3 / 256.0 blue:0xfa / 256.0 alpha:1.0];
         else
                 self.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
 }

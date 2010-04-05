@@ -6,6 +6,7 @@
 //  Copyright 2010 Jakob Borg. All rights reserved.
 //
 
+#import "MREntitiesConverter.h"
 #import "PTIteration.h"
 #import "PTPerson.h"
 #import "PTProject.h"
@@ -39,28 +40,35 @@
 - (void)dealloc
 {
         self.token = nil;
+        [converter release];
         [tbxml release];
         [super dealloc];
 }
 
 - (id)init
 {
-        if (self = [super init])
+        if (self = [super init]) {
                 tbxml = nil;
+                converter = [[MREntitiesConverter alloc] init];
+        }
         return self;
 }
 
 - (id)initWithTBXML:(TBXML*)theTbxml
 {
-        if (self = [super init])
+        if (self = [super init]) {
                 tbxml = [theTbxml retain];
+                converter = [[MREntitiesConverter alloc] init];
+        }
         return self;
 }
 
 - (id)initWithToken:(NSString*)theToken
 {
-        if (self = [super init])
+        if (self = [super init]) {
                 self.token = theToken;
+                converter = [[MREntitiesConverter alloc] init];
+        }
         return self;
 }
 
@@ -136,7 +144,7 @@
         assert(projectElement != nil);
         PTProject *project = [[PTProject alloc] init];
 
-        project.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:projectElement]];
+        project.name = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:projectElement]]];
         project.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:projectElement]] intValue];
         project.velocity = [[TBXML textForElement:[TBXML childElementNamed:@"current_velocity" parentElement:projectElement]] intValue];
         project.members = [self membersInProjectElement:projectElement];
@@ -168,10 +176,10 @@
         TBXMLElement *idElement = [TBXML childElementNamed:@"id" parentElement:membershipElement];
         person.id = [[TBXML textForElement:idElement] intValue];
         TBXMLElement *personElement = [TBXML childElementNamed:@"person" parentElement:membershipElement];
-        person.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:personElement]];
-        person.email = [TBXML textForElement:[TBXML childElementNamed:@"email" parentElement:personElement]];
-        person.initials = [TBXML textForElement:[TBXML childElementNamed:@"initials" parentElement:personElement]];
-        person.role = [TBXML textForElement:[TBXML childElementNamed:@"role" parentElement:membershipElement]];
+        person.name = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:personElement]]];
+        person.email = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"email" parentElement:personElement]]];
+        person.initials = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"initials" parentElement:personElement]]];
+        person.role = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"role" parentElement:membershipElement]]];
 
         return [person autorelease];
 }
@@ -241,12 +249,12 @@
         assert(storyElement != nil);
         PTStory *story = [[PTStory alloc] init];
 
-        story.name = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]];
-        story.description = [TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]];
+        story.name = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:storyElement]]];
+        story.description = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"description" parentElement:storyElement]]];
         story.type = [TBXML textForElement:[TBXML childElementNamed:@"story_type" parentElement:storyElement]];
         story.state = [TBXML textForElement:[TBXML childElementNamed:@"current_state" parentElement:storyElement]];
         story.id = [[TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:storyElement]] intValue];
-        story.owner = [TBXML textForElement:[TBXML childElementNamed:@"owned_by" parentElement:storyElement]];
+        story.owner = [converter convertEntiesInString:[TBXML textForElement:[TBXML childElementNamed:@"owned_by" parentElement:storyElement]]];
 
         TBXMLElement *estimateElement = [TBXML childElementNamed:@"estimate" parentElement:storyElement];
         if (estimateElement != nil)

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class MREntitiesConverter;
 @class PTIteration;
 @class TBXML;
 
 @interface TrackerClient : NSObject {
         TBXML *tbxml;
+        MREntitiesConverter *converter;
         NSString *token;
 }
 

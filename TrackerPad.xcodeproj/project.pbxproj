@@ -17,6 +17,9 @@
 		291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCFDE1169128800C6F88F /* TBXMLTests.m */; };
 		291CD1C91169336E00C6F88F /* icebox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 291CD1C81169336E00C6F88F /* icebox.xml */; };
 		29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29508B79115FD937005B9CAA /* iterations-backlog.xml */; };
+		29562C46116A093700BB3A7D /* EntitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29562C45116A093700BB3A7D /* EntitiesTests.m */; };
+		29562C78116A141500BB3A7D /* MREntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29562C77116A141500BB3A7D /* MREntitiesConverter.m */; };
+		29562C79116A141500BB3A7D /* MREntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29562C77116A141500BB3A7D /* MREntitiesConverter.m */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
 		29820187115E53DA001D4CC2 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820185115E53DA001D4CC2 /* TBXML.m */; };
 		29820196115E53F6001D4CC2 /* TrackerPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TrackerPadAppDelegate.m */; };
@@ -92,6 +95,10 @@
 		291CCFDE1169128800C6F88F /* TBXMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLTests.m; path = Tests/TBXMLTests.m; sourceTree = "<group>"; };
 		291CD1C81169336E00C6F88F /* icebox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = icebox.xml; path = Tests/icebox.xml; sourceTree = "<group>"; };
 		29508B79115FD937005B9CAA /* iterations-backlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-backlog.xml"; path = "Tests/iterations-backlog.xml"; sourceTree = "<group>"; };
+		29562C44116A093700BB3A7D /* EntitiesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntitiesTests.h; path = Tests/EntitiesTests.h; sourceTree = "<group>"; };
+		29562C45116A093700BB3A7D /* EntitiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntitiesTests.m; path = Tests/EntitiesTests.m; sourceTree = "<group>"; };
+		29562C76116A141500BB3A7D /* MREntitiesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MREntitiesConverter.h; path = Libraries/MREntitiesConverter.h; sourceTree = "<group>"; };
+		29562C77116A141500BB3A7D /* MREntitiesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MREntitiesConverter.m; path = Libraries/MREntitiesConverter.m; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
 		29820183115E53DA001D4CC2 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = Libraries/NSDataAdditions.m; sourceTree = "<group>"; };
 		29820184115E53DA001D4CC2 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = Libraries/TBXML.h; sourceTree = "<group>"; };
@@ -260,9 +267,19 @@
 			name = RESTClient;
 			sourceTree = "<group>";
 		};
+		29562C75116A140000BB3A7D /* EntitiesConverter */ = {
+			isa = PBXGroup;
+			children = (
+				29562C76116A141500BB3A7D /* MREntitiesConverter.h */,
+				29562C77116A141500BB3A7D /* MREntitiesConverter.m */,
+			);
+			name = EntitiesConverter;
+			sourceTree = "<group>";
+		};
 		29820181115E53CC001D4CC2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				29562C75116A140000BB3A7D /* EntitiesConverter */,
 				2950898A115FC2D3005B9CAA /* RESTClient */,
 				29508989115FC2CD005B9CAA /* TBXML */,
 			);
@@ -288,6 +305,8 @@
 				29F98F7B115F98E90072EBB9 /* StoryTests.m */,
 				291CCFDD1169128800C6F88F /* TBXMLTests.h */,
 				291CCFDE1169128800C6F88F /* TBXMLTests.m */,
+				29562C44116A093700BB3A7D /* EntitiesTests.h */,
+				29562C45116A093700BB3A7D /* EntitiesTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -500,6 +519,7 @@
 				29F0D89A1161DA6B005E10B3 /* IterationViewController.m in Sources */,
 				29C5F38711668BB200BEAF0F /* StoryTableViewCell.m in Sources */,
 				291CCF7611690A1C00C6F88F /* PTPerson.m in Sources */,
+				29562C79116A141500BB3A7D /* MREntitiesConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +541,8 @@
 				29AA339D1161150500D4ADB0 /* PTIteration.m in Sources */,
 				291CCF7511690A1C00C6F88F /* PTPerson.m in Sources */,
 				291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */,
+				29562C46116A093700BB3A7D /* EntitiesTests.m in Sources */,
+				29562C78116A141500BB3A7D /* MREntitiesConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

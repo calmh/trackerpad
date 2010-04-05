@@ -15,9 +15,15 @@
 @synthesize tracker;
 @synthesize splitViewController, rootViewController, detailViewController;
 
+- (TrackerClient*)tracker
+{
+        if (tracker == nil)
+                tracker = [[TrackerClient alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
+        return tracker;
+}
+
 - (void)applicationDidFinishLaunching:(UIApplication*)application
 {
-        tracker = [[TrackerClient alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
         [window addSubview:splitViewController.view];
         [window makeKeyAndVisible];
         defaults = [NSUserDefaults standardUserDefaults];

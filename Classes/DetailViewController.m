@@ -16,13 +16,15 @@
 @interface DetailViewController (Private)
 
 - (void)configureView;
-- (IterationViewController*)loadIterationsControllerAtIndex:(NSInteger)index;
 
 @end
 
 @implementation DetailViewController
 
 @synthesize toolbar, popoverController, project;
+@synthesize leftController, rightController;
+@synthesize leftView, rightView;
+@synthesize leftSelector, rightSelector;
 
 - (void)setProject:(PTProject*)newProject
 {
@@ -39,7 +41,7 @@
 
 - (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController*)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc
 {
-        barButtonItem.title = @"Root List";
+        barButtonItem.title = @"Projects";
         NSMutableArray *items = [[toolbar items] mutableCopy];
         [items insertObject:barButtonItem atIndex:0];
         [toolbar setItems:items animated:YES];
@@ -65,6 +67,10 @@
 {
         [super viewDidLoad];
         delegate = [[UIApplication sharedApplication] delegate];
+        [leftView addSubview:leftController.view];
+        leftController.index = 0;
+        [rightView addSubview:rightController.view];
+        rightController.index = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -90,38 +96,13 @@
 
 - (void)configureView
 {
-        if (leftController != nil) {
-                [leftController.containerView removeFromSuperview];
-                [leftController release];
+        self.leftController.project = project;
+        self.rightController.project = project;
 
-                [rightController.containerView removeFromSuperview];
-                [rightController release];
-        }
-
-        NSArray *iterations = [NSArray arrayWithObject:[tracker currentIterationInProject:project.id]];
-        leftController = [self loadIterationsControllerAtIndex:0];
-
-        iterations = [tracker backlogIterationsInProject:project.id];
-        rightController = [self loadIterationsControllerAtIndex:1];
-}
-
-- (IterationViewController*)loadIterationsControllerAtIndex:(NSInteger)index
-{
-        IterationViewController *controller = [[IterationViewController alloc] initWithNibName:@"IterationView" bundle:[NSBundle mainBundle]];
-        controller.view;
-        CGRect detailFrame = [self.view frame];
-        controller.containerView.frame = CGRectMake(index * 350.0,
-                                                    0.0,
-                                                    detailFrame.size.width / 2,
-                                                    detailFrame.size.height);
-        [self.view addSubview:controller.containerView];
-        controller.project = project;
-        controller.index = index;
-
-        IterationEnum storedState = [delegate defaultStateForProject:project.id andPane:index];
-        [controller setIteration:storedState];
-
-        return controller;
+        IterationEnum storedState = [delegate defaultStateForProject:project.id andPane:0];
+        [self.leftController setIteration:storedState];
+        storedState = [delegate defaultStateForProject:project.id andPane:1];
+        [self.rightController setIteration:storedState];
 }
 
 @end

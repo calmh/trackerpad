@@ -32,16 +32,14 @@
         self.clearsSelectionOnViewWillAppear = NO;
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         delegate = [[UIApplication sharedApplication] delegate];
+        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
+        projects = [[tracker projects] retain];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
-        projects = [[tracker projects] retain];
-
-        [self.tableView reloadData];
         [super viewWillAppear:animated];
-
+        [self.tableView reloadData];
         NSInteger selectedRow = delegate.defaultProject;
         NSIndexPath *path = [NSIndexPath indexPathForRow:selectedRow inSection:0];
         [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionTop];

@@ -21,7 +21,6 @@
 
 @implementation IterationViewController
 
-@synthesize containerView;
 @synthesize iterationsSelector;
 @synthesize iterations;
 @synthesize project;
@@ -49,13 +48,13 @@
                 self.iterations = [NSArray arrayWithObject:[tracker iceboxIterationInProject:project.id]];
 
         [delegate setDefaultState:iteration forProject:project.id andPane:index];
+        [self.tableView reloadData];
 }
 
 - (IBAction)iterationControlChangedValue:(UISegmentedControl*)control
 {
         IterationEnum value = control.selectedSegmentIndex;
         [self setIteration:value];
-        [self.tableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

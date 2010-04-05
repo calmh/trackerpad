@@ -15,7 +15,6 @@
 		291CCF7511690A1C00C6F88F /* PTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* PTPerson.m */; };
 		291CCF7611690A1C00C6F88F /* PTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCF7411690A1C00C6F88F /* PTPerson.m */; };
 		291CCFDF1169128800C6F88F /* TBXMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CCFDE1169128800C6F88F /* TBXMLTests.m */; };
-		291CD03211691EDF00C6F88F /* IterationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291CD03111691EDF00C6F88F /* IterationView.xib */; };
 		291CD1C91169336E00C6F88F /* icebox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 291CD1C81169336E00C6F88F /* icebox.xml */; };
 		29508B7A115FD937005B9CAA /* iterations-backlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29508B79115FD937005B9CAA /* iterations-backlog.xml */; };
 		29820186115E53DA001D4CC2 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 29820183115E53DA001D4CC2 /* NSDataAdditions.m */; };
@@ -91,7 +90,6 @@
 		291CCF7411690A1C00C6F88F /* PTPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPerson.m; sourceTree = "<group>"; };
 		291CCFDD1169128800C6F88F /* TBXMLTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXMLTests.h; path = Tests/TBXMLTests.h; sourceTree = "<group>"; };
 		291CCFDE1169128800C6F88F /* TBXMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLTests.m; path = Tests/TBXMLTests.m; sourceTree = "<group>"; };
-		291CD03111691EDF00C6F88F /* IterationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IterationView.xib; path = Resources/IterationView.xib; sourceTree = "<group>"; };
 		291CD1C81169336E00C6F88F /* icebox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = icebox.xml; path = Tests/icebox.xml; sourceTree = "<group>"; };
 		29508B79115FD937005B9CAA /* iterations-backlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "iterations-backlog.xml"; path = "Tests/iterations-backlog.xml"; sourceTree = "<group>"; };
 		29820182115E53DA001D4CC2 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = Libraries/NSDataAdditions.h; sourceTree = "<group>"; };
@@ -352,7 +350,6 @@
 				29AA35001161290E00D4ADB0 /* DetailView.xib */,
 				29AA35011161290E00D4ADB0 /* MainWindow.xib */,
 				29C5F4AA11669E4100BEAF0F /* StoryTableViewCell.xib */,
-				291CD03111691EDF00C6F88F /* IterationView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -450,7 +447,6 @@
 				29AA35241161290E00D4ADB0 /* 5pt_small.gif in Resources */,
 				29AA35251161290E00D4ADB0 /* 8pt_small.gif in Resources */,
 				29C5F4AB11669E4100BEAF0F /* StoryTableViewCell.xib in Resources */,
-				291CD03211691EDF00C6F88F /* IterationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

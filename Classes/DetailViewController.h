@@ -18,12 +18,17 @@
         UIToolbar *toolbar;
         PTProject *project;
         TrackerClient *tracker;
+        UIView *leftView, *rightView;
         IterationViewController *leftController, *rightController;
+        UISegmentedControl *leftSelector, *rightSelector;
         TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) UIPopoverController *popoverController;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, retain) IBOutlet IterationViewController *leftController, *rightController;
+@property (nonatomic, retain) IBOutlet UIView *leftView, *rightView;
+@property (nonatomic, retain) IBOutlet UISegmentedControl *leftSelector, *rightSelector;
 @property (assign) PTProject *project;
 
 @end

@@ -20,7 +20,6 @@ typedef enum {
 } IterationEnum;
 
 @interface IterationViewController : UITableViewController {
-        UIView *containerView;
         UISegmentedControl *iterationsSelector;
         NSArray *iterations;
         NSInteger index;
@@ -29,7 +28,6 @@ typedef enum {
         TrackerPadAppDelegate *delegate;
 }
 
-@property (nonatomic, retain) IBOutlet UIView *containerView;
 @property (nonatomic, assign) IBOutlet UISegmentedControl *iterationsSelector;
 @property (nonatomic, retain) NSArray *iterations;
 @property (nonatomic, retain) PTProject *project;

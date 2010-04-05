@@ -29,4 +29,22 @@
         [converter release];
 }
 
+- (void)testTwoConversions
+{
+        NSString *entitityString = @"R&#228;ksm&#246;rg&#229;s";
+        MREntitiesConverter *converter = [[MREntitiesConverter alloc] init];
+        NSString *convertedString = [converter convertEntiesInString:entitityString];
+        convertedString = [converter convertEntiesInString:entitityString];
+        STAssertEqualObjects(convertedString, @"Räksmörgås", nil);
+        [converter release];
+}
+
+- (void)testNilConversion
+{
+        MREntitiesConverter *converter = [[MREntitiesConverter alloc] init];
+        NSString *convertedString = [converter convertEntiesInString:nil];
+        STAssertNil(convertedString, nil);
+        [converter release];
+}
+
 @end

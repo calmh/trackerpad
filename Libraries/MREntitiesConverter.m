@@ -2,36 +2,36 @@
 
 @implementation MREntitiesConverter
 
-@synthesize resultString;
-
 - (id)init
 {
-        if ([super init])
-                resultString = [[NSMutableString alloc] init];
-        return self;
+        return [super init];
 }
 
 - (void)parser:(NSXMLParser*)parser foundCharacters:(NSString*)s
 {
-        [self.resultString appendString:s];
+        [resultString appendString:s];
 }
 
 - (NSString*)convertEntiesInString:(NSString*)s
 {
         if (s == nil)
-                NSLog(@"ERROR : Parameter string is nil");
+                return nil;
+
+        resultString = [[NSMutableString alloc] init];
+
         NSString *xmlStr = [NSString stringWithFormat:@"<d>%@</d>", s];
         NSData *data = [xmlStr dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-        NSXMLParser *xmlParse = [[NSXMLParser alloc] initWithData:data];
-        [xmlParse setDelegate:self];
-        [xmlParse parse];
-        NSString *returnStr = [[NSString alloc] initWithFormat:@"%@",resultString];
-        return returnStr;
+
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+        [parser setDelegate:self];
+        [parser parse];
+        [parser release];
+
+        return [resultString autorelease];
 }
 
 - (void)dealloc
 {
-        [resultString release];
         [super dealloc];
 }
 

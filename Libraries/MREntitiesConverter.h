@@ -13,8 +13,6 @@
         NSMutableString *resultString;
 }
 
-@property (nonatomic, retain) NSMutableString *resultString;
-
 - (NSString*)convertEntiesInString:(NSString*)s;
 
 @end

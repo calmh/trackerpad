@@ -14,19 +14,18 @@
 @synthesize window;
 @synthesize tracker;
 @synthesize splitViewController, rootViewController, detailViewController;
-
-- (TrackerClient*)tracker
-{
-        if (tracker == nil)
-                tracker = [[TrackerClient alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
-        return tracker;
-}
+@synthesize projects;
 
 - (void)applicationDidFinishLaunching:(UIApplication*)application
 {
+        NSLog(@"ApplicationDidFinishLaunching initializing");
+        defaults = [NSUserDefaults standardUserDefaults];
+        tracker = [[TrackerClient alloc] initWithToken:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"]];
+        projects = [[tracker projects] retain];
+        NSLog(@"ApplicationDidFinishLaunching starting");
         [window addSubview:splitViewController.view];
         [window makeKeyAndVisible];
-        defaults = [NSUserDefaults standardUserDefaults];
+        NSLog(@"ApplicationDidFinishLaunching done");
 }
 
 - (void)applicationWillTerminate:(UIApplication*)application
@@ -36,17 +35,22 @@
 
 // Get and set the default (last selected) project.
 
-- (NSInteger)defaultProject
+- (NSInteger)currentProjectIndex
 {
         NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
         NSInteger defaultProject = [defaults integerForKey:key];
         return defaultProject;
 }
 
-- (void)setDefaultProject:(NSInteger)value
+- (void)setCurrentProjectIndex:(NSInteger)value
 {
         NSString *key = [NSString stringWithFormat:@"rootViewSelectedProject"];
         [defaults setInteger:value forKey:key];
+}
+
+- (PTProject*)currentProject
+{
+        return [projects objectAtIndex:self.currentProjectIndex];
 }
 
 // Get and set the default state (current, done, backlog, etc.) for a certain pane in a project.

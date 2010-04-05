@@ -15,13 +15,9 @@
 
 @interface RootViewController : UITableViewController {
         DetailViewController *detailViewController;
-        TrackerClient *tracker;
-        NSArray *projects;
-        PTProject *currentProject;
         TrackerPadAppDelegate *delegate;
 }
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
-@property (nonatomic, retain) PTProject *currentProject;
 
 @end

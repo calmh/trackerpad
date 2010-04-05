@@ -10,6 +10,7 @@
 
 @class DetailViewController;
 @class IterationViewController;
+@class PTProject;
 @class RootViewController;
 @class TrackerClient;
 @class TrackerPadViewController;
@@ -22,6 +23,9 @@
         UISplitViewController *splitViewController;
         RootViewController *rootViewController;
         DetailViewController *detailViewController;
+
+        PTProject *currentProject;
+        NSArray *projects;
 }
 
 @property (nonatomic, retain) TrackerClient *tracker;
@@ -29,7 +33,9 @@
 @property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
-@property NSInteger defaultProject;
+@property NSInteger currentProjectIndex;
+@property (readonly) PTProject *currentProject;
+@property (readonly) NSArray *projects;
 
 - (NSInteger)defaultStateForProject:(NSInteger)project andPane:(NSInteger)index;
 - (void)setDefaultState:(NSInteger)value forProject:(NSInteger)project andPane:(NSInteger)index;

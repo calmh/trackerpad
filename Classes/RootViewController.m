@@ -12,16 +12,9 @@
 #import "TrackerClient.h"
 #import "TrackerPadAppDelegate.h"
 
-@interface RootViewController (Private)
-- (void)selectProject:(NSInteger)selectedRow;
-
-@end
-
-
 @implementation RootViewController
 
 @synthesize detailViewController;
-@synthesize currentProject;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -29,21 +22,20 @@
 - (void)viewDidLoad
 {
         [super viewDidLoad];
+        NSLog(@"RootViewController viewDidLoad");
         self.clearsSelectionOnViewWillAppear = NO;
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         delegate = [[UIApplication sharedApplication] delegate];
-        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
-        projects = [[tracker projects] retain];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
         [super viewWillAppear:animated];
+        NSLog(@"RootViewController viewWillAppear");
         [self.tableView reloadData];
-        NSInteger selectedRow = delegate.defaultProject;
+        NSInteger selectedRow = delegate.currentProjectIndex;
         NSIndexPath *path = [NSIndexPath indexPathForRow:selectedRow inSection:0];
-        [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionTop];
-        [self selectProject:selectedRow];
+        [self.tableView selectRowAtIndexPath:path animated:animated scrollPosition:UITableViewScrollPositionTop];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -58,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView*)aTableView numberOfRowsInSection:(NSInteger)section
 {
-        NSInteger num_projects = [projects count];
+        NSInteger num_projects = [delegate.projects count];
         return num_projects;
 }
 
@@ -72,21 +64,15 @@
         if (cell == nil)
                 cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
 
-        cell.textLabel.text = [(PTProject*)[[tracker projects] objectAtIndex:indexPath.row] name];
+        cell.textLabel.text = [(PTProject*)[delegate.projects objectAtIndex:indexPath.row] name];
         return cell;
 }
 
 - (void)tableView:(UITableView*)aTableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
         NSInteger selectedRow = indexPath.row;
-        delegate.defaultProject = selectedRow;
-        [self selectProject:selectedRow];
-}
-
-- (void)selectProject:(NSInteger)selectedRow
-{
-        self.currentProject = [projects objectAtIndex:selectedRow];
-        detailViewController.project = self.currentProject;
+        delegate.currentProjectIndex = selectedRow;
+        [detailViewController reload];
 }
 
 - (void)didReceiveMemoryWarning

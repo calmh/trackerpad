@@ -13,27 +13,22 @@
 #import "TrackerClient.h"
 #import "TrackerPadAppDelegate.h"
 
-@interface DetailViewController (Private)
-
-- (void)configureView;
-
-@end
-
 @implementation DetailViewController
 
-@synthesize toolbar, popoverController, project;
+@synthesize toolbar, popoverController;
 @synthesize leftController, rightController;
 @synthesize leftView, rightView;
 @synthesize leftSelector, rightSelector;
 
-- (void)setProject:(PTProject*)newProject
+- (void)reload
 {
-        if (project != newProject) {
-                [project release];
-                project = [newProject retain];
+        self.leftController.project = delegate.currentProject;
+        self.rightController.project = delegate.currentProject;
 
-                [self configureView];
-        }
+        IterationEnum storedState = [delegate defaultStateForProject:delegate.currentProject.id andPane:0];
+        [self.leftController setIteration:storedState];
+        storedState = [delegate defaultStateForProject:delegate.currentProject.id andPane:1];
+        [self.rightController setIteration:storedState];
 
         if (popoverController != nil)
                 [popoverController dismissPopoverAnimated:YES];
@@ -66,7 +61,9 @@
 - (void)viewDidLoad
 {
         [super viewDidLoad];
+        NSLog(@"DetailViewController viewDidLoad");
         delegate = [[UIApplication sharedApplication] delegate];
+
         [leftView addSubview:leftController.view];
         leftController.index = 0;
         [rightView addSubview:rightController.view];
@@ -75,8 +72,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        tracker = [(TrackerPadAppDelegate*)[[UIApplication sharedApplication] delegate] tracker];
         [super viewWillAppear:animated];
+        NSLog(@"DetailViewController viewWillAppear");
+        [self reload];
 }
 
 - (void)viewDidUnload
@@ -90,19 +88,6 @@
         [toolbar release];
 
         [super dealloc];
-}
-
-// Private methods below
-
-- (void)configureView
-{
-        self.leftController.project = project;
-        self.rightController.project = project;
-
-        IterationEnum storedState = [delegate defaultStateForProject:project.id andPane:0];
-        [self.leftController setIteration:storedState];
-        storedState = [delegate defaultStateForProject:project.id andPane:1];
-        [self.rightController setIteration:storedState];
 }
 
 @end

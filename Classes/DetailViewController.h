@@ -16,8 +16,6 @@
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
         UIPopoverController *popoverController;
         UIToolbar *toolbar;
-        PTProject *project;
-        TrackerClient *tracker;
         UIView *leftView, *rightView;
         IterationViewController *leftController, *rightController;
         UISegmentedControl *leftSelector, *rightSelector;
@@ -29,6 +27,7 @@
 @property (nonatomic, retain) IBOutlet IterationViewController *leftController, *rightController;
 @property (nonatomic, retain) IBOutlet UIView *leftView, *rightView;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *leftSelector, *rightSelector;
-@property (assign) PTProject *project;
+
+- (void)reload;
 
 @end

@@ -187,15 +187,12 @@
                         }
                 }
         }else {
-                NSLog(@"startConnection");
                 NSURLResponse *response = nil;
                 NSError *error = nil;
                 NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
                 [receivedData setData:data];
                 if (error != nil)
                         NSLog(@"Error");
-                else
-                        NSLog(@"Received '%@'", [self responseAsText]);
         }
 }
 

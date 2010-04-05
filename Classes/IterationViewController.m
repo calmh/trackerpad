@@ -78,7 +78,6 @@
         UIImage *background = [UIImage imageNamed:@"header-background.png"];
         UIImageView *container = [[[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 21.0)] autorelease];
         container.image = background;
-        container.contentStretch = CGRectMake(0.0, 0.0, 300.0, 21.0);
 
         UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(5.0, 5.0, 290.0, 16.0)] autorelease];
         label.backgroundColor = [UIColor clearColor];

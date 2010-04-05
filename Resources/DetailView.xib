@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="83"/>
+			<integer value="8"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -96,7 +96,7 @@
 							<object class="IBUISegmentedControl" id="635491109">
 								<reference key="NSNextResponder" ref="59984905"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{522, 7}, {239, 30}}</string>
+								<string key="NSFrame">{{457, 7}, {239, 30}}</string>
 								<reference key="NSSuperview" ref="59984905"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -140,7 +140,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrameSize">{768, 44}</string>
+						<string key="NSFrameSize">{703, 44}</string>
 						<reference key="NSSuperview" ref="647120888"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -167,7 +167,7 @@
 					<object class="IBUITableView" id="581158422">
 						<reference key="NSNextResponder" ref="647120888"/>
 						<int key="NSvFlags">278</int>
-						<string key="NSFrame">{{0, 44}, {384, 1004}}</string>
+						<string key="NSFrame">{{1, 45}, {349, 702}}</string>
 						<reference key="NSSuperview" ref="647120888"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="675022791">
 							<int key="NSColorSpace">3</int>
@@ -175,6 +175,9 @@
 						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIDirectionalLockEnabled">YES</bool>
+						<bool key="IBUIPagingEnabled">YES</bool>
+						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
@@ -186,11 +189,14 @@
 					<object class="IBUITableView" id="605801190">
 						<reference key="NSNextResponder" ref="647120888"/>
 						<int key="NSvFlags">275</int>
-						<string key="NSFrame">{{384, 44}, {384, 1004}}</string>
+						<string key="NSFrame">{{352, 45}, {349, 702}}</string>
 						<reference key="NSSuperview" ref="647120888"/>
 						<reference key="IBUIBackgroundColor" ref="675022791"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIDirectionalLockEnabled">YES</bool>
+						<bool key="IBUIPagingEnabled">YES</bool>
+						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
@@ -200,12 +206,27 @@
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>
 				</object>
-				<string key="NSFrameSize">{768, 1004}</string>
+				<string key="NSFrameSize">{703, 748}</string>
 				<reference key="NSSuperview"/>
-				<reference key="IBUIBackgroundColor" ref="675022791"/>
+				<object class="NSColor" key="IBUIBackgroundColor">
+					<int key="NSColorSpace">1</int>
+					<bytes key="NSRGB">MC42MDAwMDAwMjM4IDAuNjAwMDAwMDIzOCAwLjYwMDAwMDAyMzgAA</bytes>
+				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
+				</object>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="interfaceOrientation">3</int>
+				</object>
+				<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics">
+					<string key="IBUIDestinationClass">IBUISplitViewController</string>
+					<object class="NSDictionary" key="IBUIDestinationContext">
+						<string key="NS.key.0">IBUISplitViewControllerContentSizeLocation</string>
+						<string key="NS.object.0">IBUISplitViewControllerContentSizeLocationDetail</string>
+					</object>
+					<string key="IBUITargetRuntime">IBIPadFramework</string>
+					<string key="IBUIDisplayName">Detail</string>
 				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
@@ -498,7 +519,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{21, 4}, {783, 852}}</string>
+					<string>{{91, 82}, {703, 768}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>IterationViewController</string>
 					<string>{{0, 4}, {783, 852}}</string>
